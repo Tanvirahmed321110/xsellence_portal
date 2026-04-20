@@ -1,6 +1,6 @@
 /* Font Awesome Icon CDN */
 @import url("https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css");
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
 
 
 :root {
@@ -17,14 +17,14 @@
 
 
 
-    --color-primary: #0F4638;
-    --color-primary-hover: #1c5245;
-    --color-secondary: #FC5A31;
-    --color-hover: #FC5A31;
+    --color-primary: #252733;
+    --color-primary-hover: #1A1C24;
+    --color-secondary: #F9B12C;
+    --color-hover: #e19d1e;
     --color-white: #fff;
 
     /* Bg color */
-    --color-bg-body: #292a2b;
+    --color-bg-body: #323232;
     --color-bg-primary: #fff;
     --color-bg-secondary: #f7f7f7;
     --color-bg-card: #f9fafb;
@@ -133,7 +133,7 @@
     --fw-600: 600;
     --fw-700: 700;
 
-    --font-inter: "Inter";
+    --font-inter: 'Roboto', sans-serif;
 
 
     /*=============//  Gradient Shade  //=============*/
@@ -215,6 +215,7 @@ body {
     display: flex;
     flex-direction: column;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: .5px;
 }
 
 ::selection {
