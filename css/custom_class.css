@@ -22,6 +22,9 @@
     --color-secondary: #F9B12C;
     --color-hover: #e19d1e;
     --color-white: #fff;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+
 
     /* Bg color */
     --color-bg-body: #ededed;
