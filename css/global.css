@@ -1,14 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+.header-wrap .logo{
+    position: absolute;
+    left: 12px;
+    top: 0;
+}
+.header-wrap .logo svg {
+    font-family: "Russo One", sans-serif;
+}
+
+.header-wrap .logo svg text {
+    animation: stroke 5s infinite alternate;
+    stroke-width: 2;
+    stroke: #365FA0;
+    font-size: 36px;
+}
+
+@keyframes stroke {
+    0% {
+        fill: rgba(255,255,255,0);
+        stroke: rgba(220,220,220,1);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 2;
+    }
+    70% {
+        fill: rgba(255,255,255,0);
+        stroke: rgba(220,220,220,1);
+    }
+    80% {
+        fill: rgba(255,255,255,0);
+        stroke: rgba(220,220,220,1);
+        stroke-width: 3;
+    }
+    100% {
+        fill: rgb(255,255,255);
+        stroke: rgba(220,220,220,0);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 0;
+    }
+}
+
 body {
     background-color: var(--color-bg-body);
 }
 
+.batch{
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+    padding: 2px 8px;
+    border-radius: 50px;
+    font-size: var(--fs-xs);font-weight: 600;
+    line-height: 1.2;
+}
 
 
 /*===============================================
    ||======   Header Section Start Here   ======||
    ============================================*/
 header {
-    background-color: rebeccapurple;
+    background-color: var(--header-bg);
     position: fixed;
     width: 100%;
     overflow: hidden;
@@ -20,7 +71,7 @@ header {
 
 /*=============//  Header Right  //=============*/
 header .head-right {
-    width: 320px;
+    width: 360px;
     display: flex;
     height: 70px;
     background-color: rgb(132, 70, 194);
@@ -66,7 +117,6 @@ header .profile-img  img{
     border-radius: 50%;
 } */
 /*=============//  User Profile image  //=============*/
-/*=============//  User Profile image  //=============*/
 header .profile-img-wrapper {
     width: 52px;
     height: 52px;
@@ -74,11 +124,11 @@ header .profile-img-wrapper {
     padding: 3px;
     background: conic-gradient(
         var(--color-secondary) 0deg,
-        transparent 120deg,
-        var(--color-secondary) 240deg,
+        transparent 160deg,
+        var(--color-secondary) 30deg,
         transparent 360deg
     );
-    animation: spinBorder 1.5s linear infinite;
+    animation: spinBorder 1.8s linear infinite;
     position: relative;
 }
 
@@ -87,39 +137,23 @@ header .profile-img {
     height: 100%;
     border-radius: 50%;
     border: none;
-    background: #1a1a2e; /* তোমার header background color দাও */
-    padding: 2px;
+    padding: 0px;
     position: relative;
     cursor: pointer;
 }
 
-header .profile-img::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 50%;
-    width: 8px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    z-index: 2;
-}
 
 header .profile-img img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-
-    /* ✅ Wrapper spin এর বিপরীতে counter rotate — image স্থির থাকবে */
-    animation: counterSpin 1.5s linear infinite;
+    animation: counterSpin 1.8s linear infinite;
 }
 
-/* Wrapper এগিয়ে যায় */
 @keyframes spinBorder {
     to { transform: rotate(360deg); }
 }
 
-/* Image পিছিয়ে আসে — net effect = স্থির */
 @keyframes counterSpin {
     to { transform: rotate(-360deg); }
 }
@@ -130,14 +164,34 @@ header .logo {
     font-style: italic;
 }
 
-
-
-
-.date-notification {
-    background-color: var(--color-bg-body);
-    padding: 8px 12px;
+header .date{
+    padding: 8px 16px;
+    height: 40px;
     border-radius: var(--radius-md);
-    color: var(--color-text-muted);
+    background-color: var(--color-text-muted);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+}
+
+
+
+.notification-wrap,.theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--bg3);
+    border: 1px solid var(--card-bg);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    position: relative;
+    transition: all 0.2s;
+    background-color: var(--header-bg);
 }
 
 
@@ -150,7 +204,7 @@ header .logo {
 aside {
     padding: 12px;
     width: 280px;
-    background-color: rebeccapurple;
+    background-color:var(--header-bg);
     height: calc(100% - 66px);
     position: fixed;
     top: 66px;
@@ -174,7 +228,7 @@ aside::after {
 }
 
 aside .sidebar-wrap {
-    background: linear-gradient(to right, rgb(117, 67, 168), rgb(67, 43, 92));
+    background: var(--sidebar-bg);
     border-radius: 20px;
     width: 100%;
     height: 100%;
@@ -187,15 +241,15 @@ aside .sidebar-wrap {
         border-top-color: var(--color-text-success);
         border-bottom-color: var(--color-text-success);
         box-shadow:
-            0 -4px 10px var(--color-text-success),
-            0 4px 10px var(--color-text-success);
+            0 -4px 4px var(--color-text-success),
+            0 4px 4px var(--color-text-success);
     }
     to {
         border-top-color: rgb(180, 120, 255);
         border-bottom-color: rgb(180, 120, 255);
         box-shadow:
-            0 -4px 30px rgb(180, 120, 255),
-            0 4px 30px rgb(180, 120, 255);
+            0 -4px 20px rgb(180, 120, 255),
+            0 4px 20px rgb(180, 120, 255);
     }
 }
 /* .collaps-btn {
@@ -266,8 +320,14 @@ aside .menu-item {
     color: var(--color-menu);
     border-radius: var(--radius-md);
     transition: var(--transition-base);
+    position: relative;
 }
-
+aside .menu-item .batch{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
 aside .menu-item.active {
     color: var(--color-white);
 }

@@ -17,8 +17,8 @@
 
 
 
-    --color-primary: #252733;
-    --color-primary-hover: #1A1C24;
+    --color-primary: #d9117b;
+    --color-primary-hover: #bd0969;
     --color-secondary: #F9B12C;
     --color-hover: #e19d1e;
     --color-white: #fff;
@@ -167,9 +167,8 @@
     /* =========================
        Components
     ========================== */
-    --navbar-bg: var(--bg-navbar);
-    --navbar-color: var(--text-primary);
-    --navbar-hover: var(--my-accent);
+    --sidebar-bg: linear-gradient(to right, rgb(117, 67, 168), rgb(67, 43, 92));
+    --header-bg:#663399;
 
     --card-bg: var(--bg-card);
     --card-border: var(--border-light);
