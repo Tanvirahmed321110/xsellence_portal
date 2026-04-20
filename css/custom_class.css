@@ -24,7 +24,7 @@
     --color-white: #fff;
 
     /* Bg color */
-    --color-bg-body: #323232;
+    --color-bg-body: #ededed;
     --color-bg-primary: #fff;
     --color-bg-secondary: #f7f7f7;
     --color-bg-card: #f9fafb;
@@ -40,6 +40,7 @@
     --color-text-danger: #ef4444;
     --color-text-success: #22c55e;
     --color-text-placeholder: #9ca3af;
+    --color-menu:#cbd0c0d9;
 
     /* Border */
     --border-light: #fafafa;
