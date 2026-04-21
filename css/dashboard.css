@@ -620,5 +620,11 @@
     .project-progress {
     padding: 16px;
 }
-
+.mini-cards::after {
+    right: 12%;
+    transform: translate(-20%, -50%);
+}
+.leave .card {
+    padding: 12px;
+}
 }

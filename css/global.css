@@ -183,6 +183,7 @@ header .head-right::after {
     height: 180px;
     transform: rotate(42deg);
 }
+
 /*=============//  User Profile image  //=============*/
 header .profile-img-wrapper {
     width: 52px;
@@ -1105,7 +1106,10 @@ aside .sidebar-bottom {
 
 
 @media (max-width:767px) {
-    header{background-color: var(--header-bg);}
+    header {
+        background-color: var(--header-bg);
+    }
+
     .main-content {
         width: calc(100% - 0px);
         height: calc(100dvh - 0px);
@@ -1149,16 +1153,34 @@ aside .sidebar-bottom {
         height: 70px;
         background-color: transparent;
     }
+
     header .head-right::after {
         background-color: transparent;
         content: unset;
     }
 
-    .btn-collaps{opacity: 0;visibility: none;;}
+    .btn-collaps {
+        opacity: 0;
+        visibility: none;
+        ;
+    }
 
+    .leave-attendance {
+        align-items: start;
+    }
 
+    .dashboard-items h2{font-size: var(--fs-lg);}
+.mini-val {
+    font-size: var(--fs-md) !important;
+}
 
-
-
-
+.count {
+    font-size: var(--fs-low);
+}
+.sec-title {
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    font-size: var(--fs-xl);
+    font-weight: 600;
+}
 }
