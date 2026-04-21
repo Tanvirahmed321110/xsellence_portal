@@ -2509,40 +2509,45 @@ input[type="radio"]:checked::after {
 /*________________________________*\
   ||     Brightcamp  Here      ||
 \*________________________________*/
-/*
-        <div class="brigtcamp-area my-container"><ul class="my-d-flex my-mt-1 my-py-3 my-align-center my-gap-10   brigtcamp-area contact-page"><li><a href="/">Home</a></li><li>Contact Us</li><li>Contact Us</li></ul></div>
-*/
-.brigtcamp-area {
-    background-color: var(--my-white);
-    border-radius: 6px;
-    border-radius: 0;
-}
 
-.brigtcamp-area li {
-    font-weight: var(--fw-500);
-    position: relative;
+
+.breadcrumb {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: var(--fs-sm);
+    background-color: var(--color-white);
+    padding: 16px;
+    border-radius: var(--radius-md);
 }
 
-.brigtcamp-area li .icon {
-    font-size: var(--fs-lg);
+.breadcrumb a {
+    text-decoration: none;
+    color: var(--color-text-desc);
+    transition: 0.3s;
 }
 
-
-.brigtcamp-area li:last-child {
-    font-weight: var(--fw-600);
+.breadcrumb a:hover {
+    color: var(--color-text-link);
 }
 
-.brigtcamp-area li:last-child::after {
-    content: unset;
+.breadcrumb .active {
+    color: var(--color-text-secondary);
+    font-weight: 600;
 }
 
-.brigtcamp-area li a:hover {
-    color: var(--my-primary-color);
+.separator {
+    display: flex;
+    align-items: center;
 }
+
+.separator svg {
+    width: 14px;
+    height: 14px;
+    color: var(--color-text-desc);;
+}
+
 
 
 
