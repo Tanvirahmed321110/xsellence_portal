@@ -2517,9 +2517,6 @@ input[type="radio"]:checked::after {
     flex-wrap: wrap;
     gap: 8px;
     font-size: var(--fs-sm);
-    background-color: var(--color-white);
-    padding: 16px;
-    border-radius: var(--radius-md);
 }
 
 .breadcrumb a {
@@ -2529,7 +2526,8 @@ input[type="radio"]:checked::after {
 }
 
 .breadcrumb a:hover {
-    color: var(--color-text-link);
+    color: var(--color-primary);
+    text-decoration: underline;
 }
 
 .breadcrumb .active {

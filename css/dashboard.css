@@ -1,5 +1,3 @@
-
-
 /* ============================== Dashboard Here ============================== */
 .dashboard-items .card {
     background-color: var(--color-white);
@@ -189,22 +187,25 @@
     position: relative;
     overflow: hidden;
 }
-.mini-cards{
+
+.mini-cards {
     position: relative;
 }
-.mini-cards::after{
+
+.mini-cards::after {
     content: '';
     position: absolute;
     top: 50%;
-    right:32%;
-    transform: translate(-20%,-50%);
+    right: 32%;
+    transform: translate(-20%, -50%);
     width: 180px;
     height: 180px;
     background-color: #d9117c20;
     border-radius: 50%;
     transition: var(--transition-base);
-   z-index: -1;
+    z-index: -1;
 }
+
 .mini-cards::before {
     content: '';
     position: absolute;
@@ -213,16 +214,21 @@
     transform: translate(-50%, -50%);
     border: 12px solid var(--color-primary);
     transition: var(--transition-base);
-    border-radius: 0;clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    border-radius: 0;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     opacity: .4;
 
-}@keyframes spin {
+}
+
+@keyframes spin {
     0% {
         transform: translate(-50%, -50%) rotate(0deg) scale(1);
     }
+
     50% {
         transform: translate(-50%, -50%) rotate(180deg) scale(1.05);
     }
+
     100% {
         transform: translate(-50%, -50%) rotate(360deg) scale(1);
     }
@@ -231,6 +237,7 @@
 .mini-cards::before {
     animation: spin 1.5s linear infinite;
 }
+
 .mini-icon {
     width: 36px;
     height: 36px;
@@ -379,6 +386,7 @@
     padding: 16px;
     border: 1px solid var(--border-primary);
 }
+
 .leave-info {
     display: flex;
     flex-direction: column;
@@ -412,7 +420,7 @@
     padding-top: 16px;
 }
 
-.leave .total{
+.leave .total {
     color: var(--color-text-muted);
 }
 
@@ -592,4 +600,25 @@
 .trend-neutral {
     background: rgba(90, 122, 154, 0.1);
     color: var(--muted);
+}
+
+
+
+
+
+
+
+@media(max-width:767px) {
+    .dashboard-items .card {
+        padding: 16px;
+        border-radius: var(--radius-lg);
+    }
+    .leave, .attendance {
+    padding: 16px;
+}
+
+    .project-progress {
+    padding: 16px;
+}
+
 }
