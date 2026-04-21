@@ -47,7 +47,7 @@
 
     /* Border */
     --border-light: #fafafa;
-    --border-primary: #e5e7eb;
+    --border-primary: #d9117c1b;
     --border-secondary: #e5e7eb;
     --border-danger: red;
 
@@ -146,6 +146,8 @@
 
 
     /*=============//  Box Shadow  //=============*/
+    --shadow-sm: 0 0 12px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 0 16px rgba(0, 0, 0, 0.1);
     --shadow-1: 0 0 24px rgba(0, 0, 0, 0.1);
 
 
