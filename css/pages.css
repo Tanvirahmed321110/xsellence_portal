@@ -20,6 +20,9 @@
     border-radius: var(--radius-sm);
     background-color: var(--border-primary);
 }
+.submit-form .top svg{
+    width: 24px;
+}
 
 
 .input-control.select{width: 100%;}
@@ -28,4 +31,49 @@
     width: 100%;
     width: 100%;
     padding: 9.5px 12px;border-radius: var(--radius-sm);
+}
+
+
+
+
+
+
+
+
+
+/* timesheets */
+.timesheets .filter-head{
+    background-color: var(--color-white);
+    padding: 16px;
+    border-radius: var(--radius-md);
+}
+
+.timesheets .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+.timesheets .search-wrap svg {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    color: var(--color-text-primary);
+    pointer-events: none;
+    z-index: 2;
+}
+.timesheets .search-input {
+    width: 100%;
+    background-color: var(--color-white-off) !important;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    padding-left: 34px;
+    font-size: 13px;
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
 }

@@ -668,6 +668,18 @@ aside .sidebar-bottom {
 
 
 
+.filter-select {
+    background-color: var(--color-white-off) !important;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    font-size: var(--fs-sm);
+    color: var(--text2);
+    font-family: 'Outfit', sans-serif;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
 
 
 
@@ -1140,38 +1152,15 @@ aside .sidebar-bottom {
     overflow: hidden;
 }
 
-.task-card .state-dropdown select {
-    width: 100%;
-    padding: 6px 12px;
-    border-radius: var(--radius-sm);
-    background-color: var(--color-primary);
-    background-color: #ebb9d45e;
-    color: var(--color-primary);
-    cursor: pointer;
+.task-card .filter-select{
+    border-radius: 40px;
     font-size: var(--fs-xs);
-    min-width: 120px;
-    font-weight: 500;
-    font-family: inherit;
-    border-radius: 22px;
-    letter-spacing: .6px;
-    border: 1px solid var(--border-primary);
 }
 
 .task-card .card-banner {
     height: 0;
 }
 
-.task-card .state-dropdown input:focus,
-.task-card .state-dropdown select:focus {
-    border-color: var(--border-primary);
-}
-
-.task-card .state-dropdown select option {
-    background: var(--border-primary);
-    color: var(--color-text-white);border: none;outline: none;
-    color: var(--color-primary);
-    font-weight: 500;
-}
 
 .task-card .card-tags {
     margin-top: 8px;
@@ -1179,6 +1168,8 @@ aside .sidebar-bottom {
     gap: 4px;
     row-gap: 4px;
 }
+
+.task-card .filter-select {font-weight: 500;}
 
 @media (max-width:767px) {
     header {
