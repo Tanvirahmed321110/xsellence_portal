@@ -24,6 +24,7 @@
     --color-white: #fff;
     --color-warning: #f59e0b;
     --color-danger: red;
+    --color-tag:#d9117c77;
 
 
     /* Bg color */
@@ -43,7 +44,7 @@
     --color-text-link: #3b82f6;
     --color-text-danger: #ef4444;
     --color-text-success: #22c55e;
-    --color-text-placeholder: #9ca3af;
+    --color-text-placeholder: #b0b5bc;
     --color-menu:#cbd0c0d9;
 
     /* Border */
@@ -71,7 +72,7 @@
     /*=============//  Danger Button  //=============*/
     --btn-danger-bg:red;
     --btn-danger-text: #ffffff;
-    --btn-danger-hover: #dc2626;
+    --btn-danger-hover: #cf2424f2;
     --btn-danger-border: #ef4444;
 
 
@@ -143,6 +144,7 @@
 
     /*=============//  Gradient Shade  //=============*/
     --gradient-1: linear-gradient(to right, #173e57c9, #919fa7d6);
+    --prog-bar:linear-gradient(90deg,#d9117cc6,#d9117c87);
 
 
 

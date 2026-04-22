@@ -269,14 +269,6 @@
             <!--========================|| Breadcrumb ||=========================-->
             <section>
                 <nav class="breadcrumb">
-                    <a href="#">Home</a>
-                    <span class="separator">
-                        <!-- arrow icon -->
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </span>
 
                     <a href="#">Dashboard</a>
                     <span class="separator">
@@ -285,763 +277,99 @@
                         </svg>
                     </span>
 
-                    <span class="active">My Tasks</span>
+                    <span class="active">Add Task</span>
                 </nav>
             </section>
 
 
 
             <!--========================|| Projects Here ||=========================-->
-            <section class="projects-wrap mt-4">
-                <div class="sec-title d-flex gap-2 align-center">My Tasks <span
-                        class="count fs-xs flex-center">20</span></div>
-                <div class="grid-4 grid-lg-3 gap-6 grid-sm-1 grid-md-2 tasks mt-4 gap-sm-4">
+            <section class="projects-wrap mt-4 flex-column">
+                <div class="sec-title d-flex gap-2 align-center">Add New Task <span
+                        class="count fs-xs flex-center">+</span></div>
 
-                    <!--================||   Single Task Card here ||===============-->
-                    <div class="proj-card task-card">
-                        <div class="card-banner"></div>
-                        <div class="card-body">
-                            <div class="card-top">
-                                <div class="card-title-wrap">
-                                    <!-- Task Name -->
-                                    <div class="card-proj-name">Sonali Backend Development Change</div>
-                                </div>
-                                <!-- Status -->
-                                <span class="status-badge status-active"><span class="dot"></span>Completed</span>
-                            </div>
+
+                <div class="d-flex flex-1 flex-center mt-6">
+                    <form action="#" method="post" class="submit-form flex-column gap-5">
+                        <div class="d-flex gap-3 align-center">
+                            <div class="top flex-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 11L11 13L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M20 6H10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M20 12H10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M20 18H10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M4 6H4.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M4 12H4.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M4 18H4.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg></div>
                             <div>
-                                <div class="info-label d-flex align-center gap-2">Assignee
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <circle cx="12" cy="8" r="3.5" fill="currentColor" />
-                                        <circle cx="6" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <circle cx="18" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <path d="M4 20c0-3.5 4-5.5 8-5.5s8 2 8 5.5" fill="currentColor" />
-                                    </svg>
-                                </div>
-
-                                <!-- assignee names -->
-                                <div class="card-tags">
-                                    <span class="tag ">Tanvir</span>
-                                    <span class="tag ">Shuvo</span>
-                                    <span class="tag ">Fahim Islam</span>
-                                    <span class="tag ">Razzak</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Delowar</span>
-                                </div>
-                            </div>
-                            <div class="card-info-grid mt-2">
-                                <!-- Project Name -->
-                                <div class="info-item">
-                                    <div class="info-label d-flex gap-1 align-center">Project
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v1H3V6z" />
-                                            <path d="M3 10h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z" />
-                                        </svg>
-                                    </div>
-                                    <div class="info-val mt-1">Nutrition Depot BD
-                                    </div>
-                                </div>
-                                <!-- For Assigned date -->
-                                <div class="info-item">
-                                    <div class="info-label">Assigned Date</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg>15 Jan 2026</div>
-                                </div>
-                            </div>
-                            <div class="card-info-grid">
-
-                                <!-- For Project Priority -->
-                                <div class="card-manager">
-                                    <div class="manager-info">
-                                        <div class="info-label">Priority</div>
-                                        <div class="manager-name">High</div>
-                                    </div>
-                                </div>
-
-                                <!-- For Deadline -->
-                                <div class="info-item">
-                                    <div class="info-label">Deadline</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg> <span>22 April 2026</span></div>
-                                </div>
+                                <div class="section-title head-primary">Submit Task</div>
+                                <p class="desc mt-1">Add the details of your new task</p>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="state-dropdown">
-                                <select >
-                                    <option value="active">Active</option>
-                                    <option value="onhold">On Hold</option>
-                                    <option value="blocked">Blocked</option>
-                                    <option value="cancelled">Cancelled</option>
-                                    <option value="completed">Completed</option>
+
+                        <div class="grid-2 gap-5 grid-sm-1">
+                            <div class="input-control ">
+                                <label for="">Project <span class="required">*</span></label>
+                                <select name="" id="" >
+                                    <option value="Select Project">Select Project</option>
+                                    <option value="">Project two</option>
+                                    <option value="">Project Three</option>
+                                    <option value="">Project Four</option>
                                 </select>
                             </div>
-                            <div class="action-btns">
-                                <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="3 6 5 6 21 6" />
-                                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                                        <path d="M10 11v6" />
-                                        <path d="M14 11v6" />
-                                        <path d="M9 6V4h6v2" />
-                                    </svg></button>
+
+                            <div class="input-control">
+                                <label for="">Task Name <span class="required">*</span></label>
+                                <input type="text" placeholder="Task Name">
                             </div>
                         </div>
-                    </div>
+                        <div class="grid-2 gap-5 grid-sm-1">
 
-                    <!--================||   Single Task Card here ||===============-->
-                    <div class="proj-card task-card">
-                        <div class="card-banner"></div>
-                        <div class="card-body">
-                            <div class="card-top">
-                                <div class="card-title-wrap">
-                                    <!-- Task Name -->
-                                    <div class="card-proj-name">Nadia Website Home Page Change</div>
-                                </div>
-                                <!-- Status -->
-                                <span class="status-badge status-active"><span class="dot"></span>Done</span>
+                            <div class="input-control">
+                                <label for="">Assign Date</label>
+                                <input type="date">
                             </div>
-                            <div>
-                                <div class="info-label d-flex align-center gap-2">Assignee
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <circle cx="12" cy="8" r="3.5" fill="currentColor" />
-                                        <circle cx="6" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <circle cx="18" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <path d="M4 20c0-3.5 4-5.5 8-5.5s8 2 8 5.5" fill="currentColor" />
-                                    </svg>
-                                </div>
 
-                                <!-- assignee names -->
-                                <div class="card-tags">
-                                    <span class="tag ">Fahim Islam</span>
-                                    <span class="tag ">Tanvir</span>
-                                    <span class="tag ">Shuvo</span>
-                                    <span class="tag ">Razzak</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Delowar</span>
-                                </div>
-                            </div>
-                            <div class="card-info-grid mt-2">
-                                <!-- Project Name -->
-                                <div class="info-item">
-                                    <div class="info-label d-flex gap-1 align-center">Project
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v1H3V6z" />
-                                            <path d="M3 10h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z" />
-                                        </svg>
-                                    </div>
-                                    <div class="info-val mt-1">Nutrition Depot BD
-                                    </div>
-                                </div>
-                                <!-- For Assigned date -->
-                                <div class="info-item">
-                                    <div class="info-label">Assigned Date</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg>15 Jan 2026</div>
-                                </div>
-                            </div>
-                            <div class="card-info-grid">
-
-                                <!-- For Project Priority -->
-                                <div class="card-manager">
-                                    <div class="manager-info">
-                                        <div class="info-label">Priority</div>
-                                        <div class="manager-name">High</div>
-                                    </div>
-                                </div>
-
-                                <!-- For Deadline -->
-                                <div class="info-item">
-                                    <div class="info-label">Deadline</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg> <span>22 April 2026</span></div>
-                                </div>
+                            <div class="input-control">
+                                <label for="">Assignees</label>
+                                <input type="date">
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="state-dropdown">
-                                <select >
-                                    <option value="active">Active</option>
-                                    <option value="onhold">On Hold</option>
-                                    <option value="blocked">Blocked</option>
-                                    <option value="cancelled">Cancelled</option>
-                                    <option value="completed">Completed</option>
-                                </select>
+                        <div class="grid-2 gap-5 grid-sm-1">
+                            <div class="input-control">
+                                <label for="">Allocation Hours <span class="required">*</span></label>
+                                <input type="text" placeholder="Task Name">
                             </div>
-                            <div class="action-btns">
-                                <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="3 6 5 6 21 6" />
-                                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                                        <path d="M10 11v6" />
-                                        <path d="M14 11v6" />
-                                        <path d="M9 6V4h6v2" />
-                                    </svg></button>
+                            <div class="input-control">
+                                <label for="">Deadline</label>
+                                <input type="date">
                             </div>
                         </div>
-                    </div>
-
-                    <!--================||   Single Task Card here ||===============-->
-                    <div class="proj-card task-card">
-                        <div class="card-banner"></div>
-                        <div class="card-body">
-                            <div class="card-top">
-                                <div class="card-title-wrap">
-                                    <!-- Task Name -->
-                                    <div class="card-proj-name">Checkout and Cart Page Design</div>
-                                </div>
-                                <!-- Status -->
-                                <span class="status-badge status-active"><span class="dot"></span>In Progress</span>
-                            </div>
-                            <div>
-                                <div class="info-label d-flex align-center gap-2">Assignee
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <circle cx="12" cy="8" r="3.5" fill="currentColor" />
-                                        <circle cx="6" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <circle cx="18" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <path d="M4 20c0-3.5 4-5.5 8-5.5s8 2 8 5.5" fill="currentColor" />
-                                    </svg>
-                                </div>
-
-                                <!-- assignee names -->
-                                <div class="card-tags">
-                                    <span class="tag ">Tanvir</span>
-                                    <span class="tag ">Shuvo</span>
-                                    <span class="tag ">Fahim Islam</span>
-                                    <span class="tag ">Razzak</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Delowar</span>
-                                </div>
-                            </div>
-                            <div class="card-info-grid mt-2">
-                                <!-- Project Name -->
-                                <div class="info-item">
-                                    <div class="info-label d-flex gap-1 align-center">Project
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v1H3V6z" />
-                                            <path d="M3 10h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z" />
-                                        </svg>
-                                    </div>
-                                    <div class="info-val mt-1">Nutrition Depot BD
-                                    </div>
-                                </div>
-                                <!-- For Assigned date -->
-                                <div class="info-item">
-                                    <div class="info-label">Assigned Date</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg>15 Jan 2026</div>
-                                </div>
-                            </div>
-                            <div class="card-info-grid">
-
-                                <!-- For Project Priority -->
-                                <div class="card-manager">
-                                    <div class="manager-info">
-                                        <div class="info-label">Priority</div>
-                                        <div class="manager-name">High</div>
-                                    </div>
-                                </div>
-
-                                <!-- For Deadline -->
-                                <div class="info-item">
-                                    <div class="info-label">Deadline</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg> <span>22 April 2026</span></div>
-                                </div>
+                        <div class="grid-1 gap-5 grid-sm-1">
+                            <div class="input-control">
+                                <label for="">Description</label>
+                                <textarea name="" id="" placeholder="Description..."></textarea>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="state-dropdown">
-                                <select >
-                                    <option value="active">Active</option>
-                                    <option value="onhold">On Hold</option>
-                                    <option value="blocked">Blocked</option>
-                                    <option value="cancelled">Cancelled</option>
-                                    <option value="completed">Completed</option>
-                                </select>
-                            </div>
-                            <div class="action-btns">
-                                <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="3 6 5 6 21 6" />
-                                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                                        <path d="M10 11v6" />
-                                        <path d="M14 11v6" />
-                                        <path d="M9 6V4h6v2" />
-                                    </svg></button>
-                            </div>
+
+                        <!-- For Error Message -->
+                        <!-- <div class="alert alert-danger  ">
+                            error message here
+                        </div> -->
+
+                        <div class="d-flex justify-end w-100 gap-4">
+                            <button class="btn btn-danger" type="reset">Reset <svg width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 12a9 9 0 1 1-3-6.7"></path>
+                                    <path d="M21 3v6h-6"></path>
+                                </svg></button>
+                            <button type="submit" class="btn btn-primary">Submit <svg width="16" height="16" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path d="M2 21l20-9L2 3v7l15 2-15 2z" />
+                                </svg></button>
                         </div>
-                    </div>
 
-                    <!--================||   Single Task Card here ||===============-->
-                    <div class="proj-card task-card">
-                        <div class="card-banner"></div>
-                        <div class="card-body">
-                            <div class="card-top">
-                                <div class="card-title-wrap">
-                                    <!-- Task Name -->
-                                    <div class="card-proj-name">Customer portal design</div>
-                                </div>
-                                <!-- Status -->
-                                <span class="status-badge status-active"><span class="dot"></span>In Progress</span>
-                            </div>
-                            <div>
-                                <div class="info-label d-flex align-center gap-2">Assignee
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <circle cx="12" cy="8" r="3.5" fill="currentColor" />
-                                        <circle cx="6" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <circle cx="18" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <path d="M4 20c0-3.5 4-5.5 8-5.5s8 2 8 5.5" fill="currentColor" />
-                                    </svg>
-                                </div>
-
-                                <!-- assignee names -->
-                                <div class="card-tags">
-                                    <span class="tag ">Tanvir</span>
-                                    <span class="tag ">Shuvo</span>
-                                    <span class="tag ">Fahim Islam</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Delowar</span>
-                                </div>
-                            </div>
-                            <div class="card-info-grid mt-2">
-                                <!-- Project Name -->
-                                <div class="info-item">
-                                    <div class="info-label d-flex gap-1 align-center">Project
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v1H3V6z" />
-                                            <path d="M3 10h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z" />
-                                        </svg>
-                                    </div>
-                                    <div class="info-val mt-1">Nutrition Depot BD
-                                    </div>
-                                </div>
-                                <!-- For Assigned date -->
-                                <div class="info-item">
-                                    <div class="info-label">Assigned Date</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg>15 Jan 2026</div>
-                                </div>
-                            </div>
-                            <div class="card-info-grid">
-
-                                <!-- For Project Priority -->
-                                <div class="card-manager">
-                                    <div class="manager-info">
-                                        <div class="info-label">Priority</div>
-                                        <div class="manager-name">High</div>
-                                    </div>
-                                </div>
-
-                                <!-- For Deadline -->
-                                <div class="info-item">
-                                    <div class="info-label">Deadline</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg> <span>22 April 2026</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="state-dropdown">
-                                <select id="f-state">
-                                    <option value="active">Active</option>
-                                    <option value="onhold">On Hold</option>
-                                    <option value="blocked">Blocked</option>
-                                    <option value="cancelled">Cancelled</option>
-                                    <option value="completed">Completed</option>
-                                </select>
-                            </div>
-                            <div class="action-btns">
-                                <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="3 6 5 6 21 6" />
-                                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                                        <path d="M10 11v6" />
-                                        <path d="M14 11v6" />
-                                        <path d="M9 6V4h6v2" />
-                                    </svg></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--================||   Single Task Card here ||===============-->
-                    <div class="proj-card task-card">
-                        <div class="card-banner"></div>
-                        <div class="card-body">
-                            <div class="card-top">
-                                <div class="card-title-wrap">
-                                    <!-- Task Name -->
-                                    <div class="card-proj-name">Customer Portal Design and Backend Templete</div>
-                                </div>
-                                <!-- Status -->
-                                <span class="status-badge status-active"><span class="dot"></span>In Progress</span>
-                            </div>
-                            <div>
-                                <div class="info-label d-flex align-center gap-2">Assignee
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <circle cx="12" cy="8" r="3.5" fill="currentColor" />
-                                        <circle cx="6" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <circle cx="18" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <path d="M4 20c0-3.5 4-5.5 8-5.5s8 2 8 5.5" fill="currentColor" />
-                                    </svg>
-                                </div>
-
-                                <!-- assignee names -->
-                                <div class="card-tags">
-                                    <span class="tag ">Tanvir</span>
-                                    <span class="tag ">Shuvo</span>
-                                    <span class="tag ">Fahim Islam</span>
-                                    <span class="tag ">Razzak</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Delowar</span>
-                                </div>
-                            </div>
-                            <div class="card-info-grid mt-2">
-                                <!-- Project Name -->
-                                <div class="info-item">
-                                    <div class="info-label">Project</div>
-                                    <div class="info-val mt-1">Nutrition Depot BD
-                                    </div>
-                                </div>
-                                <!-- For Assigned date -->
-                                <div class="info-item">
-                                    <div class="info-label">Assigned Date</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg>15 Jan 2026</div>
-                                </div>
-                            </div>
-                            <div class="card-info-grid">
-
-                                <!-- For Project Priority -->
-                                <div class="card-manager">
-                                    <div class="manager-info">
-                                        <div class="info-label">Priority</div>
-                                        <div class="manager-name">High</div>
-                                    </div>
-                                </div>
-
-                                <!-- For Deadline -->
-                                <div class="info-item">
-                                    <div class="info-label">Deadline</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg> <span>22 April 2026</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="state-dropdown">
-                                <select id="f-state">
-                                    <option value="active">Active</option>
-                                    <option value="onhold">On Hold</option>
-                                    <option value="blocked">Blocked</option>
-                                    <option value="cancelled">Cancelled</option>
-                                    <option value="completed">Completed</option>
-                                </select>
-                            </div>
-                            <div class="action-btns">
-                                <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="3 6 5 6 21 6" />
-                                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                                        <path d="M10 11v6" />
-                                        <path d="M14 11v6" />
-                                        <path d="M9 6V4h6v2" />
-                                    </svg></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--================||   Single Task Card here ||===============-->
-                    <div class="proj-card task-card">
-                        <div class="card-banner"></div>
-                        <div class="card-body">
-                            <div class="card-top">
-                                <div class="card-title-wrap">
-                                    <!-- Task Name -->
-                                    <div class="card-proj-name">Tourgull Host Dashboard Design</div>
-                                </div>
-                                <!-- Status -->
-                                <span class="status-badge status-active"><span class="dot"></span>In Progress</span>
-                            </div>
-                            <div>
-                                <div class="info-label d-flex align-center gap-2">Assignee
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <circle cx="12" cy="8" r="3.5" fill="currentColor" />
-                                        <circle cx="6" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <circle cx="18" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <path d="M4 20c0-3.5 4-5.5 8-5.5s8 2 8 5.5" fill="currentColor" />
-                                    </svg>
-                                </div>
-
-                                <!-- assignee names -->
-                                <div class="card-tags">
-                                    <span class="tag ">Tanvir</span>
-                                    <span class="tag ">Shuvo</span>
-                                    <span class="tag ">Fahim Islam</span>
-                                    <span class="tag ">Razzak</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Delowar</span>
-                                </div>
-                            </div>
-                            <div class="card-info-grid mt-2">
-                                <!-- Project Name -->
-                                <div class="info-item">
-                                    <div class="info-label">Project</div>
-                                    <div class="info-val mt-1">Nutrition Depot BD
-                                    </div>
-                                </div>
-                                <!-- For Assigned date -->
-                                <div class="info-item">
-                                    <div class="info-label">Assigned Date</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg>15 Jan 2026</div>
-                                </div>
-                            </div>
-                            <div class="card-info-grid">
-
-                                <!-- For Project Priority -->
-                                <div class="card-manager">
-                                    <div class="manager-info">
-                                        <div class="info-label">Priority</div>
-                                        <div class="manager-name">High</div>
-                                    </div>
-                                </div>
-
-                                <!-- For Deadline -->
-                                <div class="info-item">
-                                    <div class="info-label">Deadline</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg> <span>22 April 2026</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="state-dropdown">
-                                <select>
-                                    <option value="active">Active</option>
-                                    <option value="onhold">On Hold</option>
-                                    <option value="blocked">Blocked</option>
-                                    <option value="cancelled">Cancelled</option>
-                                    <option value="completed">Completed</option>
-                                </select>
-                            </div>
-                            <div class="action-btns">
-                                <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="3 6 5 6 21 6" />
-                                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                                        <path d="M10 11v6" />
-                                        <path d="M14 11v6" />
-                                        <path d="M9 6V4h6v2" />
-                                    </svg></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--================||   Single Task Card here ||===============-->
-                    <div class="proj-card task-card">
-                        <div class="card-banner"></div>
-                        <div class="card-body">
-                            <div class="card-top">
-                                <div class="card-title-wrap">
-                                    <!-- Task Name -->
-                                    <div class="card-proj-name">Nadia Website Backend Development</div>
-                                </div>
-                                <!-- Status -->
-                                <span class="status-badge status-active"><span class="dot"></span>In Progress</span>
-                            </div>
-                            <div>
-                                <div class="info-label d-flex align-center gap-2">Assignee
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <circle cx="12" cy="8" r="3.5" fill="currentColor" />
-                                        <circle cx="6" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <circle cx="18" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <path d="M4 20c0-3.5 4-5.5 8-5.5s8 2 8 5.5" fill="currentColor" />
-                                    </svg>
-                                </div>
-
-                                <!-- assignee names -->
-                                <div class="card-tags">
-                                    <span class="tag ">Tanvir</span>
-                                    <span class="tag ">Shuvo</span>
-                                    <span class="tag ">Fahim Islam</span>
-                                    <span class="tag ">Razzak</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Delowar</span>
-                                </div>
-                            </div>
-                            <div class="card-info-grid mt-2">
-                                <!-- Project Name -->
-                                <div class="info-item">
-                                    <div class="info-label">Project</div>
-                                    <div class="info-val mt-1">Nutrition Depot BD
-                                    </div>
-                                </div>
-                                <!-- For Assigned date -->
-                                <div class="info-item">
-                                    <div class="info-label">Assigned Date</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg>15 Jan 2026</div>
-                                </div>
-                            </div>
-                            <div class="card-info-grid">
-
-                                <!-- For Project Priority -->
-                                <div class="card-manager">
-                                    <div class="manager-info">
-                                        <div class="info-label">Priority</div>
-                                        <div class="manager-name">High</div>
-                                    </div>
-                                </div>
-
-                                <!-- For Deadline -->
-                                <div class="info-item">
-                                    <div class="info-label">Deadline</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg> <span>22 April 2026</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="state-dropdown">
-                                <select id="f-state">
-                                    <option value="active">Active</option>
-                                    <option value="onhold">On Hold</option>
-                                    <option value="blocked">Blocked</option>
-                                    <option value="cancelled">Cancelled</option>
-                                    <option value="completed">Completed</option>
-                                </select>
-                            </div>
-                            <div class="action-btns">
-                                <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="3 6 5 6 21 6" />
-                                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                                        <path d="M10 11v6" />
-                                        <path d="M14 11v6" />
-                                        <path d="M9 6V4h6v2" />
-                                    </svg></button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Pagination -->
-                <div class="pagination">
-                    <span class="page-info">Showing 1–6 of 24 projects</span>
-                    <div class="page-btns">
-                        <button class="page-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="15 18 9 12 15 6" />
-                            </svg></button>
-                        <button class="page-btn active">1</button>
-                        <button class="page-btn">2</button>
-                        <button class="page-btn">3</button>
-                        <button class="page-btn">4</button>
-                        <button class="page-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6" />
-                            </svg></button>
-                    </div>
+                    </form>
                 </div>
             </section>
         </main>

@@ -1,0 +1,31 @@
+
+.submit-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    z-index: 2;
+}
+
+
+.submit-form .top {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background-color: var(--border-primary);
+}
+
+
+.input-control.select{width: 100%;}
+.input-control select{
+    border: 1px solid var(--border-primary);
+    width: 100%;
+    width: 100%;
+    padding: 9.5px 12px;border-radius: var(--radius-sm);
+}

@@ -699,19 +699,21 @@ aside .sidebar-bottom {
     gap: 10px;
     align-items: center;
 }
-
+.desc{color: var(--color-text-desc);font-size: var(--fs-sm);}
+.section-title.head-primary{color: var(--color-text-header);}
 .btn {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    padding: 9px 16px;
-    border-radius: var(--radius-sm);
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
     font-size: var(--fs-sm);
     font-weight: var(--fw-500);
     font-family: var(--font-inter);
     cursor: pointer;
     border: none;
     transition: var(--transition-fast);
+    line-height: 1;
 }
 
 .btn-primary {
@@ -934,7 +936,7 @@ aside .sidebar-bottom {
     font-weight: var(--fw-400);
     padding: 3px 8px;
     border-radius: var(--radius-pill);
-    background-color: #d9117c77;
+    background-color: var(--color-tag);
     color: var(--color-white);
 }
 

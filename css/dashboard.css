@@ -121,6 +121,7 @@
     border-radius: 99px;
     animation: grow 1.2s cubic-bezier(.4, 0, .2, 1) forwards;
     transform-origin: left;
+    background:var(--prog-bar) !important;
 }
 
 @keyframes grow {
@@ -141,37 +142,11 @@
     border-radius: 99px;
     font-weight: 500;
     letter-spacing: 0.3px;
+    background-color: var(--color-tag);
+    color: var(--color-white);
+    opacity: .9;
 }
 
-.tag-blue {
-    background: rgba(59, 130, 246, 0.12);
-    color: #60a5fa;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-}
-
-.tag-green {
-    background: rgba(16, 185, 129, 0.12);
-    color: #34d399;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-.tag-amber {
-    background: rgba(245, 158, 11, 0.12);
-    color: #fbbf24;
-    border: 1px solid rgba(245, 158, 11, 0.2);
-}
-
-.tag-purple {
-    background: rgba(139, 92, 246, 0.12);
-    color: #a78bfa;
-    border: 1px solid rgba(139, 92, 246, 0.2);
-}
-
-.tag-red {
-    background: rgba(239, 68, 68, 0.12);
-    color: #f87171;
-    border: 1px solid rgba(239, 68, 68, 0.2);
-}
 
 /* ════════════════════════════
        MINI STAT CARDS (2×2 grid)
@@ -216,7 +191,7 @@
     transition: var(--transition-base);
     border-radius: 0;
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    opacity: .4;
+    opacity: .2;
 
 }
 
@@ -235,7 +210,7 @@
 }
 
 .mini-cards::before {
-    animation: spin 1.5s linear infinite;
+    animation: spin 3s linear infinite;
 }
 
 .mini-icon {
