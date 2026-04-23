@@ -343,7 +343,7 @@
 /*=============//  Leave Attendance  //=============*/
 .leave-attendance {
     display: grid;
-    grid-template-columns: 1fr 500px;
+    grid-template-columns: 1fr 38%;
 }
 
 .leave,

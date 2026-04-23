@@ -77,7 +77,7 @@
 }
 
 .header-wrap .left {
-    width: 280px;
+    width: 332px;
 }
 
 .header-wrap .logo {
@@ -173,12 +173,13 @@ header .head-right::after {
     position: absolute;
     content: '';
     left: -26px;
-    top: -58px;
+    top: -65px;
     background-color: rgb(132, 70, 194);
     width: 46px;
-    height: 180px;
+    height: 198px;
     transform: rotate(40deg);
 }
+
 
 /*=============//  User Profile image  //=============*/
 header .profile-img-wrapper {
@@ -456,6 +457,7 @@ aside .sidebar-bottom {
     background-color: rgba(73, 93, 135, 0.746);
     border-radius: 20px;
     padding-top: 8px;
+    border: 1px solid var(--color-tag);
 }
 
 

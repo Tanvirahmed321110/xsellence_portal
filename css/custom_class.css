@@ -146,6 +146,8 @@
     /*=============//  Gradient Shade  //=============*/
     --gradient-1: linear-gradient(to right, #173e57c9, #919fa7d6);
     --prog-bar:linear-gradient(90deg,#d9117cc6,#d9117c87);
+    --sidebar-bg: linear-gradient(to right, rgb(117, 67, 168), rgb(67, 43, 92));
+    --header-bg:#663399;
 
 
 
@@ -176,8 +178,6 @@
     /* =========================
        Components
     ========================== */
-    --sidebar-bg: linear-gradient(to right, rgb(117, 67, 168), rgb(67, 43, 92));
-    --header-bg:#663399;
 
     --card-bg: var(--bg-card);
     --card-border: var(--border-light);

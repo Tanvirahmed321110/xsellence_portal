@@ -7,7 +7,7 @@
     margin: 0 auto;
     background-color: var(--color-white);
     padding: 24px;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
     position: relative;
     z-index: 2;
@@ -113,3 +113,30 @@
     max-height: 600px;
     overflow-y: auto;
 }
+.timesheets .task-desc-wrap{
+    position: relative;
+}
+.timesheets .task-desc{
+      display: -webkit-box;
+    -webkit-line-clamp: 2;   /* 👈 max 2 line */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 38px;
+}
+
+.timesheets .task-desc-wrap:hover .hover-desc{
+    padding: 16px;
+    border-radius: var(--radius-md);
+    position: absolute;
+    top: -10px;
+    width: fit-content;
+    max-height: 400px;
+    z-index: 2;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+    display: block;
+    line-height: 1.5;top: auto;
+bottom: 100%;
+margin-bottom: 0px;
+}
+.task-desc-wrap .hover-desc{display: none;}
