@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
+        <title>My Tasks</title>
         <link rel="stylesheet" href="/css/custom_class.css">
         <link rel="stylesheet" href="/css/my_component.css">
         <link rel="stylesheet" href="/css/global.css">
@@ -203,7 +203,7 @@
                                     <line x1="12" y1="8" x2="12" y2="16" />
                                     <line x1="8" y1="12" x2="16" y2="12" />
                                 </svg>
-                               Add  Timesheet
+                                Add Timesheet
                             </a></li>
                     </ul>
                 </div>
@@ -286,8 +286,19 @@
 
             <!--========================|| Projects Here ||=========================-->
             <section class="projects-wrap mt-4">
-                <div class="sec-title d-flex gap-2 align-center">My Tasks <span
-                        class="count fs-xs flex-center">20</span></div>
+                <div class="flex-between gap-5">
+                    <div class="sec-title d-flex gap-2 align-center">My Tasks <span
+                            class="count fs-xs flex-center">20</span></div>
+
+                    <select class="filter-select bg-white" id="filter-month" onchange="applyFilters()">
+                        <option value="">Pending</option>
+                        <option value="2025-04">Complted</option>
+                        <option value="2025-04">In Progress</option>
+                        <option value="2025-04">Done</option>
+                        <option value="2025-04">Other</option>
+                    </select>
+                </div>
+
                 <div class="grid-4 grid-lg-3 gap-6 grid-sm-1 grid-md-2 tasks mt-4 gap-sm-4">
 
                     <!--================||   Single Task Card here ||===============-->
@@ -382,7 +393,17 @@
                                     <option value="completed">Completed</option>
                                 </select>
                             </div>
+                            <!-- Actions Buttons -->
                             <div class="action-btns">
+                                <!-- View Button Here -->
+                                <a href="/task_details.html" class="action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></a>
+
+                                    <!-- Delete button -->
                                 <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -395,6 +416,8 @@
                             </div>
                         </div>
                     </div>
+
+
 
                     <!--================||   Single Task Card here ||===============-->
                     <div class="proj-card task-card">
@@ -488,7 +511,18 @@
                                     <option value="completed">Completed</option>
                                 </select>
                             </div>
+
+                            <!-- Actions Buttons -->
                             <div class="action-btns">
+                                <!-- View Button Here -->
+                                <a href="/task_details.html" class="action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></a>
+
+                                    <!-- Delete button -->
                                 <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -594,7 +628,17 @@
                                     <option value="completed">Completed</option>
                                 </select>
                             </div>
+                            <!-- Actions Buttons -->
                             <div class="action-btns">
+                                <!-- View Button Here -->
+                                <a href="/task_details.html" class="action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></a>
+
+                                    <!-- Delete button -->
                                 <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -699,7 +743,17 @@
                                     <option value="completed">Completed</option>
                                 </select>
                             </div>
+                            <!-- Actions Buttons -->
                             <div class="action-btns">
+                                    <!-- View Button Here -->
+                                <a href="/task_details.html" class="action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></a>
+
+                                    <!-- Delete button -->
                                 <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -800,7 +854,17 @@
                                     <option value="completed">Completed</option>
                                 </select>
                             </div>
+                            <!-- Actions Buttons -->
                             <div class="action-btns">
+                                        <!-- View Button Here -->
+                                <a href="/task_details.html" class="action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></a>
+
+                                    <!-- Delete button -->
                                 <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -892,7 +956,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                        <div class="state-dropdown ">
+                            <div class="state-dropdown ">
                                 <select class="filter-select">
                                     <option value="cancelled">Cancelled</option>
                                     <option value="active">Active</option>
@@ -901,7 +965,17 @@
                                     <option value="completed">Completed</option>
                                 </select>
                             </div>
+                            <!-- Actions Buttons -->
                             <div class="action-btns">
+                                        <!-- View Button Here -->
+                                <a href="/task_details.html" class="action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></a>
+
+                                    <!-- Delete button -->
                                 <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -1002,7 +1076,17 @@
                                     <option value="completed">Completed</option>
                                 </select>
                             </div>
+                            <!-- Actions Buttons -->
                             <div class="action-btns">
+                                        <!-- View Button Here -->
+                                <a href="/task_details.html" class="action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg></a>
+
+                                    <!-- Delete button -->
                                 <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -1047,7 +1131,7 @@
         <button></button>
 
         <!-- =========================================
-        ||======  Sidebar Section Start Here  ======||
+        ||======  Notic Board  ======||
         ========================================== -->
         <div class="notic-board">
             <div class="notic-board">
