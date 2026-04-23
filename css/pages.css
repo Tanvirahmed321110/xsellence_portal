@@ -77,3 +77,33 @@
     outline: none;
     transition: border-color 0.2s;
 }
+
+.timesheets .table-wrap{
+    min-height: 400px;
+}
+
+.timesheets  .action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-secondary);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text-white);
+    background-color: var(--color-primary);
+    transition: var(--transition-fast);
+}
+
+.timesheets .action-btn.del:hover {
+    background-color: var(--btn-danger-bg);
+    color: wheat;
+}
+
+.timesheets .action-btn.del {
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+    background: #fee2e2;
+}

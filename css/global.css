@@ -711,8 +711,16 @@ aside .sidebar-bottom {
     gap: 10px;
     align-items: center;
 }
-.desc{color: var(--color-text-desc);font-size: var(--fs-sm);}
-.section-title.head-primary{color: var(--color-text-header);}
+
+.desc {
+    color: var(--color-text-desc);
+    font-size: var(--fs-sm);
+}
+
+.section-title.head-primary {
+    color: var(--color-text-header);
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -796,8 +804,58 @@ aside .sidebar-bottom {
     font-size: var(--fs-sm);
     color: var(--color-text-secondary);
     font-family: var(--font-inter);
+    width: fit-content;
     cursor: pointer;
     outline: none;
+    max-width: 300px;
+}
+
+.table-wrap {
+    width: 100%;
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 12px solid var(--color-white);
+    overflow-x: auto;
+}
+
+.table-wrap table {
+     width: max-content;
+     min-width: 100%;
+}
+
+.table th {
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    font-weight: 500;
+    padding: 16px 16px;
+    background-color: var(--border-primary);
+    font-size: var(--fs-sm);
+    border-bottom: 4px solid var(--border-primary);
+    letter-spacing: .5px;
+    max-width: 220px;
+    text-wrap: wrap;
+    white-space: wrap;
+}
+
+.table-wrap td {
+    color: var(--color-text-desc);
+    padding: 8px 16px;
+    /* opacity: .9; */
+    font-size: calc(var(--fs-sm) + 1px);
+    font-weight: 400;
+    font-family: inherit;
+    letter-spacing: .5px;
+    max-width: 220px;
+    white-space: normal;
+    word-break: break-word;
+
+}
+
+.table-wrap tbody tr{border-bottom: 1px solid var(--border-secondary);}
+.table-wrap tbody tr:nth-child(even){
+    background-color: var(--color-white-off);
 }
 
 .toolbar-right {
@@ -1152,7 +1210,7 @@ aside .sidebar-bottom {
     overflow: hidden;
 }
 
-.task-card .filter-select{
+.task-card .filter-select {
     border-radius: 40px;
     font-size: var(--fs-xs);
 }
@@ -1169,7 +1227,9 @@ aside .sidebar-bottom {
     row-gap: 4px;
 }
 
-.task-card .filter-select {font-weight: 500;}
+.task-card .filter-select {
+    font-weight: 500;
+}
 
 @media (max-width:767px) {
     header {
