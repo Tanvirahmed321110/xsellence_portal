@@ -819,6 +819,23 @@ aside .sidebar-bottom {
     overflow-x: auto;
 }
 
+.table-wrap::-webkit-scrollbar {
+    background-color: var(--color-white);
+}
+
+.table-wrap::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.table-wrap::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.table-wrap::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+}
+
 .table-wrap table {
      width: max-content;
      min-width: 100%;
@@ -852,7 +869,23 @@ aside .sidebar-bottom {
     word-break: break-word;
 
 }
-
+.table-wrap tbody tr{
+    position: relative;
+}
+.table-wrap tbody tr::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0px;
+    background-color: var(--color-tag);
+    border-radius: 0px 12px 12px 0;
+    transition: var(--transition-base);
+}
+.table-wrap tbody tr:hover::after{
+    width: 5px;
+}
 .table-wrap tbody tr{border-bottom: 1px solid var(--border-secondary);}
 .table-wrap tbody tr:nth-child(even){
     background-color: var(--color-white-off);

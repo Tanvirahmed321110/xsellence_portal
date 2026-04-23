@@ -1,3 +1,61 @@
+.toast {
+    position: fixed;
+    top: 120px;
+    right: 20px;
+
+    background: var(--color-tag);
+    color:var(--color-white);
+    font-weight: 500;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: var(--z-toast);
+    transform: translateX(120%);
+    opacity: 0;
+}
+
+/* show animation */
+.toast.show {
+    animation: slideIn 0.5s ease forwards;
+}
+
+/* hide animation */
+.toast.hide {
+    animation: slideOut 0.5s ease forwards;
+}
+
+/* success / error */
+.toast.success {
+    background: var(--color-text-success);
+}
+.toast.error {
+    background: var(--color-danger);
+}
+
+/* keyframes */
+@keyframes slideIn {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+}
+
 /* ================= MODAL ================= */
 .modal {
     position: fixed;
@@ -844,6 +902,7 @@ button {
     padding: 16px;
     color: var(--color-text-muted);
     font-family: inherit;
+    background-color: var(--color-white-off);
 }
 
 .input-control input {
@@ -854,8 +913,9 @@ button {
     transition: var(--transition-base);
     width: 100%;
     color: var(--my-text-primary);
-    /* background-color: var(--border-secondary); */
-    font-weight: var(--fw-500);
+    background-color: var(--border-primary);
+    background-color: var(--color-white-off);
+    font-weight: var(--fw-400);
 }
 
 
@@ -880,15 +940,16 @@ input[type="date"] {
   padding: 9px 12px;
 }
 label {
-    color: var(--color-text-primary);
+    color: var(--color-text-header);
     font-size: var(--fs-sm);
 }
 .input-control label{
     margin-bottom: 8px;
     display: inline-block;
-    color: var(--color-text-primary);
+    color: var(--color-text-header);
     font-weight: 500;
     font-size: var(--fs-sm);
+    letter-spacing: .5px;
 }
 
 .input-control.new input {
@@ -897,6 +958,7 @@ label {
     border-color: var(--border-primary);
     padding: 10px;
 }
+
 
 .input-control.new input:hover {
     border-color: var(--my-border-primary);

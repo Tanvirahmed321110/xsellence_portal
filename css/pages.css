@@ -31,6 +31,7 @@
     width: 100%;
     width: 100%;
     padding: 9.5px 12px;border-radius: var(--radius-sm);
+    background-color: var(--color-white-off);
 }
 
 
@@ -106,4 +107,9 @@
     color: var(--color-danger);
     border-color: var(--color-danger);
     background: #fee2e2;
+}
+
+.timesheets .table-wrap {
+    max-height: 600px;
+    overflow-y: auto;
 }
