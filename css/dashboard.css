@@ -121,7 +121,7 @@
     border-radius: 99px;
     animation: grow 1.2s cubic-bezier(.4, 0, .2, 1) forwards;
     transform-origin: left;
-    background:var(--prog-bar) !important;
+    background: var(--prog-bar) !important;
 }
 
 @keyframes grow {
@@ -586,24 +586,45 @@
 
 
 
-
+/*==================||  Mobile Responsive Start Here  ||====================*/
 @media(max-width:767px) {
+
+
+    .leave-attendance {
+        grid-auto-rows: max-content;
+    }
+
     .dashboard-items .card {
         padding: 16px;
         border-radius: var(--radius-lg);
     }
-    .leave, .attendance {
-    padding: 16px;
-}
+
+    .leave,
+    .attendance {
+        padding: 16px;
+    }
 
     .project-progress {
-    padding: 16px;
-}
-.mini-cards::after {
-    right: 12%;
-    transform: translate(-20%, -50%);
-}
-.leave .card {
-    padding: 12px;
-}
+        padding: 16px;
+    }
+
+    .mini-cards::after {
+        right: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    /* Leave Card Here */
+    .leave .card {
+        padding: 12px;
+    }
+
+    .leave .footer {
+        font-size: var(--fs-sm);
+        color: var(--color-text-desc);
+        font-weight: 500;
+        margin-top: 0px;
+        border-top: 1px solid transparent;
+        padding-top: 0px;
+    }
 }
