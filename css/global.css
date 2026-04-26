@@ -603,7 +603,7 @@ aside .sidebar-bottom {
     bottom: 0;
     margin-left: 0px;
     transition: var(--transition-base);
-    left: 24px;
+    left: 0px;
 }
 
 .notic-board.big {
@@ -616,7 +616,7 @@ aside .sidebar-bottom {
     align-items: center;
     gap: 8px;
     padding: 4px;
-    padding-left: 20px;
+    padding-left: 32px;
 }
 
 .notice-icon {
@@ -629,7 +629,7 @@ aside .sidebar-bottom {
     background-color: var(--color-secondary);
     border-radius: var(--radius-sm);
     z-index: 2;
-    margin-left: 76px;
+    margin-left: 90px;
     transition: var(--transition-slow);
 }
 .notic-board.big .notice-icon{
