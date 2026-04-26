@@ -297,27 +297,37 @@
 
 
                 <!--================|| Main Information Here ================  -->
-                <div class="main-info mt-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">
-                                <div class="card-icon">👤</div>
-                                Personal Information
+                <div class="main-info mt-4  w-100">
+                    <div class="card w-100">
+
+                        <!-- Card Header -->
+                        <div class="card-header  p-6 flex-between w-100 border-bottom-primary">
+                            <div class="card-title d-flex align-center gap-4  w-100 ">
+                                <div class="icon flex-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                </div>
+                                <h4 style="font-weight: 500;" class="header-text">Personal Information</h4>
                             </div>
-                            <button class="card-edit">✏️ Edit</button>
                         </div>
-                        <div class="card-body">
+
+
+                        <div class="card-body mt-2 p-6">
                             <div class="info-grid">
 
                                 <div class="info-field">
-                                    <div class="info-label">Full Name</div>
-                                    <div class="info-value">Rakib Hossain</div>
+                                    <div class="info-label">Joining Date</div>
+                                    <div class="info-value">01 Dec 2024</div>
                                 </div>
 
                                 <div class="info-field">
-                                    <div class="info-label">Employee ID</div>
-                                    <div class="info-value" style="font-family:monospace;letter-spacing:0.5px">
-                                        #EMP-2021-0084</div>
+                                    <div class="info-label">Work Deprtment</div>
+                                    <div class="info-value">
+                                        Core Technical Team</div>
                                 </div>
 
                                 <div class="info-field">
@@ -329,42 +339,75 @@
 
                                 <div class="info-field">
                                     <div class="info-label">Date of Birth</div>
-                                    <div class="info-value">🎂 14 June, 1995</div>
+                                    <div class="info-value"> 14 June, 1999</div>
                                 </div>
 
                                 <div class="info-field">
                                     <div class="info-label">Blood Group</div>
                                     <div class="info-value">
-                                        <span class="badge badge-blood">🩸 B+</span>
+                                        <span class="badge badge-blood"> A+</span>
                                     </div>
                                 </div>
 
                                 <div class="info-field">
                                     <div class="info-label">Position</div>
-                                    <div class="info-value">Senior UI/UX Designer</div>
+                                    <div class="info-value">Junior Developer</div>
                                 </div>
 
                             </div>
 
                             <div class="divider"></div>
 
-                            <div class="info-grid">
+                            <div class="info-grid mt-6">
 
                                 <div class="info-field">
                                     <div class="info-label">Email Address</div>
-                                    <div class="info-value">📧 rakib@creativesoft.com</div>
+                                    <div class="info-value"> rakib@creativesoft.com</div>
                                 </div>
 
                                 <div class="info-field">
                                     <div class="info-label">Phone Number</div>
-                                    <div class="info-value">📱 +880 1712-345678</div>
+                                    <div class="info-value"> +880 1712-345678</div>
                                 </div>
 
                                 <div class="info-field" style="grid-column: 1 / -1">
                                     <div class="info-label">Address</div>
-                                    <div class="info-value">📍 House 12, Road 5, Mirpur-10, Dhaka-1216, Bangladesh</div>
+                                    <div class="info-value"> House 12, Road 5, Mirpur-10, Dhaka-1216, Bangladesh</div>
                                 </div>
 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="id-card flex-column justify-between">
+                        <div class="id-card-label">Employee Card</div>
+                        <div class="id-card-avatar">TA</div>
+                        <div class="id-card-name ">Tanvir Ahmed</div>
+                        <div class="id-card-pos mt-1">Junior Developer </div>
+                        <div class="id-card-row">
+                            <div class="id-num">
+                                Employee ID
+                                <strong class="mt-2">#EMP-2021-0084</strong>
+                            </div>
+                            <div style="font-size:1.8rem;opacity:0.4">🪪</div>
+                        </div>
+
+
+                        <!-- Repoting Manager -->
+                        <div class="card manager mt-5">
+                            <div class="card-header">
+                                <div class="card-title d-flex gap-3 fw-medium ">
+                                    <div class="card-icon">👔</div>
+                                    Reporting Manager
+                                </div>
+                            </div>
+                            <div class="manager-wrap mt-1 d-flex gap-4 p-4">
+                                <div class="manager-avatar">NR</div>
+                                <div>
+                                    <div class="manager-name fs-sm fw-bold">Shamiul Isalam</div>
+                                    <div class="manager-role mt-1 fs-xs">Head of Product Design</div>
+                                </div>
+                                <button class="manager-msg-btn">💬</button>
                             </div>
                         </div>
                     </div>
