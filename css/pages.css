@@ -277,14 +277,25 @@
     align-items: end;
 }
 
-.profile .profile-info img {
-    width: 130px;
-    height: 148px;
+
+.profile .profile-info .profile-img {
+    position: relative;
     border-radius: 8px;
-    outline: 4px solid var(--color-tag);
-    padding: 2px;
+    padding: 4px;
+    background: linear-gradient(
+        to bottom,
+        var(--color-secondary) 37%,
+        var(--color-white) 10%,
+        var(--color-white) 90%
+    );
 }
 
+.profile .profile-info .profile-img img {
+    width: 130px;
+    height: 148px;
+    border-radius: 6px;
+    display: block;
+}
 .profile .profile-info .name {
     color: var(--color-text-header);
     font-size: var(--fs-xl);
