@@ -1386,6 +1386,26 @@ aside .sidebar-bottom {
 
 
 @media (max-width:767px) {
+.btn {
+    gap: 7px;
+    padding: 12px 20px;
+}
+
+.notice-icon {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-sm);
+    z-index: 2;
+    margin-left: 0px;
+    transition: var(--transition-slow);
+    padding-left: 0px;
+}
+
     header {
         background-color: var(--header-bg);
     }
@@ -1410,7 +1430,7 @@ aside .sidebar-bottom {
     .header-wrap .logo svg text {
         animation: stroke 12s infinite alternate;
         stroke-width: 1;
-        font-size: var(--fs-xl);
+        font-size: var(--fs-xxl);
     }
 
     .header-wrap .left {

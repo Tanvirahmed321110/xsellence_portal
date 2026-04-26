@@ -486,3 +486,10 @@
     flex-shrink: 0;
     letter-spacing: .6px;
 }
+
+
+@media (max-width:767px){
+    .submit-form {
+    padding: 16px;
+}
+}
