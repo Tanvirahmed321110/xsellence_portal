@@ -286,7 +286,9 @@
 /* stagger fade-in */
 .card,
 .mini-card,
-.project-progress {
+.project-progress,
+.attendance,
+.leave {
     opacity: 0;
     animation: fade-up 0.5s ease forwards;
 }
@@ -325,6 +327,14 @@
 
 .mini-card:nth-child(4) {
     animation-delay: 0.40s;
+}
+
+.attendance {
+    animation-delay: .5s;
+}
+
+.leave {
+    animation-delay: .6s;
 }
 
 @keyframes fade-up {
