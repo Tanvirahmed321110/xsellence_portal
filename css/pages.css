@@ -237,13 +237,13 @@
     border-radius: var(--radius-lg);
 }
 
-/* .banner::before {
+.banner::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 80% 50%, rgba(249,177,44,0.25) 0%, transparent 55%),
+    background: radial-gradient(ellipse at 80% 50%, rgba(249, 189, 79, 0.19) 0%, transparent 55%),
     radial-gradient(ellipse at 10% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
-} */
+}
 .banner-top {
     position: absolute;
     inset: 0;
@@ -266,10 +266,10 @@
 
 /* Profile Info Top */
 .profile .profile-info {
-    margin-top: -78px;
+    margin-top: -84px;
     position: relative;
     z-index: 2;
-    padding: 20px 32px;
+    padding: 20px 60px;
     align-items: end;
 }
 
@@ -284,7 +284,7 @@
     padding: 4px;
     background: linear-gradient(
         to bottom,
-        var(--color-secondary) 37%,
+        var(--color-secondary) 41%,
         var(--color-white) 10%,
         var(--color-white) 90%
     );
@@ -321,7 +321,7 @@
     display: grid;
     gap: 36px;
     grid-template-columns: 1fr 28%;
-    padding: 0 32px;
+    padding: 0 60px;
 }
 
 .profile .main-info .card {

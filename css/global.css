@@ -83,7 +83,7 @@
 
 
 .header-wrap .left {
-    width: 332px;
+    width: 328px;
 }
 
 .header-wrap .logo {
@@ -633,7 +633,7 @@ aside .sidebar-bottom {
     transition: var(--transition-slow);
 }
 .notic-board.big .notice-icon{
-    margin-left: 304px;
+    margin-left: 290px;
 }
 
 /* Rotating dashed ring */
