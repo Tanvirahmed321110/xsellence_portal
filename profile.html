@@ -4,11 +4,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Task Details</title>
+        <title>Dashboard</title>
         <link rel="stylesheet" href="/css/custom_class.css">
         <link rel="stylesheet" href="/css/my_component.css">
         <link rel="stylesheet" href="/css/global.css">
-        <link rel="stylesheet" href="/css/pages.css">
+        <link rel="stylesheet" href="/css/dashboard.css">
     </head>
 
     <body>
@@ -32,7 +32,7 @@
 
                 <div class="flex-1 flex-between">
                     <!-- Collaps Button -->
-                    <button class="btn-collaps tooltip-right  " style="color: white;">
+                    <button class="btn-collaps tooltip-right " style="color: white;" id="collaps-btn">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <line x1="3" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" />
@@ -104,7 +104,7 @@
                             <!--==========  Profile Image and Dropdown Here ============= -->
                             <div class="profile-img-wrapper">
                                 <div class="profile-img">
-                                    <img src="https://lh3.googleusercontent.com/-NUYZF4ihccY/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkmZfBBqE7sSd_lZm1UWQfwa4DC34g/photo.jpg?sz=46"
+                                    <img src="/images/MDH_8729webqualitysquare.webp"
                                         alt="profile">
                                 </div>
                             </div>
@@ -262,186 +262,13 @@
 
 
 
-        <!-- =======================================
+        <!-- ========================================
         ||======  Main Content  Start Here  ======||
-        =========================================-->
-        <main class="main-content">
-
-            <!--========================|| Breadcrumb ||=========================-->
-            <section>
-                <nav class="breadcrumb">
-
-                    <a href="#">Dashboard</a>
-                    <span class="separator">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </span>
-
-                    <a href="./tasks.html">My Task</a>
-                    <span class="separator">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </span>
-
-                    <span class="active">Sonali Backend Development Change</span>
-                </nav>
-            </section>
+        ========================================= -->
+        <main class="main-content " id="main-content">
+            <section class="">
 
 
-
-            <!--========================|| Projects Here ||=========================-->
-            <section class="task-details mt-5">
-                <div>
-                    <!--================||   Single Task Card here ||===============-->
-                    <div class="proj-card task-card">
-                        <div class="card-banner"></div>
-                        <div class="card-body">
-                            <div class="card-top">
-                                <div class="card-title-wrap">
-                                    <!-- Task Name -->
-                                    <div class="card-proj-name">Nadia Website Backend Development</div>
-                                </div>
-                                <!-- Status -->
-                                <span class="status-badge status-active"><span class="dot"></span>In Progress</span>
-                            </div>
-                            <div>
-                                <div class="info-label d-flex align-center gap-2">Assignee
-                                    <svg width="19" height="17" viewBox="0 0 24 24" fill="none">
-                                        <circle cx="12" cy="8" r="3.5" fill="currentColor" />
-                                        <circle cx="6" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <circle cx="18" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <path d="M4 20c0-3.5 4-5.5 8-5.5s8 2 8 5.5" fill="currentColor" />
-                                    </svg>
-                                </div>
-
-                                <!-- assignee names -->
-                                <div class="card-tags">
-                                    <span class="tag ">Tanvir</span>
-                                    <span class="tag ">Shuvo</span>
-                                    <span class="tag ">Fahim Islam</span>
-                                    <span class="tag ">Razzak</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Razzak</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Delowar</span>
-                                </div>
-                            </div>
-                            <div class="card-info-grid mt-4">
-                                <!-- Project Name -->
-                                <div class="info-item mt-2">
-                                    <div class="info-label d-flex ailign-center gap-1">Project <svg width="18"
-                                            height="17" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v1H3V6z"></path>
-                                            <path d="M3 10h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z"></path>
-                                        </svg></div>
-                                    <div class="info-val mt-1">Nutrition Depot BD
-                                    </div>
-                                </div>
-                                <!-- For Assigned date -->
-                                <div class="info-item mt-2">
-                                    <div class="info-label">Assigned Date</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg>15 Jan 2026</div>
-                                </div>
-                            </div>
-
-                            <div class="card-info-grid">
-
-                                <!-- For Project Priority -->
-                                <div class="card-manager">
-                                    <div class="manager-info mt-2">
-                                        <div class="info-label">Priority <svg width="18" height="16" viewBox="0 0 24 24"
-                                                fill="currentColor">
-                                                <path d="M4 2v20" stroke="currentColor" stroke-width="2"
-                                                    stroke-linecap="round" />
-                                                <path d="M4 3h13l-2 4 2 4H4z" />
-                                            </svg>
-
-                                        </div>
-                                        <div class=" info-val">High</div>
-                                    </div>
-                                </div>
-
-                                <!-- For Deadline -->
-                                <div class="info-item mt-2">
-                                    <div class="info-label">Deadline</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg> <span>22 April 2026</span></div>
-                                </div>
-                            </div>
-
-                            <!-- Task Description -->
-                            <div class="mt-4">
-                                <div class="info-label">Description</div>
-                                <div class="task-desc-wrap mt-2 flex-column gap-4">
-                                    <p class="task-desc">এই টাস্কটি Sonali Backend-এর জন্য একটি গুরুত্বপূর্ণ ডেভেলপমেন্ট
-                                        পরিবর্তন অন্তর্ভুক্ত
-                                        করে। ব্যাকএন্ড API এর পারফরম্যান্স উন্নত করতে এবং ডেটাবেস কোয়েরি অপ্টিমাইজ করতে
-                                        প্রয়োজনীয় পদক্ষেপগুলি নেওয়া হয়েছে।
-
-                                        Nutrition Depot BD প্রজেক্টের জন্য নতুন মডিউল ইন্টিগ্রেশন এবং সিকিউরিটি আপডেট
-                                        সম্পন্ন করতে হবে। সকল টিম মেম্বারকে নির্ধারিত ডেডলাইনের মধ্যে কাজ সম্পন্ন করতে
-                                        হবে।
-
-                                    <p class="task-desc">
-                                        এই টাস্কটি Sonali Backend-এর জন্য একটি গুরুত্বপূর্ণ ডেভেলপমেন্ট পরিবর্তন
-                                        অন্তর্ভুক্ত
-                                        করে। ব্যাকএন্ড API এর পারফরম্যান্স উন্নত করতে এবং ডেটাবেস কোয়েরি অপ্টিমাইজ করতে
-                                        প্রয়োজনীয় পদক্ষেপগুলি নেওয়া হয়েছে।
-
-                                        Nutrition Depot BD প্রজেক্টের জন্য নতুন মডিউল ইন্টিগ্রেশন এবং সিকিউরিটি আপডেট
-                                        সম্পন্ন করতে হবে। সকল টিম মেম্বারকে নির্ধারিত ডেডলাইনের মধ্যে কাজ সম্পন্ন করতে
-                                        হবে।
-                                    </p>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--=============  Card Footer  =============-->
-                        <div class="card-footer">
-                            <div class="state-dropdown ">
-                                <select class="filter-select">
-                                    <option value="blocked">Blocked</option>
-                                    <option value="active">Active</option>
-                                    <option value="onhold">On Hold</option>
-                                    <option value="cancelled">Cancelled</option>
-                                    <option value="completed">Completed</option>
-                                </select>
-                            </div>
-                            <!-- Actions Buttons -->
-                            <div class="action-btns">
-
-                                <!-- Delete button -->
-                                <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="3 6 5 6 21 6" />
-                                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                                        <path d="M10 11v6" />
-                                        <path d="M14 11v6" />
-                                        <path d="M9 6V4h6v2" />
-                                    </svg></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
         </main>
 
@@ -453,10 +280,12 @@
         <button></button>
 
         <!-- =========================================
-        ||======  Notic Board  ======||
+        ||======  Sidebar Section Start Here  ======||
         ========================================== -->
-        <div class="notic-board">
-            <div class="notic-board">
+        <div class="notic-board big" id="notic-board" >
+            <div >
+
+
 
                 <!-- Ticker -->
                 <div class="ticker-wrap d-flex">
@@ -520,6 +349,8 @@
 
             </div>
         </div>
+
+        <script src="/js/main.js"></script>
     </body>
 
 </html>
