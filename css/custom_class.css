@@ -599,15 +599,15 @@ tr {
 }
 
 .shadow-sm {
-    box-shadow: var(--shadow-1);
+    box-shadow: var(--shadow-sm);
 }
 
 .shadow-md {
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow-md);
 }
 
 .shadow-lg {
-    box-shadow: var(--shadow-3);
+    box-shadow: var(--shadow-lg);
 }
 
 .shadow-xl {

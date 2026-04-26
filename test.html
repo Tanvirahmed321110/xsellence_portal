@@ -1,1394 +1,866 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TaskFlow — Project Management</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>User Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0c0e14;
-    --bg2: #13151f;
-    --bg3: #1a1d2e;
-    --card: #1e2235;
-    --card2: #252a40;
-    --border: #2e3354;
-    --accent: #6c63ff;
-    --accent2: #ff6584;
-    --accent3: #43e97b;
-    --accent4: #f7971e;
-    --text: #e8eaf6;
-    --text2: #8b93c4;
-    --text3: #5a6191;
-    --shadow: 0 4px 32px rgba(108,99,255,0.10);
-    --radius: 14px;
-    --sidebar-w: 230px;
-  }
-  [data-theme="light"] {
-    --bg: #f0f2ff;
-    --bg2: #e8ebf8;
-    --bg3: #dde2f5;
-    --card: #ffffff;
-    --card2: #f5f7ff;
-    --border: #d0d5ef;
-    --text: #1a1d2e;
-    --text2: #4a5080;
-    --text3: #8b93c4;
-    --shadow: 0 4px 32px rgba(108,99,255,0.08);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { font-size: 15px; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    transition: background 0.3s, color 0.3s;
-    overflow-x: hidden;
-  }
+:root {
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-7: 32px;
+  --color-primary: #d9117b; --color-primary-hover: #bd0969;
+  --color-secondary: #F9B12C;
+  --color-tag: #d9117c14;
+  --color-bg-body: #f0f2f7;
+  --color-bg-primary: #ffffff;
+  --color-text-header: #1a1d23;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #9ca3af;
+  --color-text-desc: #6b7280;
+  --border-secondary: #e5e7eb;
+  --border-primary: #d9117c1a;
+  --fs-xs: 0.72rem; --fs-sm: 0.875rem; --fs-md: 1rem;
+  --fs-lg: 1.125rem; --fs-xl: 1.25rem; --fs-xxl: 1.5rem;
+  --radius-sm: 6px; --radius-md: 8px; --radius-lg: 10px;
+  --radius-xl: 14px; --radius-xxl: 18px; --radius-pill: 200px; --radius-round: 50%;
+  --fw-400: 400; --fw-500: 500; --fw-600: 600; --fw-700: 700;
+  --sidebar-bg: linear-gradient(160deg, #7b3fa0 0%, #4a2272 100%);
+  --header-bg: linear-gradient(120deg, #7b3fa0 0%, #d9117b 100%);
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --transition: 0.2s ease;
+}
 
-  /* ── SIDEBAR ── */
-  .sidebar {
-    width: var(--sidebar-w);
-    background: var(--bg2);
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0; left: 0; bottom: 0;
-    z-index: 100;
-    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
-  }
-  .sidebar-logo {
-    padding: 24px 20px 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid var(--border);
-  }
-  .logo-icon {
-    width: 36px; height: 36px;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 17px; color: #fff;
-  }
-  .logo-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.5px; }
-  .logo-text span { color: var(--accent); }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .nav { flex: 1; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px; }
-  .nav-item {
-    display: flex; align-items: center; gap: 12px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: var(--text2);
-    font-size: 0.88rem;
-    font-weight: 500;
-    transition: all 0.2s;
-    position: relative;
-    user-select: none;
-  }
-  .nav-item i { width: 18px; text-align: center; font-size: 1rem; }
-  .nav-item:hover { background: var(--bg3); color: var(--text); }
-  .nav-item.active {
-    background: linear-gradient(135deg, rgba(108,99,255,0.18), rgba(255,101,132,0.07));
-    color: var(--accent);
-    font-weight: 600;
-  }
-  .nav-item.active::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 20%; bottom: 20%;
-    width: 3px;
-    background: var(--accent);
-    border-radius: 0 3px 3px 0;
-  }
-  .nav-badge {
-    margin-left: auto;
-    background: var(--accent);
-    color: #fff;
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 20px;
-  }
-  .nav-section {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--text3);
-    padding: 12px 14px 6px;
-  }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--color-bg-body);
+  min-height: 100vh;
+  display: flex;
+  color: var(--color-text-header);
+}
 
-  .sidebar-footer {
-    padding: 16px 14px;
-    border-top: 1px solid var(--border);
-  }
-  .sidebar-user {
-    display: flex; align-items: center; gap: 10px;
-    cursor: pointer;
-  }
-  .sidebar-avatar {
-    width: 34px; height: 34px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne',sans-serif; font-weight: 700; font-size: 0.85rem; color: #fff;
-    flex-shrink: 0;
-  }
-  .sidebar-user-info { flex: 1; min-width: 0; }
-  .sidebar-user-name { font-size: 0.82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .sidebar-user-role { font-size: 0.7rem; color: var(--text3); }
+/* ── Sidebar ── */
+.sidebar {
+  width: 260px;
+  background: var(--sidebar-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex-shrink: 0;
+}
 
-  /* ── MAIN ── */
-  .main { margin-left: var(--sidebar-w); flex: 1; min-height: 100vh; display: flex; flex-direction: column; }
+.sidebar-logo {
+  font-size: 1.3rem;
+  font-weight: var(--fw-700);
+  color: #fff;
+  padding: 0 12px 28px;
+  letter-spacing: -0.3px;
+}
 
-  /* ── HEADER ── */
-  .header {
-    height: 60px;
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center;
-    padding: 0 24px;
-    gap: 12px;
-    position: sticky; top: 0; z-index: 90;
-  }
-  .hamburger {
-    display: none;
-    background: none; border: none; color: var(--text2); font-size: 1.2rem;
-    cursor: pointer; padding: 6px; margin-right: 4px;
-  }
-  .header-title { font-family: 'Syne',sans-serif; font-weight: 700; font-size: 1.05rem; flex: 1; }
-  .header-actions { display: flex; align-items: center; gap: 8px; }
-  .header-btn {
-    width: 36px; height: 36px;
-    border-radius: 10px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    color: var(--text2);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; font-size: 0.95rem;
-    position: relative;
-    transition: all 0.2s;
-  }
-  .header-btn:hover { background: var(--card); color: var(--text); }
-  .notif-dot {
-    position: absolute; top: 7px; right: 7px;
-    width: 7px; height: 7px;
-    background: var(--accent2);
-    border-radius: 50%;
-    border: 1.5px solid var(--bg2);
-  }
-  .header-avatar {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne',sans-serif; font-weight: 700; font-size: 0.8rem; color: #fff;
-    cursor: pointer;
-    border: 2px solid var(--border);
-  }
+.sidebar-logo span { color: var(--color-secondary); }
 
-  /* ── CONTENT ── */
-  .content { padding: 24px; flex: 1; }
-  .page { display: none; animation: fadeIn 0.3s ease; }
-  .page.active { display: block; }
-  @keyframes fadeIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
+.nav-group-label {
+  font-size: 0.62rem;
+  font-weight: var(--fw-600);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  padding: 16px 14px 8px;
+}
 
-  /* ── DASHBOARD ── */
-  .page-header { margin-bottom: 22px; }
-  .page-header h2 { font-family: 'Syne',sans-serif; font-size: 1.5rem; font-weight: 800; }
-  .page-header p { color: var(--text2); font-size: 0.85rem; margin-top: 4px; }
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  color: rgba(255,255,255,0.6);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-500);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition);
+  margin-bottom: 2px;
+}
 
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
-  .stat-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 18px;
-    display: flex; flex-direction: column; gap: 10px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-  .stat-header { display: flex; align-items: center; justify-content: space-between; }
-  .stat-icon {
-    width: 38px; height: 38px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center; font-size: 1rem;
-  }
-  .stat-icon.purple { background: rgba(108,99,255,0.15); color: var(--accent); }
-  .stat-icon.pink   { background: rgba(255,101,132,0.15); color: var(--accent2); }
-  .stat-icon.green  { background: rgba(67,233,123,0.12); color: var(--accent3); }
-  .stat-icon.orange { background: rgba(247,151,30,0.12); color: var(--accent4); }
-  .stat-trend { font-size: 0.7rem; font-weight: 600; padding: 3px 8px; border-radius: 20px; }
-  .trend-up   { background: rgba(67,233,123,0.12); color: var(--accent3); }
-  .trend-down { background: rgba(255,101,132,0.12); color: var(--accent2); }
-  .stat-value { font-family: 'Syne',sans-serif; font-size: 1.8rem; font-weight: 800; }
-  .stat-label { font-size: 0.78rem; color: var(--text2); }
+.nav-item:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.nav-item.active { background: rgba(255,255,255,0.18); color: #fff; }
 
-  .dash-grid { display: grid; grid-template-columns: 1fr 340px; gap: 18px; }
-  .section-title { font-family: 'Syne',sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; }
-  .see-all { font-family: 'DM Sans',sans-serif; font-size: 0.78rem; color: var(--accent); cursor: pointer; font-weight: 500; }
+.nav-icon {
+  width: 32px; height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  background: rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
 
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.nav-item.active .nav-icon { background: rgba(255,255,255,0.2); }
 
-  /* Progress bars */
-  .proj-list { display: flex; flex-direction: column; gap: 14px; }
-  .proj-item { display: flex; flex-direction: column; gap: 7px; }
-  .proj-row { display: flex; align-items: center; justify-content: space-between; }
-  .proj-name { font-size: 0.85rem; font-weight: 600; }
-  .proj-meta { font-size: 0.73rem; color: var(--text3); }
-  .proj-pct  { font-size: 0.78rem; font-weight: 700; color: var(--accent); }
-  .progress { height: 6px; background: var(--bg3); border-radius: 10px; overflow: hidden; }
-  .progress-bar { height: 100%; border-radius: 10px; transition: width 1s ease; }
+.sidebar-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 16px;
+}
 
-  /* Activity */
-  .activity-list { display: flex; flex-direction: column; gap: 12px; }
-  .activity-item { display: flex; gap: 10px; align-items: flex-start; }
-  .act-dot {
-    width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0;
-  }
-  .act-body { flex: 1; }
-  .act-text { font-size: 0.82rem; line-height: 1.5; }
-  .act-text strong { color: var(--text); }
-  .act-time { font-size: 0.7rem; color: var(--text3); margin-top: 2px; }
+/* ── Main ── */
+.main {
+  flex: 1;
+  overflow-y: auto;
+  animation: pageIn 0.4s ease both;
+}
 
-  /* ── PROJECTS PAGE ── */
-  .toolbar { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; align-items: center; }
-  .search-box {
-    flex: 1; min-width: 180px;
-    display: flex; align-items: center; gap: 8px;
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 10px; padding: 0 12px; height: 38px;
-  }
-  .search-box input {
-    background: none; border: none; outline: none;
-    color: var(--text); font-family: 'DM Sans',sans-serif; font-size: 0.85rem; flex: 1;
-  }
-  .search-box i { color: var(--text3); font-size: 0.85rem; }
-  .btn {
-    padding: 0 16px; height: 38px;
-    border-radius: 10px; border: none; cursor: pointer;
-    font-family: 'DM Sans',sans-serif; font-size: 0.83rem; font-weight: 600;
-    display: flex; align-items: center; gap: 7px;
-    transition: all 0.2s;
-  }
-  .btn-primary { background: var(--accent); color: #fff; }
-  .btn-primary:hover { background: #7b74ff; }
-  .btn-outline { background: var(--card); color: var(--text2); border: 1px solid var(--border); }
-  .btn-outline:hover { background: var(--card2); color: var(--text); }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
 
-  .table-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
-  th {
-    text-align: left; padding: 10px 14px;
-    color: var(--text3); font-weight: 600; font-size: 0.72rem;
-    text-transform: uppercase; letter-spacing: 0.8px;
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
-  td {
-    padding: 12px 14px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text2);
-    vertical-align: middle;
-  }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: var(--bg3); }
-  td.name-cell { color: var(--text); font-weight: 600; }
-  .badge {
-    display: inline-block; padding: 3px 10px;
-    border-radius: 20px; font-size: 0.7rem; font-weight: 700;
-  }
-  .badge-green  { background: rgba(67,233,123,0.12);  color: #43e97b; }
-  .badge-blue   { background: rgba(108,99,255,0.14);  color: #6c63ff; }
-  .badge-orange { background: rgba(247,151,30,0.14);  color: #f7971e; }
-  .badge-red    { background: rgba(255,101,132,0.14); color: #ff6584; }
-  .badge-gray   { background: rgba(138,145,196,0.12); color: #8b93c4; }
+/* ── Banner ── */
+.banner {
+  height: 160px;
+  background: var(--header-bg);
+  position: relative;
+  overflow: hidden;
+}
 
-  .action-btns { display: flex; gap: 6px; }
-  .icon-btn {
-    width: 28px; height: 28px; border-radius: 7px;
-    background: var(--bg3); border: 1px solid var(--border);
-    color: var(--text3); display: flex; align-items: center; justify-content: center;
-    cursor: pointer; font-size: 0.75rem; transition: all 0.2s;
-  }
-  .icon-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(249,177,44,0.25) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
+}
 
-  .avatar-stack { display: flex; }
-  .avatar-sm {
-    width: 24px; height: 24px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.6rem; font-weight: 700; color: #fff;
-    margin-left: -6px; border: 2px solid var(--card);
-  }
-  .avatar-sm:first-child { margin-left: 0; }
+.banner-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
 
-  /* ── TASKS PAGE ── */
-  .tasks-filter { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
-  .filter-tab {
-    padding: 6px 16px; border-radius: 8px;
-    background: var(--card); border: 1px solid var(--border);
-    color: var(--text2); font-size: 0.8rem; font-weight: 600;
-    cursor: pointer; transition: all 0.2s;
-  }
-  .filter-tab.active, .filter-tab:hover {
-    background: var(--accent); color: #fff; border-color: var(--accent);
-  }
+.banner-top-actions {
+  position: absolute;
+  top: 16px; right: 20px;
+  display: flex; gap: 10px;
+}
 
-  /* Priority dots */
-  .priority { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 600; }
-  .p-dot { width: 8px; height: 8px; border-radius: 50%; }
-  .p-high   .p-dot { background: #ff6584; }
-  .p-medium .p-dot { background: #f7971e; }
-  .p-low    .p-dot { background: #43e97b; }
-  .p-high   { color: #ff6584; }
-  .p-medium { color: #f7971e; }
-  .p-low    { color: #43e97b; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-600);
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  letter-spacing: 0.3px;
+}
 
-  /* ── TIMESHEETS ── */
-  .time-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 6px; margin-bottom: 18px; }
-  .day-cell {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 10px; padding: 10px 8px; text-align: center; cursor: pointer;
-    transition: all 0.2s;
-  }
-  .day-cell:hover, .day-cell.today { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .day-cell .day-name { font-size: 0.65rem; color: var(--text3); text-transform: uppercase; margin-bottom: 4px; }
-  .day-cell.today .day-name { color: rgba(255,255,255,0.7); }
-  .day-cell .day-num { font-family: 'Syne',sans-serif; font-weight: 700; font-size: 1rem; }
-  .day-cell .day-hrs { font-size: 0.65rem; margin-top: 4px; color: var(--text3); }
-  .day-cell.today .day-hrs { color: rgba(255,255,255,0.7); }
+.btn-primary { background: var(--color-primary); color: #fff; }
+.btn-primary:hover { background: var(--color-primary-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(217,17,123,0.35); }
 
-  .timesheet-entries { display: flex; flex-direction: column; gap: 10px; }
-  .ts-entry {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 14px 18px; display: flex; align-items: center; gap: 14px;
-    transition: transform 0.2s;
-  }
-  .ts-entry:hover { transform: translateX(4px); border-left: 3px solid var(--accent); }
-  .ts-color { width: 4px; height: 40px; border-radius: 4px; flex-shrink: 0; }
-  .ts-info { flex: 1; }
-  .ts-task { font-size: 0.88rem; font-weight: 600; }
-  .ts-proj { font-size: 0.75rem; color: var(--text3); margin-top: 3px; }
-  .ts-time { font-family: 'Syne',sans-serif; font-weight: 700; font-size: 1rem; color: var(--accent); }
-  .ts-range { font-size: 0.72rem; color: var(--text3); text-align: right; }
+.btn-ghost {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(8px);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.25); }
 
-  /* ── PROFILE ── */
-  .profile-hero {
-    background: linear-gradient(135deg, rgba(108,99,255,0.2), rgba(255,101,132,0.1));
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 28px;
-    display: flex; align-items: center; gap: 22px;
-    margin-bottom: 22px;
-    position: relative; overflow: hidden;
-  }
-  .profile-hero::before {
-    content: '';
-    position: absolute; top: -40px; right: -40px;
-    width: 180px; height: 180px;
-    background: radial-gradient(circle, rgba(108,99,255,0.15), transparent);
-    border-radius: 50%;
-  }
-  .profile-big-avatar {
-    width: 72px; height: 72px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne',sans-serif; font-weight: 800; font-size: 1.6rem; color: #fff;
-    flex-shrink: 0; position: relative;
-  }
-  .online-dot {
-    position: absolute; bottom: 3px; right: 3px;
-    width: 14px; height: 14px; background: var(--accent3);
-    border-radius: 50%; border: 2.5px solid var(--bg2);
-  }
-  .profile-hero-info h3 { font-family: 'Syne',sans-serif; font-weight: 800; font-size: 1.25rem; }
-  .profile-hero-info p { color: var(--text2); font-size: 0.83rem; margin-top: 4px; }
-  .profile-tags { display: flex; gap: 7px; margin-top: 10px; flex-wrap: wrap; }
-  .tag {
-    padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 600;
-    background: rgba(108,99,255,0.12); color: var(--accent);
-  }
+/* ── Profile Header Card ── */
+.profile-header-card {
+  background: var(--color-bg-primary);
+  margin: 0 24px;
+  border-radius: var(--radius-xxl);
+  transform: translateY(-48px);
+  margin-bottom: -24px;
+  box-shadow: var(--shadow-lg);
+  padding: 0 28px 24px;
+  border: 1px solid var(--border-secondary);
+}
 
-  .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group { margin-bottom: 14px; }
-  .form-label { font-size: 0.75rem; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; display: block; }
-  .form-input {
-    width: 100%; padding: 10px 14px;
-    background: var(--bg3); border: 1px solid var(--border);
-    border-radius: 10px; color: var(--text);
-    font-family: 'DM Sans',sans-serif; font-size: 0.85rem;
-    outline: none; transition: border-color 0.2s;
-  }
-  .form-input:focus { border-color: var(--accent); }
-  .form-select {
-    width: 100%; padding: 10px 14px;
-    background: var(--bg3); border: 1px solid var(--border);
-    border-radius: 10px; color: var(--text);
-    font-family: 'DM Sans',sans-serif; font-size: 0.85rem; outline: none;
-    appearance: none; cursor: pointer;
-  }
+.avatar-section {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  transform: translateY(-40px);
+  margin-bottom: -16px;
+}
 
-  /* ── ADD TASK ── */
-  .add-task-form { max-width: 700px; }
-  .add-task-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .form-textarea {
-    width: 100%; padding: 10px 14px;
-    background: var(--bg3); border: 1px solid var(--border);
-    border-radius: 10px; color: var(--text);
-    font-family: 'DM Sans',sans-serif; font-size: 0.85rem;
-    outline: none; resize: vertical; min-height: 90px;
-    transition: border-color 0.2s;
-  }
-  .form-textarea:focus { border-color: var(--accent); }
-  .ai-chip {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 5px 12px; border-radius: 20px;
-    background: linear-gradient(135deg, rgba(108,99,255,0.15), rgba(255,101,132,0.08));
-    border: 1px solid rgba(108,99,255,0.2);
-    color: var(--accent); font-size: 0.75rem; font-weight: 600;
-    cursor: pointer; transition: all 0.2s; margin-bottom: 16px;
-  }
-  .ai-chip:hover { background: linear-gradient(135deg, rgba(108,99,255,0.25), rgba(255,101,132,0.15)); }
-  .ai-chip i { font-size: 0.8rem; }
+/* Avatar upload */
+.avatar-upload-wrap {
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+}
 
-  /* ── NOTIFICATIONS ── */
-  .notif-panel {
-    position: fixed; top: 60px; right: 16px;
-    width: 320px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: 0 8px 40px rgba(0,0,0,0.3);
-    z-index: 200;
-    display: none;
-    animation: slideDown 0.2s ease;
-  }
-  .notif-panel.open { display: block; }
-  @keyframes slideDown { from { opacity:0; transform: translateY(-8px); } to { opacity:1; transform: translateY(0); } }
-  .notif-header { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-  .notif-header span { font-family: 'Syne',sans-serif; font-weight: 700; font-size: 0.9rem; }
-  .notif-mark { font-size: 0.73rem; color: var(--accent); cursor: pointer; }
-  .notif-item { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; gap: 10px; cursor: pointer; transition: background 0.15s; }
-  .notif-item:hover { background: var(--bg3); }
-  .notif-item.unread { background: rgba(108,99,255,0.05); }
-  .notif-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
-  .notif-body { flex: 1; }
-  .notif-text { font-size: 0.8rem; line-height: 1.4; }
-  .notif-time { font-size: 0.68rem; color: var(--text3); margin-top: 3px; }
-  .unread-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+.avatar-img {
+  width: 96px; height: 96px;
+  border-radius: var(--radius-round);
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: var(--shadow-md);
+  background: var(--sidebar-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; color: #fff; font-weight: var(--fw-700);
+  overflow: hidden;
+}
 
-  /* ── OVERLAY ── */
-  .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 95; }
-  .overlay.open { display: block; }
+.avatar-initials {
+  width: 96px; height: 96px;
+  border-radius: var(--radius-round);
+  border: 4px solid #fff;
+  box-shadow: var(--shadow-md);
+  background: var(--sidebar-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; color: #fff; font-weight: var(--fw-700);
+  flex-shrink: 0;
+}
 
-  /* ── MOBILE ── */
-  @media (max-width: 900px) {
-    .sidebar { transform: translateX(-100%); }
-    .sidebar.open { transform: translateX(0); }
-    .main { margin-left: 0; }
-    .hamburger { display: flex; }
-    .stats-grid { grid-template-columns: repeat(2,1fr); }
-    .dash-grid { grid-template-columns: 1fr; }
-    .profile-grid { grid-template-columns: 1fr; }
-    .add-task-form .form-row { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 600px) {
-    .stats-grid { grid-template-columns: 1fr 1fr; }
-    .content { padding: 14px; }
-    .header { padding: 0 14px; }
-    .time-grid { grid-template-columns: repeat(7,1fr); gap: 3px; }
-    .day-cell { padding: 7px 3px; }
-    .day-cell .day-name { font-size: 0.55rem; }
-    .day-cell .day-num  { font-size: 0.85rem; }
-    table { font-size: 0.78rem; }
-    th, td { padding: 9px 10px; }
-    .notif-panel { right: 8px; width: calc(100vw - 16px); }
-  }
+.avatar-change-btn {
+  position: absolute;
+  bottom: 2px; right: 2px;
+  width: 26px; height: 26px;
+  border-radius: var(--radius-round);
+  background: var(--color-primary);
+  border: 2px solid #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+  transition: transform var(--transition);
+}
 
-  /* Scrollbar */
-  ::-webkit-scrollbar { width: 5px; height: 5px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+.avatar-change-btn:hover { transform: scale(1.1); }
 
-  /* Tooltip */
-  [title] { position: relative; }
+.profile-name-block { padding-top: 44px; flex: 1; }
 
-  /* Loading shimmer */
-  .skeleton {
-    background: linear-gradient(90deg, var(--bg3) 25%, var(--border) 50%, var(--bg3) 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.4s infinite;
-    border-radius: 6px;
-  }
-  @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: var(--fw-700);
+  color: var(--color-text-header);
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+}
+
+.profile-position {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  background: var(--color-tag);
+  color: var(--color-primary);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-600);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.3px;
+}
+
+.profile-sub {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.sub-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+.online-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  display: inline-block;
+}
+
+/* ── Content ── */
+.content {
+  padding: 12px 24px 40px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+}
+
+.left { display: flex; flex-direction: column; gap: 20px; }
+.right { display: flex; flex-direction: column; gap: 20px; }
+
+/* ── Card ── */
+.card {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-secondary);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px 14px;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-600);
+  color: var(--color-text-header);
+}
+
+.card-icon {
+  width: 34px; height: 34px;
+  border-radius: var(--radius-md);
+  background: var(--color-tag);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+
+.card-edit {
+  font-size: var(--fs-xs);
+  color: var(--color-primary);
+  font-weight: var(--fw-600);
+  cursor: pointer;
+  display: flex; align-items: center; gap: 4px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-primary);
+  transition: all var(--transition);
+  background: none;
+  font-family: inherit;
+}
+
+.card-edit:hover { background: var(--color-tag); }
+
+.card-body { padding: 20px 24px; }
+
+/* ── Info Grid ── */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 28px;
+}
+
+.info-field {}
+
+.info-label {
+  font-size: 0.68rem;
+  font-weight: var(--fw-600);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--color-text-muted);
+  margin-bottom: 5px;
+}
+
+.info-value {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-500);
+  color: var(--color-text-header);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-value .badge {
+  font-size: 0.65rem;
+  font-weight: var(--fw-600);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.badge-blood {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.badge-active {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.badge-gender {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-secondary);
+  margin: 20px 0;
+}
+
+/* ── ID Card ── */
+.id-card {
+  background: var(--sidebar-bg);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.id-card::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+
+.id-card::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; left: 20px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.id-card-label {
+  font-size: 0.62rem;
+  font-weight: var(--fw-600);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 14px;
+}
+
+.id-card-avatar {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-round);
+  background: rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; font-weight: var(--fw-700); color: #fff;
+  margin-bottom: 12px;
+  border: 2px solid rgba(255,255,255,0.25);
+}
+
+.id-card-name {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-700);
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.id-card-pos {
+  font-size: var(--fs-xs);
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 16px;
+}
+
+.id-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 14px;
+}
+
+.id-num {
+  font-size: var(--fs-xs);
+  color: rgba(255,255,255,0.5);
+  font-weight: var(--fw-500);
+}
+
+.id-num strong {
+  display: block;
+  font-size: var(--fs-sm);
+  color: var(--color-secondary);
+  font-weight: var(--fw-700);
+  letter-spacing: 1px;
+}
+
+/* ── Quick Info ── */
+.quick-info { display: flex; flex-direction: column; }
+
+.qi-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border-secondary);
+  transition: background var(--transition);
+}
+
+.qi-item:last-child { border-bottom: none; }
+.qi-item:hover { background: #fafafa; }
+
+.qi-icon {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--color-tag);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.qi-label {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  margin-bottom: 1px;
+}
+
+.qi-value {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-500);
+  color: var(--color-text-header);
+}
+
+/* ── Manager Card ── */
+.manager-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px;
+}
+
+.manager-avatar {
+  width: 46px; height: 46px;
+  border-radius: var(--radius-round);
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: var(--fw-700); color: #fff;
+  flex-shrink: 0;
+}
+
+.manager-name {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-600);
+  color: var(--color-text-header);
+}
+
+.manager-role {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  margin-top: 1px;
+}
+
+.manager-msg-btn {
+  margin-left: auto;
+  width: 34px; height: 34px;
+  border-radius: var(--radius-round);
+  background: var(--color-tag);
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all var(--transition);
+}
+
+.manager-msg-btn:hover { background: var(--color-primary); }
+
+/* responsive */
+@media (max-width: 1024px) {
+  .content { grid-template-columns: 1fr; }
+  .right { flex-direction: row; flex-wrap: wrap; }
+  .right .card { flex: 1; min-width: 260px; }
+}
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .profile-header-card { margin: 0 12px; }
+  .content { padding: 12px; }
+  .info-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 
-<!-- Overlay for mobile sidebar -->
-<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-logo">HR<span>Pro</span></div>
 
-<!-- SIDEBAR -->
-<aside class="sidebar" id="sidebar">
-  <div class="sidebar-logo">
-    <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
-    <div class="logo-text">Task<span>Flow</span></div>
-  </div>
+  <div class="nav-group-label">Main</div>
+  <a class="nav-item" href="#"><span class="nav-icon">🏠</span> Dashboard</a>
+  <a class="nav-item active" href="#"><span class="nav-icon">👤</span> My Profile</a>
+  <a class="nav-item" href="#"><span class="nav-icon">👥</span> Employees</a>
 
-  <nav class="nav">
-    <div class="nav-section">Main</div>
-    <div class="nav-item active" onclick="navigate('dashboard',this)">
-      <i class="fa-solid fa-grid-2"></i> Dashboard
-    </div>
-    <div class="nav-item" onclick="navigate('projects',this)">
-      <i class="fa-solid fa-folder-open"></i> My Projects
-      <span class="nav-badge">6</span>
-    </div>
-    <div class="nav-item" onclick="navigate('tasks',this)">
-      <i class="fa-solid fa-list-check"></i> My Tasks
-      <span class="nav-badge">12</span>
-    </div>
+  <div class="nav-group-label">Work</div>
+  <a class="nav-item" href="#"><span class="nav-icon">📋</span> Tasks</a>
+  <a class="nav-item" href="#"><span class="nav-icon">📅</span> Attendance</a>
+  <a class="nav-item" href="#"><span class="nav-icon">💰</span> Payroll</a>
+  <a class="nav-item" href="#"><span class="nav-icon">📊</span> Reports</a>
 
-    <div class="nav-section">Work</div>
-    <div class="nav-item" onclick="navigate('timesheets',this)">
-      <i class="fa-regular fa-clock"></i> Timesheets
-    </div>
-    <div class="nav-item" onclick="navigate('addtask',this)">
-      <i class="fa-solid fa-circle-plus"></i> Add Task
-    </div>
-
-    <div class="nav-section">Account</div>
-    <div class="nav-item" onclick="navigate('profile',this)">
-      <i class="fa-regular fa-circle-user"></i> Profile
-    </div>
-    <div class="nav-item" style="color:var(--text3)">
-      <i class="fa-solid fa-gear"></i> Settings
-    </div>
-  </nav>
+  <div class="nav-group-label">System</div>
+  <a class="nav-item" href="#"><span class="nav-icon">⚙️</span> Settings</a>
 
   <div class="sidebar-footer">
-    <div class="sidebar-user" onclick="navigate('profile', document.querySelector('.nav-item:nth-child(8)'))">
-      <div class="sidebar-avatar">RH</div>
-      <div class="sidebar-user-info">
-        <div class="sidebar-user-name">Rafsan Hossain</div>
-        <div class="sidebar-user-role">UI/UX Designer</div>
-      </div>
-      <i class="fa-solid fa-ellipsis" style="color:var(--text3);font-size:0.8rem"></i>
-    </div>
+    <a class="nav-item" href="#"><span class="nav-icon">🚪</span> Logout</a>
   </div>
 </aside>
 
-<!-- MAIN -->
-<div class="main">
+<!-- Main -->
+<main class="main">
 
-  <!-- HEADER -->
-  <header class="header">
-    <button class="hamburger" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
-    <div class="header-title" id="headerTitle">Dashboard</div>
-    <div class="header-actions">
-      <div class="header-btn" onclick="toggleNotif()" id="notifBtn" title="Notifications">
-        <i class="fa-regular fa-bell"></i>
-        <span class="notif-dot"></span>
-      </div>
-      <div class="header-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">
-        <i class="fa-solid fa-moon" id="themeIcon"></i>
-      </div>
-      <div class="header-avatar" onclick="navigate('profile', document.querySelectorAll('.nav-item')[6])" title="Profile">RH</div>
+  <!-- Banner -->
+  <div class="banner">
+    <div class="banner-dots"></div>
+    <div class="banner-top-actions">
+      <button class="btn btn-ghost">✏️ Edit Profile</button>
+      <button class="btn btn-primary">⚙️ Settings</button>
     </div>
-  </header>
+  </div>
 
-  <!-- NOTIFICATION PANEL -->
-  <div class="notif-panel" id="notifPanel">
-    <div class="notif-header">
-      <span>Notifications</span>
-      <span class="notif-mark">Mark all read</span>
-    </div>
-    <div class="notif-item unread">
-      <div class="notif-icon" style="background:rgba(108,99,255,0.15);color:var(--accent)"><i class="fa-solid fa-check"></i></div>
-      <div class="notif-body">
-        <div class="notif-text"><strong>Task completed</strong> — "Design Homepage Mockup" marked done</div>
-        <div class="notif-time">2 min ago</div>
+  <!-- Profile Header -->
+  <div class="profile-header-card">
+    <div class="avatar-section">
+      <div class="avatar-upload-wrap">
+        <div class="avatar-initials">RH</div>
+        <div class="avatar-change-btn">📷</div>
       </div>
-      <div class="unread-dot"></div>
-    </div>
-    <div class="notif-item unread">
-      <div class="notif-icon" style="background:rgba(255,101,132,0.15);color:var(--accent2)"><i class="fa-solid fa-exclamation"></i></div>
-      <div class="notif-body">
-        <div class="notif-text"><strong>Deadline approaching</strong> — "API Integration" due tomorrow</div>
-        <div class="notif-time">1 hr ago</div>
-      </div>
-      <div class="unread-dot"></div>
-    </div>
-    <div class="notif-item">
-      <div class="notif-icon" style="background:rgba(67,233,123,0.12);color:var(--accent3)"><i class="fa-solid fa-user-plus"></i></div>
-      <div class="notif-body">
-        <div class="notif-text"><strong>Tasneem</strong> assigned you a new task in Mobile App</div>
-        <div class="notif-time">3 hrs ago</div>
-      </div>
-    </div>
-    <div class="notif-item">
-      <div class="notif-icon" style="background:rgba(247,151,30,0.12);color:var(--accent4)"><i class="fa-solid fa-comment"></i></div>
-      <div class="notif-body">
-        <div class="notif-text"><strong>Jahir</strong> commented on "Dashboard Redesign"</div>
-        <div class="notif-time">Yesterday</div>
+      <div class="profile-name-block">
+        <div class="profile-name">Rakib Hossain</div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px">
+          <span class="profile-position">💼 Senior UI/UX Designer</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:0.72rem;color:#6b7280">
+            <span class="online-dot"></span> Active
+          </span>
+        </div>
+        <div class="profile-sub">
+          <span class="sub-item">🏢 CreativeSoft Ltd.</span>
+          <span class="sub-item">📍 Dhaka, Bangladesh</span>
+          <span class="sub-item">🗓️ Joined Mar 2021</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- CONTENT -->
-  <main class="content">
+  <!-- Content Grid -->
+  <div class="content">
 
-    <!-- ── DASHBOARD ── -->
-    <div class="page active" id="page-dashboard">
-      <div class="page-header">
-        <h2>Good morning, Rafsan 👋</h2>
-        <p>Sunday, April 19, 2026 — Here's what's happening today</p>
-      </div>
+    <!-- Left -->
+    <div class="left">
 
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-header">
-            <div class="stat-icon purple"><i class="fa-solid fa-folder"></i></div>
-            <span class="stat-trend trend-up">↑ 2</span>
-          </div>
-          <div class="stat-value">6</div>
-          <div class="stat-label">Active Projects</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-header">
-            <div class="stat-icon pink"><i class="fa-solid fa-list-check"></i></div>
-            <span class="stat-trend trend-up">↑ 5</span>
-          </div>
-          <div class="stat-value">24</div>
-          <div class="stat-label">Total Tasks</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-header">
-            <div class="stat-icon green"><i class="fa-solid fa-circle-check"></i></div>
-            <span class="stat-trend trend-up">↑ 3</span>
-          </div>
-          <div class="stat-value">12</div>
-          <div class="stat-label">Completed</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-header">
-            <div class="stat-icon orange"><i class="fa-regular fa-clock"></i></div>
-            <span class="stat-trend trend-down">↓ 1</span>
-          </div>
-          <div class="stat-value">3</div>
-          <div class="stat-label">Overdue Tasks</div>
-        </div>
-      </div>
-
-      <div class="dash-grid">
-        <div class="card">
-          <div class="section-title">Project Progress <span class="see-all" onclick="navigate('projects', document.querySelectorAll('.nav-item')[1])">See all →</span></div>
-          <div class="proj-list">
-            <div class="proj-item">
-              <div class="proj-row">
-                <span class="proj-name">E-Commerce Redesign</span>
-                <span class="proj-pct">72%</span>
-              </div>
-              <div class="proj-row"><span class="proj-meta">Client: ShopNow Ltd</span><span class="proj-meta">8 tasks left</span></div>
-              <div class="progress"><div class="progress-bar" style="width:72%;background:linear-gradient(90deg,var(--accent),#9b8fff)"></div></div>
-            </div>
-            <div class="proj-item">
-              <div class="proj-row">
-                <span class="proj-name">Mobile App MVP</span>
-                <span class="proj-pct">45%</span>
-              </div>
-              <div class="proj-row"><span class="proj-meta">Client: StartupBD</span><span class="proj-meta">13 tasks left</span></div>
-              <div class="progress"><div class="progress-bar" style="width:45%;background:linear-gradient(90deg,var(--accent2),#ffb3c1)"></div></div>
-            </div>
-            <div class="proj-item">
-              <div class="proj-row">
-                <span class="proj-name">Admin Dashboard</span>
-                <span class="proj-pct">88%</span>
-              </div>
-              <div class="proj-row"><span class="proj-meta">Client: FinTech Corp</span><span class="proj-meta">2 tasks left</span></div>
-              <div class="progress"><div class="progress-bar" style="width:88%;background:linear-gradient(90deg,var(--accent3),#a8f0c0)"></div></div>
-            </div>
-            <div class="proj-item">
-              <div class="proj-row">
-                <span class="proj-name">Brand Identity</span>
-                <span class="proj-pct">30%</span>
-              </div>
-              <div class="proj-row"><span class="proj-meta">Client: FreshBrand</span><span class="proj-meta">18 tasks left</span></div>
-              <div class="progress"><div class="progress-bar" style="width:30%;background:linear-gradient(90deg,var(--accent4),#ffd090)"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="section-title">Recent Activity</div>
-          <div class="activity-list">
-            <div class="activity-item">
-              <div class="act-dot" style="background:var(--accent3)"></div>
-              <div class="act-body">
-                <div class="act-text"><strong>You</strong> completed "Wireframe v2" in E-Commerce</div>
-                <div class="act-time">10 min ago</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="act-dot" style="background:var(--accent)"></div>
-              <div class="act-body">
-                <div class="act-text"><strong>Tasneem</strong> assigned "API Review" to you</div>
-                <div class="act-time">1 hr ago</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="act-dot" style="background:var(--accent2)"></div>
-              <div class="act-body">
-                <div class="act-text"><strong>Deadline</strong> for "Mobile Login Screen" is tomorrow</div>
-                <div class="act-time">3 hrs ago</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="act-dot" style="background:var(--accent4)"></div>
-              <div class="act-body">
-                <div class="act-text"><strong>New project</strong> "Brand Identity" was created</div>
-                <div class="act-time">Yesterday</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="act-dot" style="background:var(--accent3)"></div>
-              <div class="act-body">
-                <div class="act-text"><strong>Jahir</strong> submitted timesheet for last week</div>
-                <div class="act-time">2 days ago</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── MY PROJECTS ── -->
-    <div class="page" id="page-projects">
-      <div class="page-header">
-        <h2>My Projects</h2>
-        <p>Manage and track all your active projects</p>
-      </div>
-      <div class="toolbar">
-        <div class="search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Search projects…">
-        </div>
-        <button class="btn btn-outline"><i class="fa-solid fa-filter"></i> Filter</button>
-        <button class="btn btn-primary" onclick="navigate('addtask', document.querySelectorAll('.nav-item')[4])"><i class="fa-solid fa-plus"></i> New Project</button>
-      </div>
+      <!-- Personal Info -->
       <div class="card">
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Project Name</th>
-                <th>Customer</th>
-                <th>Tasks</th>
-                <th>Planned Date</th>
-                <th>Allocated Time</th>
-                <th>Status</th>
-                <th>Team</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>01</td>
-                <td class="name-cell">E-Commerce Redesign</td>
-                <td>ShopNow Ltd</td>
-                <td><span class="badge badge-blue">18 tasks</span></td>
-                <td>30 Apr 2026</td>
-                <td>120h</td>
-                <td><span class="badge badge-orange">In Progress</span></td>
-                <td>
-                  <div class="avatar-stack">
-                    <div class="avatar-sm" style="background:#6c63ff">R</div>
-                    <div class="avatar-sm" style="background:#ff6584">T</div>
-                    <div class="avatar-sm" style="background:#43e97b">J</div>
-                  </div>
-                </td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div><div class="icon-btn" style="color:#ff6584"><i class="fa-solid fa-trash"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>02</td>
-                <td class="name-cell">Mobile App MVP</td>
-                <td>StartupBD</td>
-                <td><span class="badge badge-blue">24 tasks</span></td>
-                <td>15 May 2026</td>
-                <td>200h</td>
-                <td><span class="badge badge-orange">In Progress</span></td>
-                <td>
-                  <div class="avatar-stack">
-                    <div class="avatar-sm" style="background:#6c63ff">R</div>
-                    <div class="avatar-sm" style="background:#f7971e">N</div>
-                  </div>
-                </td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div><div class="icon-btn" style="color:#ff6584"><i class="fa-solid fa-trash"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>03</td>
-                <td class="name-cell">Admin Dashboard</td>
-                <td>FinTech Corp</td>
-                <td><span class="badge badge-green">16 tasks</span></td>
-                <td>22 Apr 2026</td>
-                <td>80h</td>
-                <td><span class="badge badge-green">Review</span></td>
-                <td>
-                  <div class="avatar-stack">
-                    <div class="avatar-sm" style="background:#6c63ff">R</div>
-                    <div class="avatar-sm" style="background:#ff6584">T</div>
-                    <div class="avatar-sm" style="background:#43e97b">J</div>
-                    <div class="avatar-sm" style="background:#f7971e">N</div>
-                  </div>
-                </td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div><div class="icon-btn" style="color:#ff6584"><i class="fa-solid fa-trash"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>04</td>
-                <td class="name-cell">Brand Identity</td>
-                <td>FreshBrand</td>
-                <td><span class="badge badge-blue">22 tasks</span></td>
-                <td>10 Jun 2026</td>
-                <td>160h</td>
-                <td><span class="badge badge-blue">Planning</span></td>
-                <td>
-                  <div class="avatar-stack">
-                    <div class="avatar-sm" style="background:#6c63ff">R</div>
-                    <div class="avatar-sm" style="background:#43e97b">J</div>
-                  </div>
-                </td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div><div class="icon-btn" style="color:#ff6584"><i class="fa-solid fa-trash"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>05</td>
-                <td class="name-cell">SEO Optimization</td>
-                <td>MediaGroup BD</td>
-                <td><span class="badge badge-gray">9 tasks</span></td>
-                <td>05 Apr 2026</td>
-                <td>40h</td>
-                <td><span class="badge badge-red">Overdue</span></td>
-                <td>
-                  <div class="avatar-stack">
-                    <div class="avatar-sm" style="background:#f7971e">N</div>
-                  </div>
-                </td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div><div class="icon-btn" style="color:#ff6584"><i class="fa-solid fa-trash"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>06</td>
-                <td class="name-cell">HR Portal Development</td>
-                <td>TechCorp BD</td>
-                <td><span class="badge badge-green">30 tasks</span></td>
-                <td>01 Jul 2026</td>
-                <td>300h</td>
-                <td><span class="badge badge-green">On Track</span></td>
-                <td>
-                  <div class="avatar-stack">
-                    <div class="avatar-sm" style="background:#6c63ff">R</div>
-                    <div class="avatar-sm" style="background:#ff6584">T</div>
-                    <div class="avatar-sm" style="background:#f7971e">N</div>
-                  </div>
-                </td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div><div class="icon-btn" style="color:#ff6584"><i class="fa-solid fa-trash"></i></div></div></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">👤</div>
+            Personal Information
+          </div>
+          <button class="card-edit">✏️ Edit</button>
         </div>
-      </div>
-    </div>
+        <div class="card-body">
+          <div class="info-grid">
 
-    <!-- ── MY TASKS ── -->
-    <div class="page" id="page-tasks">
-      <div class="page-header">
-        <h2>My Tasks</h2>
-        <p>All tasks assigned to you across projects</p>
-      </div>
-      <div class="toolbar">
-        <div class="search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Search tasks…">
+            <div class="info-field">
+              <div class="info-label">Full Name</div>
+              <div class="info-value">Rakib Hossain</div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Employee ID</div>
+              <div class="info-value" style="font-family:monospace;letter-spacing:0.5px">#EMP-2021-0084</div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Gender</div>
+              <div class="info-value">
+                <span class="badge badge-gender">♂ Male</span>
+              </div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Date of Birth</div>
+              <div class="info-value">🎂 14 June, 1995</div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Blood Group</div>
+              <div class="info-value">
+                <span class="badge badge-blood">🩸 B+</span>
+              </div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Position</div>
+              <div class="info-value">Senior UI/UX Designer</div>
+            </div>
+
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="info-grid">
+
+            <div class="info-field">
+              <div class="info-label">Email Address</div>
+              <div class="info-value">📧 rakib@creativesoft.com</div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Phone Number</div>
+              <div class="info-value">📱 +880 1712-345678</div>
+            </div>
+
+            <div class="info-field" style="grid-column: 1 / -1">
+              <div class="info-label">Address</div>
+              <div class="info-value">📍 House 12, Road 5, Mirpur-10, Dhaka-1216, Bangladesh</div>
+            </div>
+
+          </div>
         </div>
-        <button class="btn btn-outline"><i class="fa-solid fa-sort"></i> Sort</button>
-        <button class="btn btn-primary" onclick="navigate('addtask', document.querySelectorAll('.nav-item')[4])"><i class="fa-solid fa-plus"></i> New Task</button>
       </div>
-      <div class="tasks-filter">
-        <div class="filter-tab active" onclick="filterTask(this)">All (12)</div>
-        <div class="filter-tab" onclick="filterTask(this)">In Progress (5)</div>
-        <div class="filter-tab" onclick="filterTask(this)">Pending (4)</div>
-        <div class="filter-tab" onclick="filterTask(this)">Completed (3)</div>
-        <div class="filter-tab" onclick="filterTask(this)">Overdue (2)</div>
-      </div>
+
+      <!-- Work Info -->
       <div class="card">
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Task Name</th>
-                <th>Project</th>
-                <th>Assigned By</th>
-                <th>Assign Date</th>
-                <th>Deadline</th>
-                <th>Status</th>
-                <th>Priority</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>T-01</td>
-                <td class="name-cell">Design Homepage Mockup</td>
-                <td>E-Commerce Redesign</td>
-                <td>Tasneem K.</td>
-                <td>10 Apr 2026</td>
-                <td>20 Apr 2026</td>
-                <td><span class="badge badge-orange">In Progress</span></td>
-                <td><div class="priority p-high"><div class="p-dot"></div>High</div></td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>T-02</td>
-                <td class="name-cell">API Integration Review</td>
-                <td>Mobile App MVP</td>
-                <td>Jahir R.</td>
-                <td>12 Apr 2026</td>
-                <td>25 Apr 2026</td>
-                <td><span class="badge badge-orange">In Progress</span></td>
-                <td><div class="priority p-high"><div class="p-dot"></div>High</div></td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>T-03</td>
-                <td class="name-cell">Dashboard Component Styling</td>
-                <td>Admin Dashboard</td>
-                <td>Nadia A.</td>
-                <td>08 Apr 2026</td>
-                <td>22 Apr 2026</td>
-                <td><span class="badge badge-green">Completed</span></td>
-                <td><div class="priority p-medium"><div class="p-dot"></div>Medium</div></td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>T-04</td>
-                <td class="name-cell">Logo Concept Sketches</td>
-                <td>Brand Identity</td>
-                <td>Tasneem K.</td>
-                <td>15 Apr 2026</td>
-                <td>02 May 2026</td>
-                <td><span class="badge badge-blue">Pending</span></td>
-                <td><div class="priority p-low"><div class="p-dot"></div>Low</div></td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>T-05</td>
-                <td class="name-cell">Keyword Research Report</td>
-                <td>SEO Optimization</td>
-                <td>Nadia A.</td>
-                <td>01 Apr 2026</td>
-                <td>05 Apr 2026</td>
-                <td><span class="badge badge-red">Overdue</span></td>
-                <td><div class="priority p-high"><div class="p-dot"></div>High</div></td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>T-06</td>
-                <td class="name-cell">User Testing Sessions Setup</td>
-                <td>Mobile App MVP</td>
-                <td>Jahir R.</td>
-                <td>16 Apr 2026</td>
-                <td>28 Apr 2026</td>
-                <td><span class="badge badge-blue">Pending</span></td>
-                <td><div class="priority p-medium"><div class="p-dot"></div>Medium</div></td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>T-07</td>
-                <td class="name-cell">HR Module DB Schema</td>
-                <td>HR Portal Dev</td>
-                <td>Tasneem K.</td>
-                <td>18 Apr 2026</td>
-                <td>05 May 2026</td>
-                <td><span class="badge badge-orange">In Progress</span></td>
-                <td><div class="priority p-medium"><div class="p-dot"></div>Medium</div></td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div></div></td>
-              </tr>
-              <tr>
-                <td>T-08</td>
-                <td class="name-cell">Responsive Layout Fix</td>
-                <td>E-Commerce Redesign</td>
-                <td>Nadia A.</td>
-                <td>17 Apr 2026</td>
-                <td>21 Apr 2026</td>
-                <td><span class="badge badge-red">Overdue</span></td>
-                <td><div class="priority p-high"><div class="p-dot"></div>High</div></td>
-                <td><div class="action-btns"><div class="icon-btn"><i class="fa-regular fa-eye"></i></div><div class="icon-btn"><i class="fa-solid fa-pen"></i></div></div></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── TIMESHEETS ── -->
-    <div class="page" id="page-timesheets">
-      <div class="page-header">
-        <h2>Timesheets</h2>
-        <p>Track your daily work hours by project</p>
-      </div>
-      <div class="toolbar">
-        <button class="btn btn-outline"><i class="fa-solid fa-chevron-left"></i></button>
-        <span style="font-weight:700;font-size:0.9rem">April 2026</span>
-        <button class="btn btn-outline"><i class="fa-solid fa-chevron-right"></i></button>
-        <div style="margin-left:auto;display:flex;gap:8px">
-          <button class="btn btn-outline"><i class="fa-solid fa-download"></i> Export</button>
-          <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Log Time</button>
-        </div>
-      </div>
-
-      <div class="time-grid">
-        <div class="day-cell"><div class="day-name">Mon</div><div class="day-num">14</div><div class="day-hrs">7.5h</div></div>
-        <div class="day-cell"><div class="day-name">Tue</div><div class="day-num">15</div><div class="day-hrs">8h</div></div>
-        <div class="day-cell"><div class="day-name">Wed</div><div class="day-num">16</div><div class="day-hrs">6h</div></div>
-        <div class="day-cell"><div class="day-name">Thu</div><div class="day-num">17</div><div class="day-hrs">8.5h</div></div>
-        <div class="day-cell"><div class="day-name">Fri</div><div class="day-num">18</div><div class="day-hrs">7h</div></div>
-        <div class="day-cell today"><div class="day-name">Sat</div><div class="day-num">19</div><div class="day-hrs">Today</div></div>
-        <div class="day-cell"><div class="day-name">Sun</div><div class="day-num">20</div><div class="day-hrs">—</div></div>
-      </div>
-
-      <div class="stats-grid" style="margin-bottom:20px">
-        <div class="stat-card"><div class="stat-header"><div class="stat-icon purple"><i class="fa-regular fa-clock"></i></div></div><div class="stat-value">37h</div><div class="stat-label">This Week</div></div>
-        <div class="stat-card"><div class="stat-header"><div class="stat-icon green"><i class="fa-solid fa-calendar-check"></i></div></div><div class="stat-value">148h</div><div class="stat-label">This Month</div></div>
-        <div class="stat-card"><div class="stat-header"><div class="stat-icon orange"><i class="fa-solid fa-bolt"></i></div></div><div class="stat-value">6.2h</div><div class="stat-label">Daily Avg</div></div>
-        <div class="stat-card"><div class="stat-header"><div class="stat-icon pink"><i class="fa-solid fa-bullseye"></i></div></div><div class="stat-value">92%</div><div class="stat-label">Goal Reached</div></div>
-      </div>
-
-      <div class="section-title" style="margin-bottom:12px">Today's Entries</div>
-      <div class="timesheet-entries">
-        <div class="ts-entry">
-          <div class="ts-color" style="background:var(--accent)"></div>
-          <div class="ts-info">
-            <div class="ts-task">Design Homepage Mockup</div>
-            <div class="ts-proj">E-Commerce Redesign · ShopNow Ltd</div>
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">🏢</div>
+            Work Information
           </div>
+          <button class="card-edit">✏️ Edit</button>
+        </div>
+        <div class="card-body">
+          <div class="info-grid">
+
+            <div class="info-field">
+              <div class="info-label">Department</div>
+              <div class="info-value">Product & Design</div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Position</div>
+              <div class="info-value">Senior Designer</div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Join Date</div>
+              <div class="info-value">📅 01 March, 2021</div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Work Type</div>
+              <div class="info-value">🏠 Hybrid</div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Employment Status</div>
+              <div class="info-value">
+                <span class="badge badge-active">● Full-time</span>
+              </div>
+            </div>
+
+            <div class="info-field">
+              <div class="info-label">Office Location</div>
+              <div class="info-value">🏙️ Dhaka HQ</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- Right -->
+    <div class="right">
+
+      <!-- ID Card -->
+      <div class="id-card">
+        <div class="id-card-label">Employee Card</div>
+        <div class="id-card-avatar">RH</div>
+        <div class="id-card-name">Rakib Hossain</div>
+        <div class="id-card-pos">Senior UI/UX Designer · Product & Design</div>
+        <div class="id-card-row">
+          <div class="id-num">
+            Employee ID
+            <strong>#EMP-2021-0084</strong>
+          </div>
+          <div style="font-size:1.8rem;opacity:0.4">🪪</div>
+        </div>
+      </div>
+
+      <!-- Quick Contact -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">📞</div>
+            Quick Info
+          </div>
+        </div>
+        <div class="quick-info">
+          <div class="qi-item">
+            <div class="qi-icon">📧</div>
+            <div>
+              <div class="qi-label">Email</div>
+              <div class="qi-value">rakib@creativesoft.com</div>
+            </div>
+          </div>
+          <div class="qi-item">
+            <div class="qi-icon">📱</div>
+            <div>
+              <div class="qi-label">Phone</div>
+              <div class="qi-value">+880 1712-345678</div>
+            </div>
+          </div>
+          <div class="qi-item">
+            <div class="qi-icon">🩸</div>
+            <div>
+              <div class="qi-label">Blood Group</div>
+              <div class="qi-value" style="color:#dc2626;font-weight:700">B Positive (B+)</div>
+            </div>
+          </div>
+          <div class="qi-item">
+            <div class="qi-icon">🎂</div>
+            <div>
+              <div class="qi-label">Date of Birth</div>
+              <div class="qi-value">14 June, 1995</div>
+            </div>
+          </div>
+          <div class="qi-item">
+            <div class="qi-icon">⚧</div>
+            <div>
+              <div class="qi-label">Gender</div>
+              <div class="qi-value">Male</div>
+            </div>
+          </div>
+          <div class="qi-item">
+            <div class="qi-icon">📍</div>
+            <div>
+              <div class="qi-label">Address</div>
+              <div class="qi-value">Mirpur-10, Dhaka</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manager -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">👔</div>
+            Reporting Manager
+          </div>
+        </div>
+        <div class="manager-wrap">
+          <div class="manager-avatar">NR</div>
           <div>
-            <div class="ts-time">3.5h</div>
-            <div class="ts-range">09:00 – 12:30</div>
+            <div class="manager-name">Nadia Rahman</div>
+            <div class="manager-role">Head of Product Design</div>
           </div>
-        </div>
-        <div class="ts-entry">
-          <div class="ts-color" style="background:var(--accent2)"></div>
-          <div class="ts-info">
-            <div class="ts-task">API Integration Review</div>
-            <div class="ts-proj">Mobile App MVP · StartupBD</div>
-          </div>
-          <div>
-            <div class="ts-time">2.0h</div>
-            <div class="ts-range">13:30 – 15:30</div>
-          </div>
-        </div>
-        <div class="ts-entry">
-          <div class="ts-color" style="background:var(--accent3)"></div>
-          <div class="ts-info">
-            <div class="ts-task">Dashboard Component Styling</div>
-            <div class="ts-proj">Admin Dashboard · FinTech Corp</div>
-          </div>
-          <div>
-            <div class="ts-time">1.5h</div>
-            <div class="ts-range">16:00 – 17:30</div>
-          </div>
+          <button class="manager-msg-btn">💬</button>
         </div>
       </div>
-    </div>
 
-    <!-- ── PROFILE ── -->
-    <div class="page" id="page-profile">
-      <div class="page-header">
-        <h2>My Profile</h2>
-        <p>Manage your personal information and preferences</p>
-      </div>
+    </div><!-- /right -->
 
-      <div class="profile-hero">
-        <div class="profile-big-avatar">
-          RH
-          <div class="online-dot"></div>
-        </div>
-        <div class="profile-hero-info">
-          <h3>Rafsan Hossain</h3>
-          <p>UI/UX Designer · Dhaka, Bangladesh</p>
-          <div class="profile-tags">
-            <span class="tag">UI Design</span>
-            <span class="tag">Figma</span>
-            <span class="tag">Frontend</span>
-            <span class="tag">Prototyping</span>
-          </div>
-        </div>
-        <button class="btn btn-primary" style="margin-left:auto;align-self:flex-start"><i class="fa-solid fa-pen"></i> Edit</button>
-      </div>
+  </div><!-- /content -->
 
-      <div class="profile-grid">
-        <div class="card">
-          <div class="section-title" style="margin-bottom:16px">Personal Information</div>
-          <div class="form-group">
-            <label class="form-label">Full Name</label>
-            <input class="form-input" type="text" value="Rafsan Hossain">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input class="form-input" type="email" value="rafsan@taskflow.io">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Phone</label>
-            <input class="form-input" type="text" value="+880 1700-000000">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Location</label>
-            <input class="form-input" type="text" value="Dhaka, Bangladesh">
-          </div>
-          <button class="btn btn-primary" style="margin-top:6px"><i class="fa-solid fa-save"></i> Save Changes</button>
-        </div>
-        <div class="card">
-          <div class="section-title" style="margin-bottom:16px">Work Details</div>
-          <div class="form-group">
-            <label class="form-label">Job Title</label>
-            <input class="form-input" type="text" value="UI/UX Designer">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Department</label>
-            <select class="form-select">
-              <option>Design</option>
-              <option>Engineering</option>
-              <option>Marketing</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Employee ID</label>
-            <input class="form-input" type="text" value="TF-2024-007">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Join Date</label>
-            <input class="form-input" type="text" value="01 January 2024">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Working Hours / Week</label>
-            <input class="form-input" type="text" value="40 hours">
-          </div>
-        </div>
-      </div>
-    </div>
+</main>
 
-    <!-- ── ADD TASK ── -->
-    <div class="page" id="page-addtask">
-      <div class="page-header">
-        <h2>Add New Task</h2>
-        <p>Create and assign a task to a project</p>
-      </div>
-
-      <div class="add-task-form">
-        <div class="ai-chip" onclick="aiSuggest()">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> AI Suggest — Auto-fill details
-        </div>
-        <div class="card" id="addTaskCard">
-          <div class="form-group">
-            <label class="form-label">Task Name *</label>
-            <input class="form-input" type="text" placeholder="Enter task title…" id="taskName">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Description</label>
-            <textarea class="form-textarea" placeholder="Describe what needs to be done…" id="taskDesc"></textarea>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Project *</label>
-              <select class="form-select" id="taskProject">
-                <option value="">— Select Project —</option>
-                <option>E-Commerce Redesign</option>
-                <option>Mobile App MVP</option>
-                <option>Admin Dashboard</option>
-                <option>Brand Identity</option>
-                <option>SEO Optimization</option>
-                <option>HR Portal Development</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Assign To *</label>
-              <select class="form-select">
-                <option>Rafsan Hossain</option>
-                <option>Tasneem Kabir</option>
-                <option>Jahir Rahman</option>
-                <option>Nadia Akter</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Start Date</label>
-              <input class="form-input" type="date" id="startDate">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Deadline *</label>
-              <input class="form-input" type="date" id="deadline">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Priority</label>
-              <select class="form-select" id="priority">
-                <option>High</option>
-                <option selected>Medium</option>
-                <option>Low</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Estimated Hours</label>
-              <input class="form-input" type="number" placeholder="e.g. 8" min="1">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Status</label>
-            <select class="form-select">
-              <option>Pending</option>
-              <option>In Progress</option>
-              <option>Review</option>
-              <option>Completed</option>
-            </select>
-          </div>
-          <div style="display:flex;gap:10px;margin-top:8px">
-            <button class="btn btn-primary" onclick="submitTask()"><i class="fa-solid fa-check"></i> Create Task</button>
-            <button class="btn btn-outline" onclick="resetForm()"><i class="fa-solid fa-xmark"></i> Reset</button>
-          </div>
-        </div>
-
-        <!-- Success message -->
-        <div id="successMsg" style="display:none;margin-top:16px" class="card">
-          <div style="text-align:center;padding:20px">
-            <div style="width:56px;height:56px;background:rgba(67,233,123,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.4rem;color:var(--accent3)">
-              <i class="fa-solid fa-circle-check"></i>
-            </div>
-            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:6px">Task Created!</div>
-            <div style="color:var(--text2);font-size:0.83rem">Your task has been successfully added to the project.</div>
-            <button class="btn btn-primary" style="margin:14px auto 0" onclick="backToForm()"><i class="fa-solid fa-plus"></i> Add Another</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-</div>
-
-<script>
-  // ── Navigation
-  const pageTitles = {
-    dashboard: 'Dashboard',
-    projects: 'My Projects',
-    tasks: 'My Tasks',
-    timesheets: 'Timesheets',
-    addtask: 'Add Task',
-    profile: 'Profile'
-  };
-
-  function navigate(id, el) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + id).classList.add('active');
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    if (el) el.classList.add('active');
-    document.getElementById('headerTitle').textContent = pageTitles[id] || id;
-    closeSidebar();
-    closeNotif();
-    window.scrollTo(0, 0);
-  }
-
-  // ── Sidebar mobile
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('overlay').classList.toggle('open');
-  }
-  function closeSidebar() {
-    document.getElementById('sidebar').classList.remove('open');
-    document.getElementById('overlay').classList.remove('open');
-  }
-
-  // ── Theme toggle
-  function toggleTheme() {
-    const html = document.documentElement;
-    const isDark = html.getAttribute('data-theme') === 'dark';
-    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    document.getElementById('themeIcon').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-  }
-
-  // ── Notifications
-  function toggleNotif() {
-    const panel = document.getElementById('notifPanel');
-    panel.classList.toggle('open');
-  }
-  function closeNotif() {
-    document.getElementById('notifPanel').classList.remove('open');
-  }
-  document.addEventListener('click', function(e) {
-    const panel = document.getElementById('notifPanel');
-    const btn = document.getElementById('notifBtn');
-    if (!panel.contains(e.target) && !btn.contains(e.target)) closeNotif();
-  });
-
-  // ── Task filter tabs
-  function filterTask(el) {
-    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-    el.classList.add('active');
-  }
-
-  // ── Add Task
-  function submitTask() {
-    const name = document.getElementById('taskName').value.trim();
-    const proj = document.getElementById('taskProject').value;
-    if (!name || !proj) {
-      alert('Please fill in Task Name and Project!');
-      return;
-    }
-    document.getElementById('addTaskCard').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-  }
-  function backToForm() {
-    document.getElementById('addTaskCard').style.display = 'block';
-    document.getElementById('successMsg').style.display = 'none';
-    resetForm();
-  }
-  function resetForm() {
-    document.getElementById('taskName').value = '';
-    document.getElementById('taskDesc').value = '';
-    document.getElementById('taskProject').value = '';
-    document.getElementById('startDate').value = '';
-    document.getElementById('deadline').value = '';
-  }
-
-  // ── AI Suggest
-  function aiSuggest() {
-    const suggestions = [
-      { name: 'Review Design Prototypes', desc: 'Go through all Figma screens and provide feedback before developer handoff.', proj: 'E-Commerce Redesign', priority: 'High' },
-      { name: 'Set Up CI/CD Pipeline', desc: 'Configure GitHub Actions for automated testing and deployment.', proj: 'Mobile App MVP', priority: 'Medium' },
-      { name: 'Write API Documentation', desc: 'Document all REST endpoints with request/response examples.', proj: 'Admin Dashboard', priority: 'Low' },
-    ];
-    const s = suggestions[Math.floor(Math.random() * suggestions.length)];
-    document.getElementById('taskName').value = s.name;
-    document.getElementById('taskDesc').value = s.desc;
-    document.getElementById('taskProject').value = s.proj;
-    document.getElementById('priority').value = s.priority;
-    const today = new Date();
-    const due = new Date(today); due.setDate(today.getDate() + 7);
-    document.getElementById('startDate').value = today.toISOString().split('T')[0];
-    document.getElementById('deadline').value = due.toISOString().split('T')[0];
-  }
-
-  // ── Progress bars animate on load
-  setTimeout(() => {
-    document.querySelectorAll('.progress-bar').forEach(b => {
-      const w = b.style.width;
-      b.style.width = '0';
-      setTimeout(() => { b.style.width = w; }, 100);
-    });
-  }, 200);
-</script>
 </body>
 </html>

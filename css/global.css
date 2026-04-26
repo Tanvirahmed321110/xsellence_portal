@@ -351,7 +351,7 @@ header .date {
    ============================================*/
 aside {
     /* padding: 8px; */
-    width: 300px;
+    width: 290px;
     background-color: var(--header-bg);
     height: calc(100% - 78px);
     position: fixed;
