@@ -229,20 +229,18 @@
 
 /*=========================  Profile page  ===========================*/
 .banner {
-    height: 160px;
+    height: 180px;
     width: 100%;
     background: var(--header-bg);
     position: relative;
     overflow: hidden;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xxl);
 }
 
 .banner::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 80% 50%, rgba(249, 189, 79, 0.19) 0%, transparent 55%),
-    radial-gradient(ellipse at 10% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
 }
 .banner-top {
     position: absolute;
@@ -485,7 +483,29 @@
     color: var(--color-white);
     flex-shrink: 0;
     letter-spacing: .6px;
+
 }
+
+
+
+
+
+/*=========================  Helpdesk page  ===========================*/
+.helpdesk .helpdesk-col{
+    background-color: var(--color-white);
+}
+.helpdesk .helpdesk-col .item-head{
+    padding: 12px;
+}
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width:767px){

@@ -1,13 +1,16 @@
 
+
+
+
 const sidebar = document.getElementById('sidebar');
 function openSidebarDesktop() {
     const collaps_btn = document.getElementById('collaps-btn');
-    const main_content = document.getElementById('main-content');
+    const main_content = document.querySelector('.main-content');
     const notic_board = document.getElementById('notic-board');
 
     // ✅ validation (important)
     if (!collaps_btn || !main_content || !sidebar || !notic_board) {
-        console.warn("Sidebar elements not found ❌");
+        console.log("Sidebar elements not found ❌");
         return;
     }
 
@@ -26,7 +29,7 @@ function mobileSidebar() {
     const menuIcon = document.getElementById('menu-icon');
 
     if (!mobile_menu_btn || !menuIcon) {
-        console.warn("Sidebar elements not found ❌");
+        console.log("Sidebar elements not found ❌");
         return;
     }
 

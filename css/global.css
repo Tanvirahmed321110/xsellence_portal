@@ -154,7 +154,7 @@ body {
    ||======   Header Section Start Here   ======||
    ============================================*/
 header {
-    background-color: var(--header-bg);
+    background: var(--header-bg);
     position: fixed;
     width: 100%;
     overflow: hidden;
@@ -166,7 +166,7 @@ header {
 
 /*=============//  Header Right  //=============*/
 header .head-right {
-    width: 360px;
+    width: 350px;
     display: flex;
     height: 70px;
     background-color: rgb(132, 70, 194);
@@ -179,10 +179,10 @@ header .head-right {
 header .head-right::after {
     position: absolute;
     content: '';
-    left: -26px;
-    top: -65px;
+    left: -20px;
+    top: -68px;
     background-color: rgb(132, 70, 194);
-    width: 46px;
+    width: 44px;
     height: 198px;
     transform: rotate(40deg);
 }
@@ -1754,24 +1754,28 @@ aside .sidebar-bottom {
 
 
     /* Task card */
-    .task-card::after{content: unset;}
-    .task-card .filter-select {
-    border-radius: var(--radius-pill);
-    padding: 6px 4px;
-    font-size: var(--fs-xs);
-    max-width: 78px;
-}
+    .task-card::after {
+        content: unset;
+    }
 
-.task-details .proj-card .card-info-grid {
-    display: grid;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 0;
-}
-.task-details .proj-card .card-tags {
-    gap: 4px;
-    margin-top: 4px;
-    height: fit-content;
-    display: flex;
-}
+    .task-card .filter-select {
+        border-radius: var(--radius-pill);
+        padding: 6px 4px;
+        font-size: var(--fs-xs);
+        max-width: 78px;
+    }
+
+    .task-details .proj-card .card-info-grid {
+        display: grid;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 0;
+    }
+
+    .task-details .proj-card .card-tags {
+        gap: 4px;
+        margin-top: 4px;
+        height: fit-content;
+        display: flex;
+    }
 }
