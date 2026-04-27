@@ -725,4 +725,8 @@
     .helpdesk-wrap .filter-select {
         padding: 6px 12px;
     }
+    .helpdesk .helpdesk-card svg{
+        height: 20px;
+        width: 20px;
+    }
 }
