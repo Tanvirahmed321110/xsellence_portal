@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Profile</title>
+        <title>Helpdesk/Support</title>
         <link rel="stylesheet" href="/css/custom_class.css">
         <link rel="stylesheet" href="/css/my_component.css">
         <link rel="stylesheet" href="/css/global.css">
@@ -290,7 +290,6 @@
                         </svg>
                     </span>
 
-
                     <span class="active">Helpdesk-Support</span>
                 </nav>
             </section>
@@ -298,39 +297,163 @@
 
             <section class="helpdesk mt-6">
 
-                <div class="head"></div>
+                <div class="filter-head flex-between gap-5">
+                    <!-- For Search -->
+                    <div class="search">
+                        <div class="search-wrap input-control">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input class="search-input" type="text" placeholder="Search project, task…"
+                                oninput="applyFilters()">
+                        </div>
+                    </div>
 
-                <div class="helpdesk-wrap grid-4 gap-6">
+                    <!-- right -->
+                    <div class="right d-flex gap-4 align-center">
+                        <select class="filter-select" id="filter-project" onchange="applyFilters()">
+                            <option value="">All Projects</option>
+                            <option>MIT</option>
+                            <option>Dashboard Project</option>
+                            <option>NADIA FURNITURE</option>
+                            <option>Ultimate Organic Life Ltd</option>
+                            <option>MIT</option>
+                            <option>Dashboard Project</option>
+                            <option>NADIA FURNITURE</option>
+                            <option>Ultimate Organic Life Ltd</option>
+                            <option>Dashboard Project</option>
+                        </select>
+                        <select class="filter-select" id="filter-month" onchange="applyFilters()">
+                            <option value="">All Status</option>
+                            <option value="2025-04">New</option>
+                            <option value="2025-04">In Progress</option>
+                            <option value="2025-04">Sloved</option>
+                            <option value="2025-04">Canceled</option>
+                            <option value="2025-04">All</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card-items grid-4 gap-6 mt-6">
+
+                    <!-- For New card: with SVG icon and count 12 -->
+                    <div class="helpdesk-card">
+                        <div class="card-icon">
+                            <!-- New SVG icon: sparkling + plus badge style (fresh ticket) -->
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#3b82f6" stroke-width="1.8" fill="none" />
+                                <path d="M12 7V17M7 12H17" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" />
+                                <path d="M17 3L19 5L17 7" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M3 17L5 19L3 21" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h4>New</h4>
+                            <span class="count">12</span>
+                        </div>
+                    </div>
+
+                    <!-- For Progress card: with SVG icon (circular sync / progress arrows) -->
+                    <div class="helpdesk-card">
+                        <div class="card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#f59e0b" stroke-width="1.6" fill="none" />
+                                <path d="M12 6V12L16 14" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" />
+                                <path d="M18 15L21 18L18 21" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M6 15L3 18L6 21" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h4>In Progress</h4>
+                            <span class="count">12</span>
+                        </div>
+                    </div>
+
+                    <!-- For Solved card: originally empty div, now complete with SVG (check badge + resolved) -->
+                    <div class="helpdesk-card">
+                        <div class="card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#10b981" stroke-width="1.8" fill="none" />
+                                <path d="M8 12L11 15L16 9" stroke="#10b981" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h4>Solved</h4>
+                            <span class="count">18</span>
+                        </div>
+                    </div>
+
+                    <!-- For Cancelled card: originally empty, now added icon with cancel / X mark -->
+                    <div class="helpdesk-card">
+                        <div class="card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#ef4444" stroke-width="1.8" fill="none" />
+                                <path d="M8 8L16 16M16 8L8 16" stroke="#ef4444" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h4>Cancelled</h4>
+                            <span class="count ">4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="helpdesk-wrap grid-4 gap-lg-4 grid-sm-1 gap-6 mt-6">
 
                     <!--==============|| Pending Items ||===============-->
                     <div class="pending helpdesk-col">
                         <div class="item-head flex-between">
-                            <h4>Pending</h4>
+                            <h4>New</h4>
                             <span>12</span>
                         </div>
 
-                        <div class="items">
-                            <div class="item"></div>
+                        <div class="items flex-column ">
+                            <!--========= Single Item =========-->
+                            <div class="item">
+                                item one
+                            </div>
+                            <!--========= Single Item =========-->
+                            <div class="item">
+                                item one
+                            </div>
                         </div>
                     </div>
 
                     <!--==============|| Progress Items ||===============-->
-                    <div class="progress helpdesk-col">    <div class="item-head flex-between">
+                    <div class="progress helpdesk-col">
+                        <div class="item-head flex-between">
                             <h4>In Progress</h4>
                             <span>12</span>
-                        </div></div>
+                        </div>
+                    </div>
 
-                        <!--==============|| Done Items ||===============-->
-                    <div class="done helpdesk-col">    <div class="item-head flex-between">
-                            <h4>Done</h4>
+                    <!--==============|| Sloved Items ||===============-->
+                    <div class="done helpdesk-col">
+                        <div class="item-head flex-between">
+                            <h4>Sloved</h4>
                             <span>12</span>
-                        </div></div>
+                        </div>
+                    </div>
 
-                        <!--==============|| Cancleld Items ||===============-->
-                    <div class="canceled helpdesk-col">    <div class="item-head flex-between">
-                            <h4>Canceled</h4>
+                    <!--==============|| Cancleld Items ||===============-->
+                    <div class="canceled helpdesk-col">
+                        <div class="item-head flex-between">
+                            <h4>Cancelled</h4>
                             <span>12</span>
-                        </div></div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>

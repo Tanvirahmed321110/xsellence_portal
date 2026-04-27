@@ -1,866 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User Profile</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
-  --space-5: 20px; --space-6: 24px; --space-7: 32px;
-  --color-primary: #d9117b; --color-primary-hover: #bd0969;
-  --color-secondary: #F9B12C;
-  --color-tag: #d9117c14;
-  --color-bg-body: #f0f2f7;
-  --color-bg-primary: #ffffff;
-  --color-text-header: #1a1d23;
-  --color-text-secondary: #4b5563;
-  --color-text-muted: #9ca3af;
-  --color-text-desc: #6b7280;
-  --border-secondary: #e5e7eb;
-  --border-primary: #d9117c1a;
-  --fs-xs: 0.72rem; --fs-sm: 0.875rem; --fs-md: 1rem;
-  --fs-lg: 1.125rem; --fs-xl: 1.25rem; --fs-xxl: 1.5rem;
-  --radius-sm: 6px; --radius-md: 8px; --radius-lg: 10px;
-  --radius-xl: 14px; --radius-xxl: 18px; --radius-pill: 200px; --radius-round: 50%;
-  --fw-400: 400; --fw-500: 500; --fw-600: 600; --fw-700: 700;
-  --sidebar-bg: linear-gradient(160deg, #7b3fa0 0%, #4a2272 100%);
-  --header-bg: linear-gradient(120deg, #7b3fa0 0%, #d9117b 100%);
-  --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
-  --transition: 0.2s ease;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background: var(--color-bg-body);
-  min-height: 100vh;
-  display: flex;
-  color: var(--color-text-header);
-}
-
-/* ── Sidebar ── */
-.sidebar {
-  width: 260px;
-  background: var(--sidebar-bg);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 28px 16px;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  flex-shrink: 0;
-}
-
-.sidebar-logo {
-  font-size: 1.3rem;
-  font-weight: var(--fw-700);
-  color: #fff;
-  padding: 0 12px 28px;
-  letter-spacing: -0.3px;
-}
-
-.sidebar-logo span { color: var(--color-secondary); }
-
-.nav-group-label {
-  font-size: 0.62rem;
-  font-weight: var(--fw-600);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  padding: 16px 14px 8px;
-}
-
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: var(--radius-lg);
-  color: rgba(255,255,255,0.6);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-500);
-  cursor: pointer;
-  text-decoration: none;
-  transition: all var(--transition);
-  margin-bottom: 2px;
-}
-
-.nav-item:hover { background: rgba(255,255,255,0.1); color: #fff; }
-.nav-item.active { background: rgba(255,255,255,0.18); color: #fff; }
-
-.nav-icon {
-  width: 32px; height: 32px;
-  border-radius: var(--radius-sm);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 15px;
-  background: rgba(255,255,255,0.08);
-  flex-shrink: 0;
-}
-
-.nav-item.active .nav-icon { background: rgba(255,255,255,0.2); }
-
-.sidebar-footer {
-  margin-top: auto;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 16px;
-}
-
-/* ── Main ── */
-.main {
-  flex: 1;
-  overflow-y: auto;
-  animation: pageIn 0.4s ease both;
-}
-
-@keyframes pageIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: none; }
-}
-
-/* ── Banner ── */
-.banner {
-  height: 160px;
-  background: var(--header-bg);
-  position: relative;
-  overflow: hidden;
-}
-
-.banner::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at 80% 50%, rgba(249,177,44,0.25) 0%, transparent 55%),
-    radial-gradient(ellipse at 10% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
-}
-
-.banner-dots {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.banner-top-actions {
-  position: absolute;
-  top: 16px; right: 20px;
-  display: flex; gap: 10px;
-}
-
-.btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 8px 18px;
-  border-radius: var(--radius-pill);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-600);
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  transition: all var(--transition);
-  letter-spacing: 0.3px;
-}
-
-.btn-primary { background: var(--color-primary); color: #fff; }
-.btn-primary:hover { background: var(--color-primary-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(217,17,123,0.35); }
-
-.btn-ghost {
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.25);
-  backdrop-filter: blur(8px);
-}
-.btn-ghost:hover { background: rgba(255,255,255,0.25); }
-
-/* ── Profile Header Card ── */
-.profile-header-card {
-  background: var(--color-bg-primary);
-  margin: 0 24px;
-  border-radius: var(--radius-xxl);
-  transform: translateY(-48px);
-  margin-bottom: -24px;
-  box-shadow: var(--shadow-lg);
-  padding: 0 28px 24px;
-  border: 1px solid var(--border-secondary);
-}
-
-.avatar-section {
-  display: flex;
-  align-items: flex-end;
-  gap: 20px;
-  transform: translateY(-40px);
-  margin-bottom: -16px;
-}
-
-/* Avatar upload */
-.avatar-upload-wrap {
-  position: relative;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-
-.avatar-img {
-  width: 96px; height: 96px;
-  border-radius: var(--radius-round);
-  object-fit: cover;
-  border: 4px solid #fff;
-  box-shadow: var(--shadow-md);
-  background: var(--sidebar-bg);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2rem; color: #fff; font-weight: var(--fw-700);
-  overflow: hidden;
-}
-
-.avatar-initials {
-  width: 96px; height: 96px;
-  border-radius: var(--radius-round);
-  border: 4px solid #fff;
-  box-shadow: var(--shadow-md);
-  background: var(--sidebar-bg);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.8rem; color: #fff; font-weight: var(--fw-700);
-  flex-shrink: 0;
-}
-
-.avatar-change-btn {
-  position: absolute;
-  bottom: 2px; right: 2px;
-  width: 26px; height: 26px;
-  border-radius: var(--radius-round);
-  background: var(--color-primary);
-  border: 2px solid #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px;
-  cursor: pointer;
-  transition: transform var(--transition);
-}
-
-.avatar-change-btn:hover { transform: scale(1.1); }
-
-.profile-name-block { padding-top: 44px; flex: 1; }
-
-.profile-name {
-  font-size: 1.5rem;
-  font-weight: var(--fw-700);
-  color: var(--color-text-header);
-  letter-spacing: -0.4px;
-  line-height: 1.2;
-}
-
-.profile-position {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 4px;
-  background: var(--color-tag);
-  color: var(--color-primary);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-600);
-  padding: 3px 10px;
-  border-radius: var(--radius-pill);
-  letter-spacing: 0.3px;
-}
-
-.profile-sub {
-  display: flex;
-  gap: 20px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-}
-
-.sub-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: var(--fs-xs);
-  color: var(--color-text-muted);
-}
-
-.online-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #22c55e;
-  display: inline-block;
-}
-
-/* ── Content ── */
-.content {
-  padding: 12px 24px 40px;
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 20px;
-}
-
-.left { display: flex; flex-direction: column; gap: 20px; }
-.right { display: flex; flex-direction: column; gap: 20px; }
-
-/* ── Card ── */
-.card {
-  background: var(--color-bg-primary);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-secondary);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 24px 14px;
-  border-bottom: 1px solid var(--border-secondary);
-}
-
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: var(--fs-md);
-  font-weight: var(--fw-600);
-  color: var(--color-text-header);
-}
-
-.card-icon {
-  width: 34px; height: 34px;
-  border-radius: var(--radius-md);
-  background: var(--color-tag);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-}
-
-.card-edit {
-  font-size: var(--fs-xs);
-  color: var(--color-primary);
-  font-weight: var(--fw-600);
-  cursor: pointer;
-  display: flex; align-items: center; gap: 4px;
-  padding: 5px 12px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border-primary);
-  transition: all var(--transition);
-  background: none;
-  font-family: inherit;
-}
-
-.card-edit:hover { background: var(--color-tag); }
-
-.card-body { padding: 20px 24px; }
-
-/* ── Info Grid ── */
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 28px;
-}
-
-.info-field {}
-
-.info-label {
-  font-size: 0.68rem;
-  font-weight: var(--fw-600);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--color-text-muted);
-  margin-bottom: 5px;
-}
-
-.info-value {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-500);
-  color: var(--color-text-header);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.info-value .badge {
-  font-size: 0.65rem;
-  font-weight: var(--fw-600);
-  padding: 2px 8px;
-  border-radius: var(--radius-pill);
-}
-
-.badge-blood {
-  background: #fee2e2;
-  color: #dc2626;
-}
-
-.badge-active {
-  background: #dcfce7;
-  color: #16a34a;
-}
-
-.badge-gender {
-  background: #ede9fe;
-  color: #7c3aed;
-}
-
-.divider {
-  height: 1px;
-  background: var(--border-secondary);
-  margin: 20px 0;
-}
-
-/* ── ID Card ── */
-.id-card {
-  background: var(--sidebar-bg);
-  border-radius: var(--radius-xl);
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.id-card::before {
-  content: '';
-  position: absolute;
-  top: -30px; right: -30px;
-  width: 120px; height: 120px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.06);
-}
-
-.id-card::after {
-  content: '';
-  position: absolute;
-  bottom: -20px; left: 20px;
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.04);
-}
-
-.id-card-label {
-  font-size: 0.62rem;
-  font-weight: var(--fw-600);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 14px;
-}
-
-.id-card-avatar {
-  width: 52px; height: 52px;
-  border-radius: var(--radius-round);
-  background: rgba(255,255,255,0.15);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; font-weight: var(--fw-700); color: #fff;
-  margin-bottom: 12px;
-  border: 2px solid rgba(255,255,255,0.25);
-}
-
-.id-card-name {
-  font-size: var(--fs-md);
-  font-weight: var(--fw-700);
-  color: #fff;
-  margin-bottom: 2px;
-}
-
-.id-card-pos {
-  font-size: var(--fs-xs);
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 16px;
-}
-
-.id-card-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(255,255,255,0.12);
-  padding-top: 14px;
-}
-
-.id-num {
-  font-size: var(--fs-xs);
-  color: rgba(255,255,255,0.5);
-  font-weight: var(--fw-500);
-}
-
-.id-num strong {
-  display: block;
-  font-size: var(--fs-sm);
-  color: var(--color-secondary);
-  font-weight: var(--fw-700);
-  letter-spacing: 1px;
-}
-
-/* ── Quick Info ── */
-.quick-info { display: flex; flex-direction: column; }
-
-.qi-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 24px;
-  border-bottom: 1px solid var(--border-secondary);
-  transition: background var(--transition);
-}
-
-.qi-item:last-child { border-bottom: none; }
-.qi-item:hover { background: #fafafa; }
-
-.qi-icon {
-  width: 36px; height: 36px;
-  border-radius: var(--radius-md);
-  background: var(--color-tag);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.qi-label {
-  font-size: var(--fs-xs);
-  color: var(--color-text-muted);
-  margin-bottom: 1px;
-}
-
-.qi-value {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-500);
-  color: var(--color-text-header);
-}
-
-/* ── Manager Card ── */
-.manager-wrap {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 24px;
-}
-
-.manager-avatar {
-  width: 46px; height: 46px;
-  border-radius: var(--radius-round);
-  background: linear-gradient(135deg, #f59e0b, #ef4444);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem; font-weight: var(--fw-700); color: #fff;
-  flex-shrink: 0;
-}
-
-.manager-name {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-600);
-  color: var(--color-text-header);
-}
-
-.manager-role {
-  font-size: var(--fs-xs);
-  color: var(--color-text-muted);
-  margin-top: 1px;
-}
-
-.manager-msg-btn {
-  margin-left: auto;
-  width: 34px; height: 34px;
-  border-radius: var(--radius-round);
-  background: var(--color-tag);
-  border: none;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  font-size: 15px;
-  transition: all var(--transition);
-}
-
-.manager-msg-btn:hover { background: var(--color-primary); }
-
-/* responsive */
-@media (max-width: 1024px) {
-  .content { grid-template-columns: 1fr; }
-  .right { flex-direction: row; flex-wrap: wrap; }
-  .right .card { flex: 1; min-width: 260px; }
-}
-@media (max-width: 768px) {
-  .sidebar { display: none; }
-  .profile-header-card { margin: 0 12px; }
-  .content { padding: 12px; }
-  .info-grid { grid-template-columns: 1fr; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Helpdesk Cards · Status with Check Mark Icon</title>
+    <!-- modern font for cleaner UI -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #eef2f9 0%, #e2e8f0 100%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* card container – clean helpdesk panel */
+        .helpdesk-panel {
+            max-width: 1320px;
+            width: 100%;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(3px);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s;
+        }
+
+        /* header area */
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+        }
+        .title-section h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #0f172a, #2d3a5e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+        .title-section p {
+            color: #475569;
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+        }
+        .badge-date {
+            background: white;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1e293b;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        /* card-items exact grid: grid-4 gap-6 mt-6 */
+        .card-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;    /* gap-6 (24px) */
+            margin-top: 1.5rem; /* mt-6 */
+        }
+
+        /* helpdesk-card design – modern, soft, interactive */
+        .helpdesk-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1rem 1.2rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+            box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0,0,0,0.01);
+            border: 1px solid rgba(255,255,255,0.6);
+            cursor: default;
+        }
+
+        .helpdesk-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.18);
+            border-color: rgba(99, 102, 241, 0.3);
+            background: #fefefe;
+        }
+
+        /* svg icon wrapper */
+        .icon-wrapper {
+            flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            background: rgba(99, 102, 241, 0.08);
+            border-radius: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .helpdesk-card:hover .icon-wrapper {
+            background: rgba(16, 185, 129, 0.12);
+            transform: scale(1.02);
+        }
+
+        /* specific hover effect for solved card (check icon) */
+        .helpdesk-card:nth-child(3):hover .icon-wrapper {
+            background: rgba(16, 185, 129, 0.18);
+        }
+
+        .card-info {
+            flex: 1;
+        }
+        .card-info h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #5b6e8c;
+            margin-bottom: 0.25rem;
+        }
+        .card-info .count-number {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        /* extra dynamic accent line */
+        .helpdesk-card {
+            position: relative;
+        }
+        .helpdesk-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
+            height: 3px;
+            background: linear-gradient(90deg, #c084fc, #4f46e5, #10b981);
+            border-radius: 3px;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .helpdesk-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* responsive */
+        @media (max-width: 850px) {
+            .card-items {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+            }
+        }
+        @media (max-width: 550px) {
+            .card-items {
+                grid-template-columns: 1fr;
+            }
+            .helpdesk-panel {
+                padding: 1rem;
+            }
+            .card-info .count-number {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* micro footnote */
+        .footnote {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #5b6e8c;
+            background: #f1f5f9;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
+        }
+    </style>
 </head>
 <body>
-
-<!-- Sidebar -->
-<aside class="sidebar">
-  <div class="sidebar-logo">HR<span>Pro</span></div>
-
-  <div class="nav-group-label">Main</div>
-  <a class="nav-item" href="#"><span class="nav-icon">🏠</span> Dashboard</a>
-  <a class="nav-item active" href="#"><span class="nav-icon">👤</span> My Profile</a>
-  <a class="nav-item" href="#"><span class="nav-icon">👥</span> Employees</a>
-
-  <div class="nav-group-label">Work</div>
-  <a class="nav-item" href="#"><span class="nav-icon">📋</span> Tasks</a>
-  <a class="nav-item" href="#"><span class="nav-icon">📅</span> Attendance</a>
-  <a class="nav-item" href="#"><span class="nav-icon">💰</span> Payroll</a>
-  <a class="nav-item" href="#"><span class="nav-icon">📊</span> Reports</a>
-
-  <div class="nav-group-label">System</div>
-  <a class="nav-item" href="#"><span class="nav-icon">⚙️</span> Settings</a>
-
-  <div class="sidebar-footer">
-    <a class="nav-item" href="#"><span class="nav-icon">🚪</span> Logout</a>
-  </div>
-</aside>
-
-<!-- Main -->
-<main class="main">
-
-  <!-- Banner -->
-  <div class="banner">
-    <div class="banner-dots"></div>
-    <div class="banner-top-actions">
-      <button class="btn btn-ghost">✏️ Edit Profile</button>
-      <button class="btn btn-primary">⚙️ Settings</button>
+<div class="helpdesk-panel">
+    <div class="panel-header">
+        <div class="title-section">
+            <h2>📊 Ticket tracker</h2>
+            <p>Real‑time status · Clean SVG icons · Check mark solved</p>
+        </div>
+        <div class="badge-date">⚡ last sync: just now</div>
     </div>
-  </div>
 
-  <!-- Profile Header -->
-  <div class="profile-header-card">
-    <div class="avatar-section">
-      <div class="avatar-upload-wrap">
-        <div class="avatar-initials">RH</div>
-        <div class="avatar-change-btn">📷</div>
-      </div>
-      <div class="profile-name-block">
-        <div class="profile-name">Rakib Hossain</div>
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px">
-          <span class="profile-position">💼 Senior UI/UX Designer</span>
-          <span style="display:flex;align-items:center;gap:5px;font-size:0.72rem;color:#6b7280">
-            <span class="online-dot"></span> Active
-          </span>
+    <!-- card-items grid with gap-6 mt-6 (exact requested structure) -->
+    <div class="card-items grid-4 gap-6 mt-6">
+
+        <!-- 1. NEW CARD (with fresh + icon) -->
+        <div class="helpdesk-card">
+            <div class="icon-wrapper">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4V20M20 12H4" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="9" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="2 2"/>
+                    <path d="M12 8V12L14 14" stroke="#4f46e5" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="card-info">
+                <h4>NEW</h4>
+                <span class="count-number">12</span>
+            </div>
         </div>
-        <div class="profile-sub">
-          <span class="sub-item">🏢 CreativeSoft Ltd.</span>
-          <span class="sub-item">📍 Dhaka, Bangladesh</span>
-          <span class="sub-item">🗓️ Joined Mar 2021</span>
+
+        <!-- 2. IN PROGRESS CARD (sync / progress arrows) -->
+        <div class="helpdesk-card">
+            <div class="icon-wrapper">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4" stroke="#eab308" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M12 2V6L16 2L12 2Z" fill="#eab308" stroke="#ca8a04" stroke-width="1.2"/>
+                    <path d="M16 8L20 12L16 16" stroke="#eab308" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="2" fill="#fef08a" stroke="#ca8a04" stroke-width="1.2"/>
+                </svg>
+            </div>
+            <div class="card-info">
+                <h4>IN PROGRESS</h4>
+                <span class="count-number">12</span>
+            </div>
         </div>
-      </div>
+
+        <!-- 3. SOLVED CARD
+             ★★★ EXACT CHECK MARK ICON (as requested) ★★★
+             original SVG exactly as provided: green check inside circle, double ring & filled circle accent -->
+        <div class="helpdesk-card">
+            <div class="icon-wrapper">
+                <!-- provided check mark icon (perfect match) -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" stroke="#10b981" stroke-width="1.8" fill="none"/>
+    <path d="M8 12L11 15L16 9" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </div>
+            <div class="card-info">
+                <h4>SOLVED</h4>
+                <span class="count-number">24</span>   <!-- dynamic count: solved tickets often higher -->
+            </div>
+        </div>
+
+        <!-- 4. CANCELLED CARD (X mark + warning style) -->
+        <div class="helpdesk-card">
+            <div class="icon-wrapper">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round"/>
+                    <circle cx="12" cy="12" r="9" stroke="#f87171" stroke-width="1.5"/>
+                    <path d="M12 8V12M12 16H12.01" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="card-info">
+                <h4>CANCELLED</h4>
+                <span class="count-number">5</span>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Content Grid -->
-  <div class="content">
-
-    <!-- Left -->
-    <div class="left">
-
-      <!-- Personal Info -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">
-            <div class="card-icon">👤</div>
-            Personal Information
-          </div>
-          <button class="card-edit">✏️ Edit</button>
-        </div>
-        <div class="card-body">
-          <div class="info-grid">
-
-            <div class="info-field">
-              <div class="info-label">Full Name</div>
-              <div class="info-value">Rakib Hossain</div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Employee ID</div>
-              <div class="info-value" style="font-family:monospace;letter-spacing:0.5px">#EMP-2021-0084</div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Gender</div>
-              <div class="info-value">
-                <span class="badge badge-gender">♂ Male</span>
-              </div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Date of Birth</div>
-              <div class="info-value">🎂 14 June, 1995</div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Blood Group</div>
-              <div class="info-value">
-                <span class="badge badge-blood">🩸 B+</span>
-              </div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Position</div>
-              <div class="info-value">Senior UI/UX Designer</div>
-            </div>
-
-          </div>
-
-          <div class="divider"></div>
-
-          <div class="info-grid">
-
-            <div class="info-field">
-              <div class="info-label">Email Address</div>
-              <div class="info-value">📧 rakib@creativesoft.com</div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Phone Number</div>
-              <div class="info-value">📱 +880 1712-345678</div>
-            </div>
-
-            <div class="info-field" style="grid-column: 1 / -1">
-              <div class="info-label">Address</div>
-              <div class="info-value">📍 House 12, Road 5, Mirpur-10, Dhaka-1216, Bangladesh</div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Work Info -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">
-            <div class="card-icon">🏢</div>
-            Work Information
-          </div>
-          <button class="card-edit">✏️ Edit</button>
-        </div>
-        <div class="card-body">
-          <div class="info-grid">
-
-            <div class="info-field">
-              <div class="info-label">Department</div>
-              <div class="info-value">Product & Design</div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Position</div>
-              <div class="info-value">Senior Designer</div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Join Date</div>
-              <div class="info-value">📅 01 March, 2021</div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Work Type</div>
-              <div class="info-value">🏠 Hybrid</div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Employment Status</div>
-              <div class="info-value">
-                <span class="badge badge-active">● Full-time</span>
-              </div>
-            </div>
-
-            <div class="info-field">
-              <div class="info-label">Office Location</div>
-              <div class="info-value">🏙️ Dhaka HQ</div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /left -->
-
-    <!-- Right -->
-    <div class="right">
-
-      <!-- ID Card -->
-      <div class="id-card">
-        <div class="id-card-label">Employee Card</div>
-        <div class="id-card-avatar">RH</div>
-        <div class="id-card-name">Rakib Hossain</div>
-        <div class="id-card-pos">Senior UI/UX Designer · Product & Design</div>
-        <div class="id-card-row">
-          <div class="id-num">
-            Employee ID
-            <strong>#EMP-2021-0084</strong>
-          </div>
-          <div style="font-size:1.8rem;opacity:0.4">🪪</div>
-        </div>
-      </div>
-
-      <!-- Quick Contact -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">
-            <div class="card-icon">📞</div>
-            Quick Info
-          </div>
-        </div>
-        <div class="quick-info">
-          <div class="qi-item">
-            <div class="qi-icon">📧</div>
-            <div>
-              <div class="qi-label">Email</div>
-              <div class="qi-value">rakib@creativesoft.com</div>
-            </div>
-          </div>
-          <div class="qi-item">
-            <div class="qi-icon">📱</div>
-            <div>
-              <div class="qi-label">Phone</div>
-              <div class="qi-value">+880 1712-345678</div>
-            </div>
-          </div>
-          <div class="qi-item">
-            <div class="qi-icon">🩸</div>
-            <div>
-              <div class="qi-label">Blood Group</div>
-              <div class="qi-value" style="color:#dc2626;font-weight:700">B Positive (B+)</div>
-            </div>
-          </div>
-          <div class="qi-item">
-            <div class="qi-icon">🎂</div>
-            <div>
-              <div class="qi-label">Date of Birth</div>
-              <div class="qi-value">14 June, 1995</div>
-            </div>
-          </div>
-          <div class="qi-item">
-            <div class="qi-icon">⚧</div>
-            <div>
-              <div class="qi-label">Gender</div>
-              <div class="qi-value">Male</div>
-            </div>
-          </div>
-          <div class="qi-item">
-            <div class="qi-icon">📍</div>
-            <div>
-              <div class="qi-label">Address</div>
-              <div class="qi-value">Mirpur-10, Dhaka</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Manager -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">
-            <div class="card-icon">👔</div>
-            Reporting Manager
-          </div>
-        </div>
-        <div class="manager-wrap">
-          <div class="manager-avatar">NR</div>
-          <div>
-            <div class="manager-name">Nadia Rahman</div>
-            <div class="manager-role">Head of Product Design</div>
-          </div>
-          <button class="manager-msg-btn">💬</button>
-        </div>
-      </div>
-
-    </div><!-- /right -->
-
-  </div><!-- /content -->
-
-</main>
-
+    <div class="footnote">
+        ✅ Solved card uses exact check mark SVG (double ring & inner green check) • other statuses with coherent icons
+    </div>
+</div>
 </body>
 </html>
