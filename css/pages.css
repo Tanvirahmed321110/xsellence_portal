@@ -491,21 +491,6 @@
 
 
 /*=========================  Helpdesk page  ===========================*/
-.helpdesk .helpdesk-col{
-    background-color: var(--color-white);
-}
-.helpdesk .helpdesk-col .item-head{
-    padding: 12px;
-}
-
-.helpdesk .helpdesk-col .items{
-  border: 1px solid var(--color-primary);
-}
-.helpdesk .helpdesk-col .item{
-    border-bottom: 1px solid var(--color-primary);
-    background-color: var(--border-primary);
-    padding: 8px;
-}
 
 
 .helpdesk .helpdesk-card{
@@ -518,6 +503,7 @@
     box-shadow: var(--shadow-sm);
 }
 
+
 .helpdesk .helpdesk-card .card-content{
     display: flex;
     flex-direction: column;
@@ -529,14 +515,78 @@
     width: fit-content;
     justify-content: center;
     align-items: flex-start;
+    padding: 4px 8px;
+    font-size: var(--fs-xs);
 }
 
 
+.helpdesk .helpdesk-wrap{
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-white);
+    gap: 20px;
+}
 
+.helpdesk .helpdesk-wrap .item{
+    background-color: var(--border-primary);
+    border: 1px solid var(--border-secondary);
+    position: relative;
+    border-top-right-radius: 12px;
+}
 
+/* helpdesk-wrap item */
+.helpdesk-wrap .item .status{
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    top: 2px;
+    right: 2px;
+    padding: 4px 12px;
+    border-radius: 0 12px 2px 12px;
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    font-weight: 500;
+}
 
+.helpdesk-wrap .item .info-label {
+    font-size: var(--fs-xs);
+    color: var(--color-text-desc);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: var(--fw-500);
+    margin-bottom: 4px;
+}
+.helpdesk-wrap .filter-select {
+    background: var(--color-white);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-pill);
+    padding: 8px 12px;
+    font-size: var(--fs-xs);
+    box-shadow: var(--shadow-md);
+    font-weight: 500;
+}
+.helpdesk-wrap .filter-select option{font-weight: 500;}
 
+.helpdesk-wrap .item  .info-val {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-600);
+    color: var(--color-primary-hover);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-top: 2px;
+}
 
+.helpdesk-wrap .item .ticket-header{
+    display: flex;
+    gap: 4px;
+    align-items: start;
+}
+.helpdesk-wrap .item .ticket-header .task-name{
+    flex: 1;
+    padding:  12px;
+    color:var(--color-text-header);
+    font-weight: 500;
+}
 
 @media (max-width:767px){
     .submit-form {
