@@ -52,6 +52,7 @@
     background-color: var(--color-white);
     padding: 16px;
     border-radius: var(--radius-md);
+    overflow-x: auto;
 }
 
 .timesheets .search-wrap,
@@ -694,10 +695,7 @@
     }
 
     .helpdesk-wrap .item .ticket-header .task-name {
-        flex: 1;
-        padding: 12px;
-        padding-right: 0;
-        color: var(--color-text-header);
+        margin-top: 12px;
         font-weight: 500;
         line-height: 1.2;
         display: --webkit-box;
@@ -706,7 +704,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         word-break: break-word;
-        height: 54px;
+        height: 44px;
     }
 
     .helpdesk-wrap .item .status {
@@ -715,9 +713,16 @@
         font-size: var(--fs-low);
         text-transform: uppercase;
         font-weight: 500;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
-    .helpdesk-wrap .pagination{
+    .helpdesk-wrap .pagination {
         padding-top: 12px;
+    }
+
+    .helpdesk-wrap .filter-select {
+        padding: 6px 12px;
     }
 }
