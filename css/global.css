@@ -1598,7 +1598,7 @@ aside .sidebar-bottom {
     .header-wrap .logo svg text {
         animation: stroke 12s infinite alternate;
         stroke-width: 1;
-        font-size: var(--fs-xxl);
+        font-size: var(--fs-3xl);
     }
 
     .header-wrap .left {
@@ -1751,4 +1751,14 @@ aside .sidebar-bottom {
         padding: 8px 8px;
         margin-top: 4px;
     }
+
+
+    /* Task card */
+    .task-card::after{content: unset;}
+    .task-card .filter-select {
+    border-radius: var(--radius-pill);
+    padding: 6px 4px;
+    font-size: var(--fs-xs);
+    max-width: 78px;
+}
 }
