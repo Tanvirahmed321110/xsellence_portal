@@ -1761,4 +1761,17 @@ aside .sidebar-bottom {
     font-size: var(--fs-xs);
     max-width: 78px;
 }
+
+.task-details .proj-card .card-info-grid {
+    display: grid;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 0;
+}
+.task-details .proj-card .card-tags {
+    gap: 4px;
+    margin-top: 4px;
+    height: fit-content;
+    display: flex;
+}
 }
