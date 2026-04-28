@@ -65,7 +65,7 @@
 
                             <!-- Today's Date -->
                             <div class="date flex-center gap-1 align-center justify-center">
-                                <span>01 April 2026</span>
+                                <span>28 April 2026</span>
                             </div>
 
                             <div class="d-flex gap-2 my-align-center mobile-hide">
@@ -116,9 +116,10 @@
                         <div class="user">
                             <!--==========  Profile Image and Dropdown Here ============= -->
                             <div class="profile-img-wrapper">
-                                <div class="profile-img">
-                                    <img src="/images/MDH_8729webqualitysquare.webp" alt="profile">
-                                </div>
+                                <a href="profile.html" class="profile-img">
+                                    <img src="/images/MDH_8729webqualitysquare.webp"
+                                        alt="profile">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -306,7 +307,7 @@
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                             </svg>
-                            <input class="search-input" type="text" placeholder="Search project, task…"
+                            <input class="search-input" type="text" placeholder="Search name or id..."
                                 oninput="applyFilters()">
                         </div>
                     </div>
@@ -339,7 +340,7 @@
                 <div class="card-items grid-4 grid-sm-2 gap-6 gap-sm-4 mt-6">
 
                     <!-- For New card: with SVG icon and count 12 -->
-                    <div class="helpdesk-card">
+                    <div class="helpdesk-card new">
                         <div class="card-icon">
                             <!-- New SVG icon: sparkling + plus badge style (fresh ticket) -->
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -359,7 +360,7 @@
                     </div>
 
                     <!-- For Progress card: with SVG icon (circular sync / progress arrows) -->
-                    <div class="helpdesk-card">
+                    <div class="helpdesk-card progress">
                         <div class="card-icon">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -378,7 +379,7 @@
                     </div>
 
                     <!-- For Solved card: originally empty div, now complete with SVG (check badge + resolved) -->
-                    <div class="helpdesk-card">
+                    <div class="helpdesk-card sloved">
                         <div class="card-icon">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -394,7 +395,7 @@
                     </div>
 
                     <!-- For Cancelled card: originally empty, now added icon with cancel / X mark -->
-                    <div class="helpdesk-card">
+                    <div class="helpdesk-card cancelled">
                         <div class="card-icon">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">

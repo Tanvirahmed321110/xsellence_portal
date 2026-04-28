@@ -656,7 +656,7 @@ aside .sidebar-bottom {
 }
 
 .notic-board.big .notice-icon {
-    margin-left: 290px;
+    margin-left: 294px;
 }
 
 /* Rotating dashed ring */
@@ -1069,7 +1069,8 @@ aside .sidebar-bottom {
 
 /* Coloured top banner */
 .proj-card .card-banner {
-    height: 0px;
+    height: 4px;
+    background-color: var(--color-primary);
 }
 
 /* Card body */

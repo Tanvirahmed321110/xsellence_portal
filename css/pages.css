@@ -524,6 +524,36 @@
     font-size: var(--fs-xs);
 }
 
+.helpdesk .helpdesk-card.cancelled .card-content .count {
+    background-color: var(--color-danger);
+}
+.helpdesk .helpdesk-card.sloved .card-content .count {
+    background-color: var(--color-primary);
+}
+.helpdesk .helpdesk-card.progress .card-content .count {
+    background-color: var(--color-warning);
+}
+.helpdesk .helpdesk-card.new .card-content .count {
+    background-color: var(--header-bg);
+}
+.helpdesk .helpdesk-card.cancelled svg circle{
+    stroke: var(--color-danger);
+}
+.helpdesk .helpdesk-card.new svg circle {
+    stroke: var(--header-bg);
+}
+.helpdesk .helpdesk-card.new svg path{
+    stroke: var(--header-bg);
+}
+.helpdesk .helpdesk-card.progress svg circle{
+    stroke: var(--color-warning);
+}
+.helpdesk .helpdesk-card.sloved svg circle{
+    stroke: var(--color-primary);
+}
+.helpdesk .helpdesk-card.sloved svg path{
+    stroke: var(--color-primary);
+}
 
 .helpdesk .helpdesk-wrap {
     padding: 20px;
@@ -725,7 +755,8 @@
     .helpdesk-wrap .filter-select {
         padding: 6px 12px;
     }
-    .helpdesk .helpdesk-card svg{
+
+    .helpdesk .helpdesk-card svg {
         height: 20px;
         width: 20px;
     }
