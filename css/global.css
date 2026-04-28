@@ -1497,11 +1497,24 @@ aside .sidebar-bottom {
     }
 
     header .left {
-        max-width: 300px;
+        max-width: 280px;
+    }
+
+    .btn-collaps {
+        background-color: #8446C2;
+        border-radius: var(--radius-sm);
+        margin-left: 0px;
+        border: none;
+    }
+
+    .notic-board.big .notice-icon {
+        margin-left: 266px;
     }
 }
 
 
+
+/*===================|| For Mobile Responsive ||====================*/
 @media (max-width:767px) {
 
 
