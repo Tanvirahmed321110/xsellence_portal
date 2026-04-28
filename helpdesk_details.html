@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Task Details</title>
+        <title>Ticket Details</title>
         <link rel="stylesheet" href="/css/custom_class.css">
         <link rel="stylesheet" href="/css/my_component.css">
         <link rel="stylesheet" href="/css/global.css">
@@ -21,10 +21,14 @@
             <div class="header-wrap flex-between my-gap-4">
                 <!-- mobile menu btn -->
                 <div class="pl-4">
-                     <button class="mobile-menu-btn desktop-hide" id="mobile-menu-btn"><svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <line x1="3" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
-                            <line x1="7" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
-                            <line x1="11" y1="17" x2="21" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                    <button class="mobile-menu-btn desktop-hide" id="mobile-menu-btn"><svg id="menu-icon" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none">
+                            <line x1="3" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round"></line>
+                            <line x1="7" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round"></line>
+                            <line x1="11" y1="17" x2="21" y2="17" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round"></line>
                         </svg></button>
                 </div>
 
@@ -113,8 +117,7 @@
                             <!--==========  Profile Image and Dropdown Here ============= -->
                             <div class="profile-img-wrapper">
                                 <a href="profile.html" class="profile-img">
-                                    <img src="/images/MDH_8729webqualitysquare.webp"
-                                        alt="profile">
+                                    <img src="/images/MDH_8729webqualitysquare.webp" alt="profile">
                                 </a>
                             </div>
                         </div>
@@ -127,11 +130,10 @@
 
 
 
-
         <!-- ========================================
         ||======  Sidebar Section Start Here  ======||
         ========================================= -->
-        <aside  class="" id="sidebar">
+        <aside class="" id="sidebar">
             <div class="sidebar-wrap flex-column justify-between">
 
                 <!--=================|| Main Menu Here ||===============-->
@@ -150,7 +152,7 @@
                                 <span class="text">Dashboard</span>
                             </a></li>
 
-                        <li><a href="/projects.html" class="menu-item" >
+                        <li><a href="/projects.html" class="menu-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -161,7 +163,7 @@
                                 <div class="batch">2</div>
                             </a></li>
 
-                        <li><a href="tasks.html" class="menu-item active">
+                        <li><a href="tasks.html" class="menu-item">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -181,7 +183,7 @@
                                 <span class="text">Timesheet</span>
                             </a></li>
 
-                        <li><a href="helpdesk.html" class="menu-item">
+                        <li><a href="helpdesk.html" class="menu-item active">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -213,7 +215,7 @@
                                     <line x1="12" y1="8" x2="12" y2="16" />
                                     <line x1="8" y1="12" x2="16" y2="12" />
                                 </svg>
-                               <span class="text">Add  Timesheet</span>
+                                <span class="text">Add Timesheet</span>
                             </a></li>
                     </ul>
                 </div>
@@ -235,7 +237,7 @@
                             </a></li>
 
                         <!-- Profile -->
-                        <li><a href="profile.html" class="menu-item">
+                        <li><a href="profile.html" class="menu-item ">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -272,183 +274,235 @@
 
 
 
-        <!-- =======================================
+        <!-- ========================================
         ||======  Main Content  Start Here  ======||
-        =========================================-->
-        <main class="main-content">
-
+        ========================================= -->
+        <main class="main-content " id="main-content">
             <!--========================|| Breadcrumb ||=========================-->
             <section>
                 <nav class="breadcrumb">
-
                     <a href="index.html">Dashboard</a>
                     <span class="separator">
+                        <!-- arrow icon -->
                         <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" />
+                            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </span>
 
-                    <a href="./tasks.html">My Tasks</a>
+                    <a href="helpdesk.html">Helpdesk</a>
                     <span class="separator">
+                        <!-- arrow icon -->
                         <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" />
+                            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </span>
 
-                    <span class="active">Nadia Website Backend Development</span>
+                    <span class="active">Ticket Details</span>
                 </nav>
             </section>
 
 
+            <section class="helpdesk-details mt-6">
 
-            <!--========================|| Projects Here ||=========================-->
-            <section class="task-details mt-6">
-                <div class="flex-center">
-                    <!--================||   Single Task Card here ||===============-->
-                    <div class="proj-card task-card">
-                        <div class="card-banner"></div>
-                        <div class="card-body">
-                            <div class="card-top">
-                                <div class="card-title-wrap">
-                                    <!-- Task Name -->
-                                    <div class="card-proj-name">Nadia Website Backend Development</div>
-                                </div>
-                                <!-- Status -->
-                                <span class="status-badge status-active"><span class="dot"></span>In Progress</span>
-                            </div>
-                            <div>
-                                <div class="info-label d-flex align-center gap-2">Assignee
-                                    <svg width="19" height="17" viewBox="0 0 24 24" fill="none">
-                                        <circle cx="12" cy="8" r="3.5" fill="currentColor" />
-                                        <circle cx="6" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <circle cx="18" cy="10" r="2.5" fill="currentColor" opacity="0.9" />
-                                        <path d="M4 20c0-3.5 4-5.5 8-5.5s8 2 8 5.5" fill="currentColor" />
+                <!-- Page -->
+                <div class="page">
+
+                    <!-- Hero -->
+                    <div class="ticket-hero">
+                        <div class="hero-top">
+                            <div style="flex:1;min-width:0;">
+                                <div class="ticket-id-badge">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20 4H4c-1.1 0-2 .9-2 2v16l4-4h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" />
                                     </svg>
+                                    TKT-00482
                                 </div>
-
-                                <!-- assignee names -->
-                                <div class="card-tags">
-                                    <span class="tag ">Tanvir</span>
-                                    <span class="tag ">Shuvo</span>
-                                    <span class="tag ">Fahim Islam</span>
-                                    <span class="tag ">Razzak</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Razzak</span>
-                                    <span class="tag ">Moynul</span>
-                                    <span class="tag ">Rajon</span>
-                                    <span class="tag ">Delowar</span>
-                                </div>
-                            </div>
-                            <div class="card-info-grid mt-4">
-                                <!-- Project Name -->
-                                <div class="info-item mt-2">
-                                    <div class="info-label d-flex ailign-center gap-1">Project <svg width="18"
-                                            height="17" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v1H3V6z"></path>
-                                            <path d="M3 10h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z"></path>
-                                        </svg></div>
-                                    <div class="info-val mt-1">Nutrition Depot BD
-                                    </div>
-                                </div>
-                                <!-- For Assigned date -->
-                                <div class="info-item mt-2">
-                                    <div class="info-label">Assigned Date</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg>15 Jan 2026</div>
+                                <div class="ticket-title">Customer Support at 9AM – 10PM</div>
+                                <div class="hero-badges">
+                                    <span class="badge badge-cancelled"><span class="badge-dot"></span>Cancelled</span>
+                                    <span class="badge badge-high"><span class="badge-dot"></span>High Priority</span>
                                 </div>
                             </div>
 
-                            <div class="card-info-grid">
 
-                                <!-- For Project Priority -->
-                                <div class="card-manager">
-                                    <div class="manager-info mt-2">
-                                        <div class="info-label">Priority <svg width="18" height="16" viewBox="0 0 24 24"
-                                                fill="currentColor">
-                                                <path d="M4 2v20" stroke="currentColor" stroke-width="2"
-                                                    stroke-linecap="round" />
-                                                <path d="M4 3h13l-2 4 2 4H4z" />
-                                            </svg>
-
-                                        </div>
-                                        <div class=" info-val">High</div>
-                                    </div>
-                                </div>
-
-                                <!-- For Deadline -->
-                                <div class="info-item mt-2">
-                                    <div class="info-label">Deadline</div>
-                                    <div class="info-val mt-1"><svg width="11" height="11" viewBox="0 0 24 24"
-                                            fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg> <span>22 April 2026</span></div>
-                                </div>
-                            </div>
-
-                            <!-- Task Description -->
-                            <div class="mt-4">
-                                <div class="info-label">Description</div>
-                                <div class="task-desc-wrap mt-2 flex-column gap-4">
-                                    <p class="task-desc">এই টাস্কটি Sonali Backend-এর জন্য একটি গুরুত্বপূর্ণ ডেভেলপমেন্ট
-                                        পরিবর্তন অন্তর্ভুক্ত
-                                        করে। ব্যাকএন্ড API এর পারফরম্যান্স উন্নত করতে এবং ডেটাবেস কোয়েরি অপ্টিমাইজ করতে
-                                        প্রয়োজনীয় পদক্ষেপগুলি নেওয়া হয়েছে।
-
-                                        Nutrition Depot BD প্রজেক্টের জন্য নতুন মডিউল ইন্টিগ্রেশন এবং সিকিউরিটি আপডেট
-                                        সম্পন্ন করতে হবে। সকল টিম মেম্বারকে নির্ধারিত ডেডলাইনের মধ্যে কাজ সম্পন্ন করতে
-                                        হবে।
-
-                                    <p class="task-desc">
-                                        এই টাস্কটি Sonali Backend-এর জন্য একটি গুরুত্বপূর্ণ ডেভেলপমেন্ট পরিবর্তন
-                                        অন্তর্ভুক্ত
-                                        করে। ব্যাকএন্ড API এর পারফরম্যান্স উন্নত করতে এবং ডেটাবেস কোয়েরি অপ্টিমাইজ করতে
-                                        প্রয়োজনীয় পদক্ষেপগুলি নেওয়া হয়েছে।
-
-                                        Nutrition Depot BD প্রজেক্টের জন্য নতুন মডিউল ইন্টিগ্রেশন এবং সিকিউরিটি আপডেট
-                                        সম্পন্ন করতে হবে। সকল টিম মেম্বারকে নির্ধারিত ডেডলাইনের মধ্যে কাজ সম্পন্ন করতে
-                                        হবে।
-                                    </p>
-                                    </p>
-                                </div>
+                            <div class="hero-actions">
+                                <!-- Mark Solved -->
+                                <button class="btn btn-primary">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                    Mark Solved
+                                </button>
                             </div>
                         </div>
+                    </div>
 
-                        <!--=============  Card Footer  =============-->
-                        <div class="card-footer">
-                            <div class="state-dropdown ">
-                                <select class="filter-select">
-                                    <option value="blocked">Blocked</option>
-                                    <option value="active">Active</option>
-                                    <option value="onhold">On Hold</option>
-                                    <option value="cancelled">Cancelled</option>
-                                    <option value="completed">Completed</option>
-                                </select>
-                            </div>
-                            <!-- Actions Buttons -->
-                            <div class="action-btns">
+                    <!-- Two-column -->
+                    <div class="detail-grid">
 
-                                <!-- Delete button -->
-                                <button class="action-btn del"><svg width="12" height="12" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polyline points="3 6 5 6 21 6" />
-                                        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                                        <path d="M10 11v6" />
-                                        <path d="M14 11v6" />
-                                        <path d="M9 6V4h6v2" />
-                                    </svg></button>
+                        <!-- LEFT -->
+                        <div class="col-gap">
+
+                            <!-- Description -->
+                            <div class="card">
+                                <div class="card-head">
+                                    <div class="card-head-title">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                            <line x1="16" y1="13" x2="8" y2="13" />
+                                            <line x1="16" y1="17" x2="8" y2="17" />
+                                        </svg>
+                                        Description
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="description-text">
+                                        <p>The customer support shift covers the full window from <strong>9:00 AM to
+                                                10:00 PM</strong>. During this period, the assigned team member is
+                                            responsible for handling all incoming tickets via chat, email, and phone
+                                            channels for the Nutrition Depot BD project.</p>
+                                        <p>The ticket has been cancelled due to a scheduling conflict reported by the
+                                            project manager. All pending queries from this shift have been re-assigned
+                                            to the on-call support agent. Please ensure the replacement agent is briefed
+                                            with all open threads before the shift begins.</p>
+                                        <p>If the shift needs to be reinstated, please contact <strong>Shamiul
+                                                Alam</strong> for approval and update the status accordingly.</p>
+                                        <p>The ticket has been cancelled due to a scheduling conflict reported by the
+                                            project manager. All pending queries from this shift have been re-assigned
+                                            to the on-call support agent. Please ensure the replacement agent is briefed
+                                            with all open threads before the shift begins.</p>
+                                        <p>If the shift needs to be reinstated, please contact <strong>Shamiul
+                                                Alam</strong> for approval and update the status accordingly.</p>
+                                    </div>
+                                </div>
                             </div>
+
+
+
+                        </div>
+
+                        <!-- RIGHT Sidebar -->
+                        <div class="col-gap">
+
+                            <!-- Ticket Details -->
+                            <div class="card" style="animation-delay:.08s;">
+                                <div class="card-head">
+                                    <div class="card-head-title">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="12" y1="8" x2="12" y2="12" />
+                                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                                        </svg>
+                                        Ticket Details
+                                    </div>
+                                </div>
+                                <div class="card-body"
+                                    style="padding-top:var(--space-1);padding-bottom:var(--space-1);">
+                                    <div class="meta-list">
+
+                                        <div class="meta-row">
+                                            <div class="meta-label">ID</div>
+                                            <div class="meta-val id-val">TKT-00482</div>
+                                        </div>
+
+                                        <div class="meta-row">
+                                            <div class="meta-label">Status</div>
+                                            <div class="meta-val">
+                                                <span class="badge badge-cancelled"><span
+                                                        class="badge-dot"></span>Cancelled</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="meta-row">
+                                            <div class="meta-label">Priority</div>
+                                            <div class="meta-val">
+                                                <span class="badge badge-high"><span
+                                                        class="badge-dot"></span>High</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="meta-row">
+                                            <div class="meta-label">Project</div>
+                                            <div class="meta-val" style="font-size:var(--fs-xs);">Nutrition Depot BD
+                                            </div>
+                                        </div>
+
+
+                                        <div class="meta-row">
+                                            <div class="meta-label">Assignee</div>
+                                            <div class="meta-val">
+                                                <div class="person-chip">
+                                                    <span class="person-name">Rafiq Hossain</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="meta-row">
+                                            <div class="meta-label">Assigned By</div>
+                                            <div class="meta-val">
+                                                <div class="person-chip">
+                                                    <span class="person-name">Shamiul Alam</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="meta-row">
+                                            <div class="meta-label">Created</div>
+                                            <div class="meta-val"
+                                                style="font-size:var(--fs-xs);color:var(--color-text-muted);">25 Apr
+                                                2026</div>
+                                        </div>
+
+                                        <div class="meta-row">
+                                            <div class="meta-label">Deadline</div>
+                                            <div class="meta-val">
+                                                <span class="deadline-chip">
+                                                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2.2">
+                                                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                                                        <line x1="16" y1="2" x2="16" y2="6" />
+                                                        <line x1="8" y1="2" x2="8" y2="6" />
+                                                        <line x1="3" y1="10" x2="21" y2="10" />
+                                                    </svg>
+                                                    2 May 2026
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Update Status -->
+                            <div class="card" style="animation-delay:.12s;">
+                                <div class="card-head">
+                                    <div class="card-head-title">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 4 23 10 17 10" />
+                                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                                        </svg>
+                                        Update Status
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <select class="status-select">
+                                        <option value="cancelled" selected>Cancelled</option>
+                                        <option value="new">New</option>
+                                        <option value="progress">In Progress</option>
+                                        <option value="onhold">On Hold</option>
+                                        <option value="solved">Solved</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -465,8 +519,8 @@
         <!-- ======================================
         ||======  Notic Board  Start Here  ======||
         ======================================= -->
-        <div class="notic-board big" id="notic-board" >
-            <div >
+        <div class="notic-board big" id="notic-board">
+            <div>
 
 
 

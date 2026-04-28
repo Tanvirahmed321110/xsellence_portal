@@ -524,34 +524,45 @@
     font-size: var(--fs-xs);
 }
 
+
+/* Helpdesk card status */
 .helpdesk .helpdesk-card.cancelled .card-content .count {
     background-color: var(--color-danger);
 }
+
 .helpdesk .helpdesk-card.sloved .card-content .count {
     background-color: var(--color-primary);
 }
+
 .helpdesk .helpdesk-card.progress .card-content .count {
     background-color: var(--color-warning);
 }
+
 .helpdesk .helpdesk-card.new .card-content .count {
     background-color: var(--header-bg);
 }
-.helpdesk .helpdesk-card.cancelled svg circle{
+
+.helpdesk .helpdesk-card.cancelled svg circle {
     stroke: var(--color-danger);
 }
+
 .helpdesk .helpdesk-card.new svg circle {
     stroke: var(--header-bg);
 }
-.helpdesk .helpdesk-card.new svg path{
+
+.helpdesk .helpdesk-card.new svg path {
     stroke: var(--header-bg);
 }
-.helpdesk .helpdesk-card.progress svg circle{
+
+.helpdesk .helpdesk-card.progress svg circle {
     stroke: var(--color-warning);
 }
-.helpdesk .helpdesk-card.sloved svg circle{
+
+.helpdesk .helpdesk-card.sloved svg circle {
     stroke: var(--color-primary);
 }
-.helpdesk .helpdesk-card.sloved svg path{
+
+.helpdesk .helpdesk-card.sloved svg path {
     stroke: var(--color-primary);
 }
 
@@ -609,7 +620,7 @@
     right: 2px;
     padding: 4px 12px;
     border-radius: 0 12px 2px 12px;
-    font-size: var(--fs-xs);
+    font-size: var(--fs-low);
     text-transform: uppercase;
     font-weight: 500;
 }
@@ -690,6 +701,455 @@
     height: 60px;
 }
 
+
+
+
+
+
+
+/* ── Page ── */
+.page {
+    max-width: 980px;
+    margin: var(--space-7) auto;
+    padding: 0 var(--space-5) 60px;
+}
+
+/* ── Hero ── */
+.ticket-hero {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--border-primary);
+    border-top: 3px solid var(--color-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-7) var(--space-7) var(--space-6);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-5);
+    animation: fadeUp .35s ease both;
+}
+
+.hero-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.ticket-id-badge {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-600);
+    color: var(--color-primary);
+    background: #d9117c11;
+    border: 1px solid var(--border-primary);
+    padding: 3px var(--space-3);
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    margin-bottom: var(--space-3);
+}
+
+.ticket-title {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-700);
+    color: var(--color-text-header);
+    margin-bottom: var(--space-4);
+    line-height: var(--line-height-xl);
+}
+
+.hero-badges {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-shrink: 0;
+}
+
+/* ── Badge ── */
+.helpdesk-details .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-600);
+}
+
+.helpdesk-details .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-round);
+    flex-shrink: 0;
+}
+
+.helpdesk-details .badge-cancelled {
+    background: #fef2f2;
+    color: var(--color-text-danger);
+}
+
+.helpdesk-details .badge-cancelled .badge-dot {
+    background: var(--color-text-danger);
+}
+
+.helpdesk-details .badge-progress {
+    background: #fffbeb;
+    color: var(--color-warning);
+}
+
+.helpdesk-details .badge-progress .badge-dot {
+    background: var(--color-warning);
+}
+
+.helpdesk-details .badge-new {
+    background: #eff6ff;
+    color: var(--color-text-link);
+}
+
+.helpdesk-details .badge-new .badge-dot {
+    background: var(--color-text-link);
+}
+
+.helpdesk-details .badge-solved {
+    background: #f0fdf4;
+    color: var(--color-text-success);
+}
+
+.helpdesk-details .badge-solved .badge-dot {
+    background: var(--color-text-success);
+}
+
+.helpdesk-details .badge-high {
+    background: #fef2f2;
+    color: var(--color-text-danger);
+}
+
+.badge-high .badge-dot {
+    background: var(--color-text-danger);
+}
+
+.helpdesk-details .badge-medium {
+    background: #fffbeb;
+    color: var(--color-warning);
+}
+
+.helpdesk-details .badge-low {
+    background: #f0fdf4;
+    color: var(--color-text-success);
+}
+
+
+
+/* ── Grid ── */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--space-5);
+    align-items: start;
+}
+
+.helpdesk-details .col-gap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+/* ── Card ── */
+.helpdesk-details .card {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    animation: fadeUp .4s ease both;
+}
+
+.helpdesk-details .card:nth-child(2) {
+    animation-delay: .06s;
+}
+
+.helpdesk-details .card:nth-child(3) {
+    animation-delay: .12s;
+}
+
+.helpdesk-details .card-head {
+    padding: var(--space-3) var(--space-5);
+    border-bottom: 1px solid var(--border-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #d9117c08;
+}
+
+.helpdesk-details .card-head-title {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-700);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: .7px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.helpdesk-details .card-body {
+    padding: var(--space-5);
+}
+
+/* ── Description ── */
+.helpdesk-details .description-text {
+    font-size: var(--fs-sm);
+    color: var(--color-text-desc);
+    line-height: var(--line-height-xl);
+}
+.helpdesk-details .description-text p{line-height: 1.8;}
+.helpdesk-details .description-text p+p {
+    margin-top: var(--space-3);
+}
+
+.helpdesk-details .description-text strong {
+    font-weight: var(--fw-600);
+    color: var(--color-text-secondary);
+}
+
+/* ── Timeline ── */
+.helpdesk-details .timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.helpdesk-details .timeline-item {
+    display: flex;
+    gap: var(--space-3);
+    position: relative;
+    padding-bottom: var(--space-5);
+}
+
+.helpdesk-details .timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.helpdesk-details .timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: 26px;
+    width: 1px;
+    bottom: 0;
+    background: var(--border-primary);
+}
+
+
+/* ── Meta list ── */
+.meta-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) 0;
+    gap: var(--space-3);
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.meta-row:last-child {
+    border-bottom: none;
+}
+
+.meta-label {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-600);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.meta-val {
+    font-size: var(--fs-sm);
+    color: var(--color-text-header);
+    font-weight: var(--fw-500);
+    text-align: right;
+}
+
+.meta-val.id-val {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-700);
+    color: var(--color-primary);
+    background: #d9117c11;
+    border: 1px solid var(--border-primary);
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+}
+
+
+
+
+.helpdesk-details .person-name {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-500);
+    color: var(--color-text-header);
+}
+
+/* ── Deadline chip ── */
+.helpdesk-details .deadline-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-600);
+    color: var(--color-text-danger);
+    background: #fef2f2;
+    padding: 3px 9px;
+    border-radius: var(--radius-pill);
+    border: 1px solid #fecaca;
+}
+
+/* ── Status select ── */
+.status-select {
+    width: 100%;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-md);
+    font-family: var(--font-inter);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-500);
+    background: var(--color-bg-secondary);
+    color: var(--color-text-header);
+    cursor: pointer;
+    outline: none;
+    transition: border var(--transition-fast);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+}
+
+.status-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(217, 17, 123, .08);
+    background: var(--color-bg-primary);
+}
+
+/* ── Action buttons ── */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-500);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 1px solid var(--border-secondary);
+    background: var(--color-bg-primary);
+    color: var(--color-text-secondary);
+    font-family: var(--font-inter);
+    text-align: left;
+}
+
+.action-btn:hover {
+    background: var(--color-bg-secondary);
+    color: var(--color-text-header);
+}
+
+.action-btn.primary {
+    color: var(--color-primary);
+    border-color: var(--border-primary);
+}
+
+.action-btn.primary:hover {
+    background: #d9117c0d;
+}
+
+.action-btn.success {
+    color: var(--color-text-success);
+    border-color: #bbf7d0;
+}
+
+.action-btn.success:hover {
+    background: #f0fdf4;
+}
+
+.action-btn.danger {
+    color: var(--color-text-danger);
+    border-color: #fecaca;
+}
+
+.action-btn.danger:hover {
+    background: #fef2f2;
+}
+
+.action-btn svg {
+    flex-shrink: 0;
+    opacity: .75;
+}
+
+/* ── Animation ── */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        padding: 0 var(--space-4);
+    }
+
+    .page {
+        padding: 0 var(--space-3) 60px;
+        margin-top: var(--space-4);
+    }
+
+    .ticket-hero {
+        padding: var(--space-5);
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Mobile Responsive Code */
 @media (max-width:767px) {
     .submit-form {
         padding: 16px;
