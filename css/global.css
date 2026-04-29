@@ -1076,8 +1076,9 @@ aside .sidebar-bottom {
 
 /* Coloured top banner */
 .proj-card .card-banner {
-    height: 4px;
+    height: 5px;
     background-color: var(--color-primary);
+    border-radius: 8px 8px 0 0;
 }
 
 /* Card body */
@@ -1864,6 +1865,12 @@ aside .sidebar-bottom {
         min-height: 16px;
         overflow: hidden;
     }
+    .proj-card .info-label {
+    margin-bottom: 2px;
+}
+.proj-card .card-tags {
+    display: none;
+}
 
     .proj-card .card-top {
         min-height: 18px;
