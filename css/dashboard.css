@@ -484,8 +484,8 @@
     margin-top: 14px;
 }
 .leave .card .title {
-    color: var(--color-text-muted);
-    font-weight: 600;
+    color: var(--color-text-desc);
+    font-weight: 500;
 }
 .attendance  .card .value {
     font-size: var(--fs-lg);
@@ -496,9 +496,12 @@
 }
 
 .leave .card .leave-icon{
-     background: #D2E1F8 ;
+     background: #d4e0f2 ;
 }
-
+.leave .card{
+    /* background: linear-gradient(to right, #e5f8f1, #cefdffca) ; */
+    border: dashed 1px var(--color-text-muted);
+}
 .value-unit {
     font-size: 13px;
     margin-left: 2px;
