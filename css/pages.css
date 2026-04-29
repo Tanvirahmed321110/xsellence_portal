@@ -55,40 +55,7 @@
     overflow-x: auto;
 }
 
-.timesheets .search-wrap,
-.helpdesk .search-wrap {
-    position: relative;
-    flex: 1;
-    min-width: 200px;
-}
 
-.timesheets .search-wrap svg,
-.helpdesk .search-wrap svg {
-    position: absolute;
-    left: 11px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 15px;
-    height: 15px;
-    color: var(--color-text-primary);
-    pointer-events: none;
-    z-index: 2;
-}
-
-.timesheets .search-input,
-.helpdesk .search-input {
-    width: 100%;
-    background-color: var(--color-white-off) !important;
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-md);
-    padding: 10px 12px;
-    padding-left: 34px;
-    font-size: 13px;
-    color: var(--text);
-    font-family: 'Outfit', sans-serif;
-    outline: none;
-    transition: border-color 0.2s;
-}
 
 .timesheets .table-wrap {
     min-height: 400px;
@@ -220,7 +187,6 @@
 .task-details .proj-card:hover {
     transform: scale(1);
 }
-
 
 
 
@@ -907,7 +873,11 @@
     color: var(--color-text-desc);
     line-height: var(--line-height-xl);
 }
-.helpdesk-details .description-text p{line-height: 1.8;}
+
+.helpdesk-details .description-text p {
+    line-height: 1.8;
+}
+
 .helpdesk-details .description-text p+p {
     margin-top: var(--space-3);
 }
@@ -1116,6 +1086,7 @@
         transform: translateY(0);
     }
 }
+
 
 /* ── Responsive ── */
 @media (max-width: 680px) {
