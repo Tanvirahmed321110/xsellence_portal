@@ -1483,6 +1483,116 @@ aside .sidebar-bottom {
 }
 
 
+
+
+
+
+/* Not Found */
+/* ===================== DESIGN 4: GLASSMORPHISM MINIMAL ===================== */
+.empty-4 {
+    width: 100%;
+    background:var(--sidebar-bg);
+    border-radius: 24px;
+    padding: 70px 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.e4-glass {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 50px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 350px;
+}
+
+.e4-ring {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.e4-ring::before,
+.e4-ring::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    animation: spin-ring 3s linear infinite;
+}
+
+.e4-ring::before {
+    inset: 0;
+    border: 3px solid rgba(255, 255, 255, 0.05);
+    border-top-color: var(--color-danger);
+}
+
+.e4-ring::after {
+    inset: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.03);
+    border-top-color: rgba(255, 255, 255, 0.4);
+    animation-duration: 2s;
+    animation-direction: reverse;
+}
+
+@keyframes spin-ring {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.e4-icon-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 20px;
+}
+
+.e4-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: -0.3px;
+}
+
+.e4-sub {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 8px;
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 260px;
+}
+
+.e4-pills {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: var(--color-text-desc);
+}
+
+
+
+
+
+
 @media (max-width:1439px) {
     aside {
         width: 270px;
