@@ -410,7 +410,9 @@ aside .sidebar-top::-webkit-scrollbar-thumb {
     border-radius: 8px;
     cursor: pointer;
 }
-
+aside .sidebar-bottom .flex-column{
+    gap: 4px;
+}
 
 /*=============//  Sidebar Small  //=============*/
 aside.sidebar-small {
@@ -460,7 +462,7 @@ aside.sidebar-small .sidebar-bottom {
 }
 
 aside.sidebar-small .sidebar-bottom .flex-column {
-    gap: 8px;
+    gap: 4px;
 }
 
 aside.sidebar-small .menu-item .batch {
