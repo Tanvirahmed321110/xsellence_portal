@@ -1278,7 +1278,7 @@ aside .sidebar-bottom {
 
 .proj-card .action-btns {
     display: flex;
-    gap: 6px;
+    gap: 8px;
 }
 
 .proj-card .action-btn {
@@ -1485,11 +1485,21 @@ aside .sidebar-bottom {
 }
 
 .task-card .timesheet .btn {
-    padding: 12px 14px;
+    padding: 10px 14px;
+    font-size: var(--fs-sm);
+    font-weight: 500;
 }
 
+.task-card .card-footer{
+    padding: 12px 16px;
+    padding-top: 16px;
+    gap: 8px;
+}
 
-
+.task-details .action-btn.edit {
+  color: var(--border-secondary);
+}
+.task-details .action-btn.edit:hover{background-color: var(--color-primary-hover);}
 
 
 
@@ -1604,7 +1614,7 @@ aside .sidebar-bottom {
 .search-wrap {
     position: relative;
     flex: 1;
-    min-width: 200px;
+    min-width: 220px;
 }
 
 .timesheets .search-wrap svg,
