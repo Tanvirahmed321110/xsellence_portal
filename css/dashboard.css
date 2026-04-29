@@ -241,8 +241,8 @@
 }
 
 .mini-val {
-    font-size: 22px;
-    font-weight: 500;
+    font-size: var(--fs-xl);
+    font-weight: 700;
     line-height: 1;
 }
 
@@ -402,12 +402,22 @@
     color: var(--color-text-desc);
     font-weight: 500;
     margin-top: 12px;
-    border-top: 1px solid var(--border-secondary);
+    border-top: 1px solid var(--border-primary);
     padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 
 .leave .total {
-    color: var(--color-text-muted);
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--color-text-desc);
+    display: inline-block;
+    padding: 2px 8px;
+    font-weight: 600;
+    border-radius: 44px;
+    font-size: var(--fs-xs);
+    border: 1px solid var(--border-primary);
 }
 
 
@@ -422,10 +432,6 @@
     border: 1px solid var(--border-secondary);
 }
 
-.attendance .card .title {
-    color: var(--color-primary);
-    font-size: var(--fs-xs);
-}
 
 .attendance .card:nth-child(1) {
     background-color: #9db8e43c;
@@ -469,39 +475,29 @@
 }
 
 /* ── Title & value ── */
-.title {
+.attendance .card .title,.leave .card .title  {
     font-size: var(--fs-xs);
     font-weight: 500;
-    color: var(--color-text-desc);
+    color: var(--color-text-desc) ;
     letter-spacing: 0.3px;
     text-transform: uppercase;
     margin-top: 14px;
 }
-
-.value {
-    font-family: var(--mono);
-    font-size: 30px;
-    font-weight: 500;
+.leave .card .title {
+    color: var(--color-text-desc);
+    font-weight: 600;
+}
+.attendance  .card .value {
+    font-size: var(--fs-lg);
     line-height: 1;
     letter-spacing: -1px;
+    font-weight: 700;
+    color: var(--color-text-primary);
 }
 
-.card-hours .value {
-    color: var(--blue);
-}
-
-.card-checkin .value {
-    color: var(--green);
-}
-
-.card-checkout .value {
-    color: var(--amber);
-}
 
 .value-unit {
     font-size: 13px;
-    font-weight: 400;
-    color: var(--muted);
     margin-left: 2px;
     letter-spacing: 0;
 }
@@ -547,22 +543,12 @@
 }
 
 .footer-val {
-    font-family: var(--mono);
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 700;
+    color: var(--color-text-header);
 }
 
-.col-blue {
-    color: var(--blue);
-}
 
-.col-green {
-    color: var(--green);
-}
-
-.col-amber {
-    color: var(--amber);
-}
 
 /* mini trend pill */
 .trend {
