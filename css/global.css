@@ -361,13 +361,14 @@ aside {
     top: 72px;
     left: 6px;
 
-    /* border-radius: 0px 0px 24px 0px;
-    border-top-right-radius: 24px; */
     border-radius: 20px;
-    /* border-right: 0; */
     z-index: 2;
     transition: var(--transition-slow);
     box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
 aside .sidebar-wrap {
@@ -381,28 +382,30 @@ aside .sidebar-wrap {
     z-index: 2;
 }
 
-aside .main-menus {
+aside .sidebar-top{
+    height: 65dvh;
     overflow-y: auto;
-    overflow-x: hidden;
-    max-height: 380px;
+}
+
+aside .main-menus {
     padding-right: 4px;
 }
 
-aside .main-menus::-webkit-scrollbar {
+aside .sidebar-top::-webkit-scrollbar {
     background-color: var(--color-tag);
     border-radius: 8px;
 }
 
-aside .main-menus::-webkit-scrollbar {
+aside .sidebar-top::-webkit-scrollbar {
     width: 8px;
     cursor: pointer;
 }
 
-aside .main-menus::-webkit-scrollbar-track {
+aside .sidebar-top::-webkit-scrollbar-track {
     background: transparent;
 }
 
-aside .main-menus::-webkit-scrollbar-thumb {
+aside .sidebar-top::-webkit-scrollbar-thumb {
     background: var(--color-primary);
     border-radius: 8px;
     cursor: pointer;
@@ -568,6 +571,7 @@ aside .sidebar-bottom {
     border-radius: var(--radius-xl);
     padding-top: 8px;
     border: 1px solid var(--color-tag);
+    height:200px;
 }
 
 
@@ -1619,6 +1623,9 @@ aside .sidebar-bottom {
 
     .notic-board.big .notice-icon {
         margin-left: 266px;
+    }
+    aside .menu-item{
+        padding: 10px 12px;
     }
 }
 
