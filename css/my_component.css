@@ -221,7 +221,7 @@
     display: block;
     position: absolute;
     background: var(--color-primary);
-    color: var(--my-white);
+    color: var(--color-white);
     padding: 12px 12px;
     border-radius: 8px;
     font-size: var(--fs-xs);
@@ -245,7 +245,7 @@
     left: 50%;
     transform: translateX(-50%);
     border: 8px solid transparent;
-    border-top-color: #333;
+    border-top-color: var(--color-primary);
 }
 
 .tooltip:hover .tooltip-text {

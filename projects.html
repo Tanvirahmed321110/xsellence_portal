@@ -197,7 +197,7 @@
                             </a></li>
 
                         <li><a href="add_task.html" class="menu-item">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke-width="2" stroke="currentColor" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <!-- Document -->
@@ -298,9 +298,9 @@
                 </nav>
 
                 <!-- For Create Project Button  -->
-            <div class="text-right">
-                <a class="btn btn-primary" href="create_project.html">Create Project +</a>
-            </div>
+                <div class="text-right">
+                    <a class="btn btn-primary" href="create_project.html">Create Project +</a>
+                </div>
             </section>
 
 
@@ -322,7 +322,10 @@
                         <option value="2025-04">Other</option>
                     </select>
                 </div>
-                <div class="grid-4 grid-lg-4 gap-lg-4 row-gap-lg-5 gap-6 grid-sm-1 row-gap-sm-4 grid-md-2 projects mt-5 mt-sm-5 gap-sm-3">
+
+                <!--==============================|| All Projects Here ||============================-->
+                <div
+                    class="grid-4 grid-lg-4 gap-lg-4 row-gap-lg-5 gap-6 grid-sm-1 row-gap-sm-4 grid-md-2 projects mt-5 mt-sm-5 gap-sm-3">
 
                     <!--================||   Single Project Card here ||===============-->
                     <div class="proj-card">
@@ -397,7 +400,7 @@
                         </div>
 
                         <!-- ======= Card Footer ======== -->
-                        <div class="card-footer">
+                        <div class="card-footer flex-wrap row-gap-3">
                             <div class="deadline-wrap">
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9ca3af"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -414,8 +417,21 @@
                             <!-- ======== Card Btns ======= -->
                             <div class="action-btns">
                                 <!-- View Button Here -->
-                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                <button class="action-btn tooltip">
+                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 11L12 14L20 6" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path
+                                            d="M20 12V19C20 20.1046 19.1046 21 18 21H5C3.89543 21 3 20.1046 3 19V6C3 4.89543 3.89543 4 5 4H16"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    Tasks
+                                    <span class="tooltip-text">View All Tasks</span>
+                                </button>
+                                <!-- View Button Here -->
+                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
@@ -513,8 +529,8 @@
                             <!-- ======== Card Btns ======= -->
                             <div class="action-btns">
                                 <!-- View Button Here -->
-                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
@@ -612,8 +628,8 @@
                             <!-- ======== Card Btns ======= -->
                             <div class="action-btns">
                                 <!-- View Button Here -->
-                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
@@ -712,8 +728,8 @@
                             <!-- ======== Card Btns ======= -->
                             <div class="action-btns">
                                 <!-- View Button Here -->
-                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
@@ -811,8 +827,8 @@
                             <!-- ======== Card Btns ======= -->
                             <div class="action-btns">
                                 <!-- View Button Here -->
-                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
@@ -907,11 +923,11 @@
                                 </div>
                             </div>
 
-                        <!-- ======== Card Btns ======= -->
+                            <!-- ======== Card Btns ======= -->
                             <div class="action-btns">
                                 <!-- View Button Here -->
-                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
@@ -1009,8 +1025,8 @@
                             <!-- ======== Card Btns ======= -->
                             <div class="action-btns">
                                 <!-- View Button Here -->
-                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
@@ -1109,8 +1125,8 @@
                             <!-- ======== Card Btns ======= -->
                             <div class="action-btns">
                                 <!-- View Button Here -->
-                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
@@ -1205,11 +1221,11 @@
                                 </div>
                             </div>
 
-                        <!-- ======== Card Btns ======= -->
+                            <!-- ======== Card Btns ======= -->
                             <div class="action-btns">
                                 <!-- View Button Here -->
-                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                <button class="action-btn">View <svg width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                         <circle cx="12" cy="12" r="3" />
