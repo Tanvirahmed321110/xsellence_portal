@@ -1,3 +1,5 @@
+
+/*==============  Submit Form Here  ==============*/
 .submit-form {
     display: flex;
     flex-direction: column;
@@ -10,6 +12,30 @@
     box-shadow: var(--shadow-sm);
     position: relative;
     z-index: 2;
+    transition: var(--transition-base);
+}
+/* When load then load animation */
+.submit-form{
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1.4s ease forwards;
+}
+.helpdesk .card-items > *,
+.h-items > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease forwards;
+}
+
+.h-items > * {
+    transform: translateY(40px);
+    animation-delay: .3s;
+}
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
@@ -488,8 +514,6 @@
 
 
 /*=========================  Helpdesk page  ===========================*/
-
-
 .helpdesk .helpdesk-card {
     display: flex;
     justify-content: space-between;
@@ -699,7 +723,7 @@
 
 
 
-/* ── Page ── */
+/*==============  Helpdesk Details Page  ==============*/
 .page {
     max-width: 980px;
     margin: var(--space-1) auto;
@@ -1113,8 +1137,11 @@
 }
 
 
-/* ── Responsive ── */
-@media (max-width: 680px) {
+
+
+
+/* Mobile Responsive Code */
+@media (max-width:767px) {
     .detail-grid {
         grid-template-columns: 1fr;
     }
@@ -1132,21 +1159,6 @@
         padding: var(--space-4);
     }
 
-    .breadcrumb {
-        display: none;
-    }
-}
-
-
-
-
-
-
-
-
-
-/* Mobile Responsive Code */
-@media (max-width:767px) {
     .submit-form {
         padding: 16px;
     }
