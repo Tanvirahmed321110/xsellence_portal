@@ -99,9 +99,10 @@
 }
 
 .header-wrap .logo svg text {
-    animation: stroke 8s infinite alternate;
-    stroke-width: 2;
-    stroke: #365FA0;
+    animation: stroke 12s 2 ;
+    stroke-width: 0;
+    fill: var(--color-white);
+    stroke: var(--color-white);
     font-size: 36px;
 }
 
@@ -1069,8 +1070,7 @@ aside .sidebar-bottom {
 }
 
 .proj-card:hover {
-    transform: scale(1);
-    box-shadow: var(--shadow-1);
+    outline: 1px solid var(--border-primary);
 }
 
 
@@ -1720,7 +1720,7 @@ aside .sidebar-bottom {
     }
 
     header .left {
-        max-width: 280px;
+        max-width: 266px;
     }
 
     .btn-collaps {
@@ -1731,8 +1731,16 @@ aside .sidebar-bottom {
     }
 
     .notic-board.big .notice-icon {
-        margin-left: 266px;
+        margin-left: 246px;
     }
+
+    .header-wrap .logo svg text {
+    animation: stroke 6s 1 alternate;
+    stroke-width: 1;
+    stroke: var(--color-white);
+    color: var(--color-white);
+    font-size: 34px;
+}
 
     aside .menu-item {
         padding: 10px 12px;
