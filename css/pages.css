@@ -164,7 +164,8 @@
     gap: 6px;
     row-gap: 8px;
     margin-top: 8px;
-    height: 22px;
+    height: auto;
+    overflow: unset;
 }
 
 .task-details .task-card .card-proj-name {

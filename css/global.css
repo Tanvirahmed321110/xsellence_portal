@@ -1190,6 +1190,7 @@ aside .sidebar-bottom {
     align-items: center;
     gap: 5px;
     padding-top: 2px;
+    text-transform: capitalize;
 }
 
 .proj-card .tasks-num {
