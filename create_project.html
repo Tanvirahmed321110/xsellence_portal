@@ -416,6 +416,19 @@
                             </div>
                         </div>
 
+                        <div class="grid-2 gap-5 grid-sm-1">
+                            <!--======= For Project Tags =======-->
+                            <div class="input-control">
+                                <label for="">Tags <span class="required">*</span></label>
+                                <select id="tags" multiple>
+                                    <option value="1">App</option>
+                                    <option value="2">Portal</option>
+                                    <option value="3">Backend</option>
+                                    <option value="4">HR </option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="grid-1 gap-5 grid-sm-1">
                             <!--======= For Description =======-->
                             <div class="input-control">
@@ -539,6 +552,10 @@
 
             // <!-- Ts Control Library Code -->
             new TomSelect("#assignees", {
+                create: true,   // allow new names
+                persist: false
+            });
+            new TomSelect("#tags", {
                 create: true,   // allow new names
                 persist: false
             });

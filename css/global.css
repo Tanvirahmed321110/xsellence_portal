@@ -1061,7 +1061,6 @@ aside .sidebar-bottom {
     background: var(--color-bg-primary);
     border: 1px solid var(--border-secondary);
     border-radius: var(--radius-xl);
-    overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     display: flex;
@@ -1070,7 +1069,7 @@ aside .sidebar-bottom {
 }
 
 .proj-card:hover {
-    outline: 1px solid var(--border-primary);
+    outline: 1px solid var(--color-tag);
 }
 
 
@@ -1109,7 +1108,7 @@ aside .sidebar-bottom {
     color: var(--color-text-header);
     line-height: 1.4;
     text-transform: capitalize;
-    height: 40px;
+    height: 42px;
     overflow: hidden;
 }
 
@@ -1196,11 +1195,12 @@ aside .sidebar-bottom {
 .proj-card .tasks-num {
     padding: 0px 6px;
     border-radius: var(--radius-xxl);
-    background-color: #f9b12c49;
     display: inline-block !important;
     margin-top: 0;
     line-height: 1.4;
     font-weight: 700;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
 }
 
 .proj-card .info-val.overdue {
@@ -1242,7 +1242,7 @@ aside .sidebar-bottom {
 
 /* Card footer */
 .proj-card .card-footer {
-    padding: 12px 18px;
+    padding: 16px;
     border-top: 1px solid var(--border-secondary);
     display: flex;
     align-items: center;
@@ -1321,7 +1321,20 @@ aside .sidebar-bottom {
     background-color: var(--btn-danger-bg);
     color: wheat;
 }
-
+.proj-card .view-task-btn{
+    color: var(--color-primary);
+    border-color: var(--color-tag);
+    background: var(--color-white-off);
+}
+.proj-card  .btn-primary:hover{
+    background-color: var(--color-primary-hover);
+    color: var(--color-white-off);
+}
+.proj-card .action-btn .tooltip-text{
+    width: 120px;
+    padding: 8px;
+}
+/* .assignee{display: none;} */
 
 /*=============//  Task Card  //=============*/
 
