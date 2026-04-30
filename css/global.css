@@ -1428,6 +1428,7 @@ aside .sidebar-bottom {
     z-index: -1;
 }
 
+
 .task-card {
     overflow: hidden;
 }
@@ -1514,6 +1515,11 @@ aside .sidebar-bottom {
 }
 .task-details .action-btn.edit:hover{background-color: var(--color-primary-hover);}
 
+.task-card .action-btn.view-btn {
+    color: var(--color-primary);
+    border-color: var(--color-tag);
+    background: var(--color-white-off);
+}
 
 
 
