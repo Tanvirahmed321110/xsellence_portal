@@ -505,8 +505,11 @@
      background: #e6ebf4 ;
 }
 .leave .card{
-    /* background: linear-gradient(to right, #e5f8f1, #cefdffca) ; */
-    border: dashed 1px var(--color-text-muted);
+    background: linear-gradient(to right, #effbf6, #cefdffca) ;
+    border-color: var(--border-secondary);
+}
+.leave .card:nth-child(2){
+    /* background: linear-gradient(to left, #effbf6, #cefdffca) ; */
 }
 .value-unit {
     font-size: 13px;

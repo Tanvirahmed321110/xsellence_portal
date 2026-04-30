@@ -183,7 +183,7 @@ header .head-right::after {
     left: -20px;
     top: -68px;
     background-color: rgb(132, 70, 194);
-    width: 44px;
+    width: 42px;
     height: 198px;
     transform: rotate(40deg);
 }
@@ -241,14 +241,13 @@ header .logo {
 
 
 header .date {
-    padding: 8px 16px;
+    padding: 8px 18px;
     height: 40px;
     border-radius: var(--radius-md);
     background-color: var(--color-text-muted);
     background-color: var(--color-text-muted);
     color: var(--color-white);
     font-size: var(--fs-sm);
-    font-weight: 500;
     border-radius: 40px;
     opacity: .9;
 }
