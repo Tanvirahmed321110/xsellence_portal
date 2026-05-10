@@ -146,7 +146,7 @@
     /*=============//  Gradient Shade  //=============*/
     --gradient-1: linear-gradient(to right, #173e57c9, #919fa7d6);
     --prog-bar: linear-gradient(90deg, #d9117cc6, #d9117c87);
-    --sidebar-bg: linear-gradient(to right,#bd0969,#b61169e5);
+    --sidebar-bg: linear-gradient(to right,#bd0969,#b61169);
     --header-bg: #663399;
 
 

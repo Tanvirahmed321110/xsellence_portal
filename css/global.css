@@ -380,11 +380,7 @@ aside {
 
 aside .sidebar-wrap {
     background: var(--sidebar-bg);
-    background: linear-gradient(160deg, #c40e6e 0%, #9233ea71 100%, #9233ea71 20%);
-    background: var(--sidebar-bg);
-    background: linear-gradient(100deg, #af0e64fc 120%, #9233eacd 20%, #d015798b 120%);
     background: purple;
-    /* background: var(--sidebar-bg);background: linear-gradient(160deg, #c40e6e 0%, #9233ea71 50%, #c40e6e 80%,#9233ea71 150%); */
     border-radius: 0px;
     width: 100%;
     height: 100%;
@@ -554,8 +550,9 @@ aside .menu-item.active {
 
 aside .menu-item.active,
 aside .menu-item:hover {
-    background: linear-gradient(to right, rgba(141, 95, 188, 0.869), rgba(101, 121, 163, 0.746));
-    background: linear-gradient(10deg, #af0e64fc 2%, #9233eacd 0%, #d015798b 160%);
+    /* background: linear-gradient(to right, rgba(141, 95, 188, 0.869), rgba(101, 121, 163, 0.746));
+    background: linear-gradient(10deg, #af0e64fc 2%, #9233eacd 0%, #d015798b 160%); */
+    background: var(--color-tag);
 }
 
 aside .menu-item:hover .batch {
@@ -569,6 +566,7 @@ aside .menu-item  .icon{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: var(--transition-base);
 }
 
 aside .menu-item svg {
@@ -581,6 +579,9 @@ aside .menu-item:hover svg {
     transform: rotate(44deg);
 }
 
+aside .menu-item.active .icon,aside .menu-item:hover .icon{
+    background-color: var(--color-primary);
+}
 
 aside .sidebar-bottom {
     background-color: var(--color-primary);
