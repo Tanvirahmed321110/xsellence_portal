@@ -174,8 +174,9 @@ header .head-right {
     width: 370px;
     display: flex;
     height: 68px;
-    background-color: rgb(132, 70, 194);
     background-color: #e33592;
+    background-color: var(--color-primary-hover);
+    background-color:purple;
     position: relative;
     align-items: center;
     justify-content: end;
@@ -188,9 +189,10 @@ header .head-right::after {
     content: '';
     left: -29px;
     top: -72px;
-    background-color: rgb(132, 70, 194);
     background-color: #e33592;
+    background-color: var(--color-primary-hover);
     width: 42px;
+    background-color:purple;
     height: 228px;
     transform: rotate(40deg);
 }
@@ -572,7 +574,6 @@ aside .menu-item  .icon{
 aside .menu-item svg {
     transition: var(--transition-fast);
     width: 16px;
-    /* height: 16px; */
 }
 
 aside .menu-item:hover svg {
