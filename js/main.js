@@ -1,5 +1,30 @@
 
+// for notification 
+const notificationSidebar = document.getElementById('notification-sidebar');
 
+if (notificationSidebar) {
+
+    const overlay = document.getElementById('overlay');
+
+    // open button
+    document.getElementById('notification-btn').onclick = () => {
+        notificationSidebar.classList.add('open');
+        overlay.classList.add('show');
+        console.log('click')
+    }
+
+    // close button
+    document.getElementById('close3').onclick = close;
+    overlay.onclick = close;
+
+    function close() {
+        notificationSidebar.classList.remove('open');
+        overlay.classList.remove('show');
+    }
+}
+else {
+    console.log('notificationSidebar not found')
+}
 
 
 const sidebar = document.getElementById('sidebar');
@@ -36,14 +61,14 @@ function mobileSidebar() {
     let isOpen = false;
 
     // icons
-        const hamburger = `
+    const hamburger = `
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <line x1="3" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <line x1="7" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <line x1="11" y1="17" x2="21" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>`;
 
-        const closeIcon = `
+    const closeIcon = `
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <line x1="5" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>

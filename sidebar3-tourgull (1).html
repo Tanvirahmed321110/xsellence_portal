@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar3 — Tourgull</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-7: 32px;
+            --color-primary: #d9117b;
+            --color-primary-hover: #bd0969;
+            --color-secondary: #F9B12C;
+            --color-white: #fff;
+            --color-bg-body: #ededed;
+            --color-bg-primary: #fff;
+            --color-text-header: #343a42;
+            --color-text-secondary: #4b5563;
+            --color-text-muted: #9ca3af;
+            --border-secondary: #e5e7eb;
+            --sidebar-bg: linear-gradient(to right, rgb(117, 67, 168), rgb(67, 43, 92));
+            --header-bg: #663399;
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 10px;
+            --radius-xl: 12px;
+            --radius-xxl: 16px;
+            --radius-pill: 200px;
+            --fs-xs: 0.75rem;
+            --fs-sm: 0.875rem;
+            --fs-md: 1rem;
+            --fw-400: 400;
+            --fw-500: 500;
+            --fw-600: 600;
+            --fw-700: 700;
+            --shadow-md: 0 0 16px rgba(0, 0, 0, 0.1);
+            --transition-base: 0.3s ease;
+            --font-inter: 'Roboto', sans-serif;
+            --z-modal: 50;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-inter);
+            background: var(--color-bg-body);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ── Trigger Button ── */
+        #notificationBtn {
+            background: var(--sidebar-bg);
+            border: none;
+            color: var(--color-white);
+            font-family: var(--font-inter);
+            font-size: var(--fs-sm);
+            font-weight: var(--fw-500);
+            padding: var(--space-3) var(--space-5);
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            transition: opacity var(--transition-base);
+            box-shadow: var(--shadow-md);
+        }
+
+        #notificationBtn:hover {
+            opacity: 0.88;
+        }
+
+        .notif-badge {
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-size: 10px;
+            font-weight: var(--fw-700);
+            min-width: 18px;
+            height: 18px;
+            padding: 0 4px;
+            border-radius: var(--radius-pill);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 8px rgba(217, 17, 123, 0.6);
+        }
+
+        /* ── Sidebar ── */
+        .sidebar3 {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 360px;
+            height: 100vh;
+            background: linear-gradient(160deg, #2a1040 0%, #1a0a2e 100%);
+            border-left: 1.5px solid rgba(217, 17, 123, 0.3);
+            z-index: var(--z-modal);
+            transition: right var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar3::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 3px,
+                    rgba(217, 17, 123, 0.03) 3px, rgba(217, 17, 123, 0.03) 4px);
+            pointer-events: none;
+        }
+
+        /* top glow */
+        .sidebar3::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(217, 17, 123, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .sidebar3.open {
+            right: 0;
+        }
+
+        /* ── Header ── */
+        .s3-header {
+            padding: var(--space-6) var(--space-6) var(--space-5);
+            border-bottom: 1px solid rgba(217, 17, 123, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(217, 17, 123, 0.06);
+        }
+
+        .s3-header h3 {
+            font-family: var(--font-inter);
+            font-size: var(--fs-sm);
+            font-weight: var(--fw-700);
+            color: var(--color-primary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .blink {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--color-primary);
+            animation: blink3 1s step-end infinite;
+        }
+
+        @keyframes blink3 {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        #close3 {
+            background: rgba(217, 17, 123, 0.1);
+            border: 1px solid rgba(217, 17, 123, 0.3);
+            color: var(--color-primary);
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-base);
+            font-family: var(--font-inter);
+        }
+
+        #close3:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            box-shadow: 0 0 12px rgba(217, 17, 123, 0.5);
+        }
+
+        /* ── Body ── */
+        .s3-body {
+            padding: var(--space-4);
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .s3-body::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .s3-body::-webkit-scrollbar-thumb {
+            background: rgba(217, 17, 123, 0.3);
+            border-radius: 2px;
+        }
+
+        /* ── Items ── */
+        .s3-item {
+            border: 1px solid rgba(217, 17, 123, 0.15);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateX(24px);
+            transition: opacity 0.3s ease, transform 0.3s ease,
+                border-color var(--transition-base), background var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* left accent bar — same color for all */
+        .s3-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--color-primary);
+            box-shadow: 0 0 8px var(--color-primary);
+        }
+
+        .s3-item:hover {
+            border-color: rgba(217, 17, 123, 0.4);
+            background: rgba(217, 17, 123, 0.06);
+        }
+
+        /* stagger when open */
+        .sidebar3.open .s3-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .sidebar3.open .s3-item:nth-child(1) {
+            transition-delay: 0.08s;
+        }
+
+        .sidebar3.open .s3-item:nth-child(2) {
+            transition-delay: 0.16s;
+        }
+
+        .sidebar3.open .s3-item:nth-child(3) {
+            transition-delay: 0.24s;
+        }
+
+        /* ── Icon box — same for all ── */
+        .s3-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-md);
+            background: rgba(217, 17, 123, 0.12);
+            border: 1px solid rgba(217, 17, 123, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 17px;
+        }
+
+        /* ── Text ── */
+        .s3-text p {
+            font-family: var(--font-inter);
+            font-size: var(--fs-sm);
+            font-weight: var(--fw-500);
+            color: #e8d0f0;
+            line-height: 1.45;
+        }
+
+        .s3-text small {
+            font-size: var(--fs-xs);
+            color: rgba(217, 17, 123, 0.6);
+            margin-top: var(--space-1);
+            display: block;
+            letter-spacing: 1px;
+            font-weight: var(--fw-400);
+        }
+
+        /* ── Overlay ── */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 4, 20, 0.65);
+            backdrop-filter: blur(3px);
+            z-index: calc(var(--z-modal) - 1);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-base);
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="notificationBtn">
+        🔔 Notifications
+        <span class="notif-badge">3</span>
+    </button>
+
+    <div class="notification-sidebar" id="notification-sidebar">
+        <div class="s3-header">
+            <div>
+                <h3>Notifications <span class="blink"></span></h3>
+            </div>
+            <button id="close3">✕</button>
+        </div>
+        <div class="s3-body">
+            <div class="s3-item">
+                <div class="s3-icon">📦</div>
+                <div class="s3-text">
+                    <p>New order received.</p>
+                    <small>2 MIN AGO</small>
+                </div>
+            </div>
+            <div class="s3-item">
+                <div class="s3-icon">👤</div>
+                <div class="s3-text">
+                    <p>User registered successfully.</p>
+                    <small>15 MIN AGO</small>
+                </div>
+            </div>
+            <div class="s3-item">
+                <div class="s3-icon">💳</div>
+                <div class="s3-text">
+                    <p>Payment completed — ৳4,200.</p>
+                    <small>1 HR AGO</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        const sb3 = document.getElementById('sb3');
+        const overlay = document.getElementById('overlay');
+
+        document.getElementById('notificationBtn').onclick = () => {
+            sb3.classList.add('open');
+            overlay.classList.add('show');
+        };
+        document.getElementById('close3').onclick = close;
+        overlay.onclick = close;
+
+        function close() {
+            sb3.classList.remove('open');
+            overlay.classList.remove('show');
+        }
+    </script>
+</body>
+
+</html>
