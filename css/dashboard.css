@@ -182,7 +182,7 @@
 
 .my-performance.d4-card {
     background: #fff;
-    border-radius: 22px;
+    border-radius: 16px;
     padding: 20px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
     position: relative;
@@ -371,7 +371,7 @@
     margin: 0 0 6px;
 }
 
-.chart-subtitle {
+.attendance-chart-body .chart-subtitle {
     font-size: 13px;
     font-weight: 500;
     color: #7b8794;
@@ -435,7 +435,8 @@
     justify-content: flex-end;
 }
 
-.bar-value {
+
+.attendance-chart-body .bar-value {
     font-size: 12px;
     font-weight: 800;
     color: #4f8f18;
@@ -444,13 +445,14 @@
     opacity: 0;
     animation: fadeUp 0.5s ease forwards;
     animation-delay: 0.65s;
-    padding: 3px 10px ;
+    padding: 3px 10px;
     border-radius: var(--radius-pill);
     background-color: #eef7e7d1;
     border: 1px solid rgba(136, 202, 70, 0.151);
 }
 
-.bar-track {
+
+.attendance-chart-body .bar-track {
     width: 100%;
     max-width: 32px;
     height: 100%;
@@ -467,7 +469,8 @@
 
 
 
-.bar-fill {
+
+.attendance-chart-body .bar-fill {
     width: 100%;
     height: var(--bar-height);
     min-height: 8px;
@@ -477,8 +480,9 @@
     animation: attendanceBarLoad 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.bar-month {
-    margin-top:16px;
+
+.attendance-chart-body .bar-month {
+    margin-top: 16px;
     font-size: var(--fs-xs);
     font-weight: 800;
     color: var(--color-text-header);
@@ -511,52 +515,6 @@
     }
 }
 
-/* ==============================
-           Responsive
-        ================================= */
-@media (max-width: 767px) {
-    body {
-        padding: 16px;
-    }
-
-    .attendance-chart-card {
-        padding: 18px;
-        border-radius: 18px;
-    }
-
-    .attendance-chart-header {
-        flex-direction: column;
-    }
-
-    .attendance-total-badge {
-        align-items: flex-start;
-    }
-
-    .attendance-chart-grid {
-        justify-content: flex-start;
-        overflow-x: auto;
-        gap: 14px;
-        height: 215px;
-        padding-bottom: 4px;
-    }
-
-    .attendance-bar-item {
-        min-width: 48px;
-    }
-
-    .bar-track {
-        height: 135px;
-        max-width: 34px;
-    }
-
-    .attendance-chart-footer {
-        grid-template-columns: 1fr;
-    }
-
-    .section-title {
-        font-size: 18px;
-    }
-}
 
 
 
@@ -1050,5 +1008,84 @@
         margin-top: 0px;
         border-top: 1px solid transparent;
         padding-top: 0px;
+    }
+
+
+
+
+    /*=======================  chart-performance ================ */
+    .chart-performance {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 32px;
+    }
+
+
+    .attendance-chart-card {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .attendance-chart-header {
+        flex-direction: column;
+    }
+
+    .attendance-total-badge {
+        align-items: flex-start;
+    }
+
+    .attendance-chart-grid {
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 14px;
+        height: 215px;
+    }
+
+    .attendance-bar-item {
+        min-width: 51px;
+    }
+
+    .bar-track {
+        height: 160px;
+        max-width: 20px;
+    }
+
+    .attendance-chart-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .chart-performance .chart {
+        border-radius: var(--radius-xl);
+        padding: 16px;
+        overflow-x: auto;
+    }
+
+    .my-performance.d4-card {
+        border-radius: 16px;
+        padding: 16px;
+    }
+
+    .bar-month {
+        margin-top: 12px;
+    }
+
+    .bar-value {
+        font-size: 10px;
+        font-weight: 700;
+        color: #4f8f18;
+        margin-bottom: 12px;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+    }
+
+    .attendance-chart-grid {
+        border-radius: 0;
+        gap: 0;
     }
 }
