@@ -146,7 +146,7 @@
     /*=============//  Gradient Shade  //=============*/
     --gradient-1: linear-gradient(to right, #173e57c9, #919fa7d6);
     --prog-bar: linear-gradient(90deg, #d9117cc6, #d9117c87);
-    --sidebar-bg: linear-gradient(to right,#bd0969,#b61169);
+    --sidebar-bg: linear-gradient(to right, rgb(117, 67, 168), rgb(67, 43, 92));
     --header-bg: #663399;
 
 
@@ -193,7 +193,13 @@
     --input-shadow-focus: 0 0 0 0.2rem rgba(15, 70, 56, 0.25);
 }
 
-
+/* 🌙 Dark Theme */
+[data-theme="dark"] {
+    --color-bg-card: #999;
+    --color-bg-primary: #000;
+    --color-white: #232323;
+    --color-text-header : #8c8888;
+}
 
 
 
@@ -841,7 +847,7 @@ tr {
 }
 
 .text-primary {
-    color: var(--my-text-primary);
+    color: var(--text-primary);
 }
 
 .text-secondary {

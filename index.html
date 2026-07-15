@@ -1,130 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
-        <link rel="stylesheet" href="/css/custom_class.css">
-        <link rel="stylesheet" href="/css/my_component.css">
-        <link rel="stylesheet" href="/css/global.css">
-        <link rel="stylesheet" href="/css/dashboard.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/custom_class.css">
+    <link rel="stylesheet" href="/css/my_component.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
 
-    <body>
+<body>
 
 
-        <!-- ========================================
+    <!-- ========================================
         ||====== Header  Content Start Here  ======||
         ========================================= -->
-        <header>
-            <div class="header-wrap flex-between my-gap-4">
-                <!-- mobile menu btn -->
-                <div class="pl-4">
-                    <button class="mobile-menu-btn desktop-hide" id="mobile-menu-btn"><svg id="menu-icon" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none">
-                            <line x1="3" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round"></line>
-                            <line x1="7" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round"></line>
-                            <line x1="11" y1="17" x2="21" y2="17" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round"></line>
-                        </svg></button>
+    <header>
+        <div class="header-wrap flex-between my-gap-4">
+            <!-- mobile menu btn -->
+            <div class="pl-4">
+                <button class="mobile-menu-btn desktop-hide" id="mobile-menu-btn"><svg id="menu-icon" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none">
+                        <line x1="3" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round"></line>
+                        <line x1="7" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round"></line>
+                        <line x1="11" y1="17" x2="21" y2="17" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round"></line>
+                    </svg></button>
+            </div>
+
+            <div class="left pl-4">
+                <!-- Logo or Company Name -->
+                <div class="wrapper logo">
+                    <svg>
+                        <text x="50%" y="20%" dy=".40em" text-anchor="middle">
+                            xsellence
+                        </text>
+                    </svg>
                 </div>
+            </div>
 
-                <div class="left pl-4">
-                    <!-- Logo or Company Name -->
-                    <div class="wrapper logo">
-                        <svg>
-                            <text x="50%" y="20%" dy=".40em" text-anchor="middle">
-                                xsellence
-                            </text>
-                        </svg>
-                    </div>
-                </div>
-
-                <div class="flex-1 flex-between">
-                    <!-- Collaps Button -->
-                    <button class="btn-collaps tooltip-right " style="color: white;" id="collaps-btn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <line x1="3" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" />
-                            <line x1="7" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" />
-                            <line x1="11" y1="17" x2="21" y2="17" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" />
-                        </svg>
-                        <span class="tooltip-text">Sidebar Open / Close</span>
-                    </button>
+            <div class="flex-1 flex-between">
+                <!-- Collaps Button -->
+                <button class="btn-collaps tooltip-right " style="color: white;" id="collaps-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <line x1="3" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="7" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="11" y1="17" x2="21" y2="17" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                    <span class="tooltip-text">Sidebar Open / Close</span>
+                </button>
 
 
-                    <!--============== Header Right Here ==============-->
-                    <div class="head-right flex-between gap-5">
+                <!--============== Header Right Here ==============-->
+                <div class="head-right flex-between gap-5">
 
-                        <div class="date-notification d-flex gap-4 align-center">
+                    <div class="date-notification d-flex gap-4 align-center">
 
-                            <!-- Today's Date -->
-                            <div class="date flex-center gap-1 align-center justify-center">
-                                <span>28 April 2026</span>
+                        <!-- Today's Date -->
+                        <div class="date flex-center gap-1 align-center justify-center">
+                            <span>28 April 2026</span>
+                        </div>
+
+                        <div class="d-flex gap-2 my-align-center mobile-hide">
+                            <!-- Notification Icon -->
+                            <div class="notification-wrap" id="notification-btn">
+                                <div class="icon-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                                        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                                    </svg>
+                                    <span class="badge-bounce">9</span>
+                                </div>
                             </div>
 
-                            <div class="d-flex gap-2 my-align-center mobile-hide">
-                                <!-- Notification Icon -->
-                                <div class="notification-wrap" id="notification-btn">
-                                    <div class="icon-btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                                            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                                        </svg>
-                                        <span class="badge-bounce">9</span>
-                                    </div>
-                                </div>
 
-
-                                <!-- Theme Toggle -->
-                                <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-                                    <!-- Sun icon (light mode) -->
-                                    <svg class="theme-icon sun-icon" xmlns="http://www.w3.org/2000/svg" width="18"
-                                        height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="5" />
-                                        <line x1="12" y1="1" x2="12" y2="3" />
-                                        <line x1="12" y1="21" x2="12" y2="23" />
-                                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                                        <line x1="1" y1="12" x2="3" y2="12" />
-                                        <line x1="21" y1="12" x2="23" y2="12" />
-                                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-                                    </svg>
-                                    <!-- Moon icon (dark mode) -->
-                                    <!-- <svg class="theme-icon moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            <!-- Theme Toggle -->
+                            <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+                                <!-- Sun icon (light mode) -->
+                                <svg class="theme-icon sun-icon" xmlns="http://www.w3.org/2000/svg" width="18"
+                                    height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5" />
+                                    <line x1="12" y1="1" x2="12" y2="3" />
+                                    <line x1="12" y1="21" x2="12" y2="23" />
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                                    <line x1="1" y1="12" x2="3" y2="12" />
+                                    <line x1="21" y1="12" x2="23" y2="12" />
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                                </svg>
+                                <!-- Moon icon (dark mode) -->
+                                <!-- <svg class="theme-icon moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                             </svg> -->
-                                </div>
                             </div>
-
-
                         </div>
 
 
+                    </div>
 
-                        <div class="user">
-                            <!--==========  Profile Image and Dropdown Here ============= -->
-                            <div class="profile-img-wrapper">
-                                <a href="profile.html" class="profile-img">
-                                    <img src="/images/MDH_8729webqualitysquare.webp" alt="profile">
-                                </a>
-                            </div>
+
+
+                    <div class="user">
+                        <!--==========  Profile Image and Dropdown Here ============= -->
+                        <div class="profile-img-wrapper">
+
+                            <a href="/profile" class="profile-img">
+
+                                <img alt="Profile Photo" class="profile-img-photo"
+                                    src="data:image/png;base64,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"
+                                    loading="lazy">
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
 
 
@@ -134,209 +138,284 @@
 
 
 
-        <!-- ========================================
+    <!-- ========================================
         ||======  Sidebar Section Start Here  ======||
         ========================================= -->
-        <aside class="" id="sidebar">
-            <div class="sidebar-wrap flex-column justify-between">
+    <aside class="" id="sidebar">
+        <div class="sidebar-wrap flex-column justify-between">
 
-                <!--=================|| Main Menu Here ||===============-->
-                <div class="p-3 sidebar-top">
-                    <p class="menu-group-title">Main Menu</p>
-                    <ul class="mt-3 flex-column gap-1 main-menus">
-                        <li><a href="index.html" class="menu-item active">
-                                <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <rect x="3" y="3" width="7" height="7" />
-                                        <rect x="14" y="3" width="7" height="7" />
-                                        <rect x="14" y="14" width="7" height="7" />
-                                        <rect x="3" y="14" width="7" height="7" />
-                                    </svg>
-                                </div>
-                                <span class="text">Dashboard</span>
-                            </a></li>
+            <!--=================|| Main Menu Here ||===============-->
+            <div class="p-3 sidebar-top">
+                <p class="menu-group-title">Main Menu</p>
+                <ul class="mt-3 flex-column gap-1 main-menus">
+                    <li><a href="index.html" class="menu-item active">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="7" />
+                                    <rect x="14" y="3" width="7" height="7" />
+                                    <rect x="14" y="14" width="7" height="7" />
+                                    <rect x="3" y="14" width="7" height="7" />
+                                </svg>
+                            </div>
+                            <span class="text">Dashboard</span>
+                        </a></li>
 
-                        <li><a href="/projects.html" class="menu-item">
-                                <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                                    </svg>
-                                </div>
-                                <span class="text">My Projects</span>
-                                <div class="batch">2</div>
-                            </a></li>
+                    <li><a href="/projects.html" class="menu-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                                </svg>
+                            </div>
+                            <span class="text">My Projects</span>
+                            <div class="batch">2</div>
+                        </a></li>
 
-                        <li><a href="tasks.html" class="menu-item">
-                                <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 11l3 3L22 4" />
-                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                                    </svg></div>
-                                <span class="text">My Task</span>
-                            </a></li>
+                    <li><a href="tasks.html" class="menu-item">
+                            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 11l3 3L22 4" />
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg></div>
+                            <span class="text">My Task</span>
+                        </a></li>
 
-                        <li><a href="timesheets.html" class="menu-item">
-                                <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <polyline points="12 6 12 12 16 14" />
-                                    </svg>
-                                </div>
-                                <span class="text">Timesheet</span>
-                            </a></li>
+                    <li><a href="timesheets.html" class="menu-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </div>
+                            <span class="text">Timesheet</span>
+                        </a></li>
 
-                        <li><a href="helpdesk.html" class="menu-item">
-                                <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <!-- Helpdesk icon — headset -->
-                                        <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
-                                        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z" />
-                                        <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
-                                    </svg>
-                                </div>
-                                <span class="text">Helpdesk</span>
-                                <div class="batch">1</div>
-                            </a></li>
-
-
-
-                        <li><a href="add_task.html" class="menu-item">
-                                <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke-width="2" stroke="currentColor" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <!-- Document -->
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                                        <path d="M14 2v6h6" />
-
-                                        <!-- Plus -->
-                                        <path d="M12 11v6M9 14h6" />
-                                    </svg>
-                                </div>
-                                <span class="text">Add Task</span>
-                            </a></li>
-
-                        <li><a href="add_timesheet.html" class="menu-item">
-                                <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <line x1="12" y1="8" x2="12" y2="16" />
-                                        <line x1="8" y1="12" x2="16" y2="12" />
-                                    </svg>
-                                </div>
-                                <span class="text">Add Timesheet</span>
-                            </a></li>
-
-                    </ul>
-                </div>
+                    <li><a href="helpdesk.html" class="menu-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <!-- Helpdesk icon — headset -->
+                                    <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z" />
+                                    <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+                                </svg>
+                            </div>
+                            <span class="text">Helpdesk</span>
+                            <div class="batch">1</div>
+                        </a></li>
 
 
-                <!--===============|| Sidebar Bottom ||=================-->
-                <div class="sidebar-bottom">
-                    <ul class="p-2 flex-column gap-1">
-                        <!-- Setting -->
-                        <li><a href="setting.html" class="menu-item">
-                                <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="3" />
-                                        <path
-                                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                                    </svg>
-                                </div>
-                                <span class="text">Setting</span>
-                            </a></li>
 
-                        <!-- Profile -->
-                        <li><a href="profile.html" class="menu-item">
-                                <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                        <circle cx="12" cy="7" r="4" />
-                                    </svg>
-                                </div>
-                                <span class="text">Profile</span>
-                            </a></li>
+                    <li><a href="add_task.html" class="menu-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke-width="2" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <!-- Document -->
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <path d="M14 2v6h6" />
 
-                        <!-- Logout -->
-                        <li><a class="menu-item">
-                                <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                                        <polyline points="16 17 21 12 16 7" />
-                                        <line x1="21" y1="12" x2="9" y2="12" />
-                                    </svg>
-                                </div>
-                                <span class="text">Logout</span>
-                            </a></li>
-                    </ul>
-                    <div class="powered-logo p-4">
-                        <a target="_blank" href="https://www.xsellencebdltd.com/" class="fs-xs ">
-                            <img class="w-12 my-bg-none" src="/xsellence_portal/static/images/Logo-Xsellence.png"
-                                alt="">
-                            Powered by: Xsellece Bd
+                                    <!-- Plus -->
+                                    <path d="M12 11v6M9 14h6" />
+                                </svg>
+                            </div>
+                            <span class="text">Add Task</span>
+                        </a></li>
+
+                    <li><a href="add_timesheet.html" class="menu-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="12" y1="8" x2="12" y2="16" />
+                                    <line x1="8" y1="12" x2="16" y2="12" />
+                                </svg>
+                            </div>
+                            <span class="text">Add Timesheet</span>
+                        </a></li>
+
+                    <li>
+                        <a href="/employee.html" class="menu-item ">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+
+
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <span class="text">Employees</span>
                         </a>
-                    </div>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <!--===============|| Sidebar Bottom ||=================-->
+            <div class="sidebar-bottom">
+                <ul class="p-2 flex-column gap-1">
+                    <!-- Setting -->
+                    <li><a href="setting.html" class="menu-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path
+                                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                                </svg>
+                            </div>
+                            <span class="text">Setting</span>
+                        </a></li>
+
+                    <!-- Profile -->
+                    <li><a href="profile.html" class="menu-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                            </div>
+                            <span class="text">Profile</span>
+                        </a></li>
+
+                    <!-- Logout -->
+                    <li><a class="menu-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                    <polyline points="16 17 21 12 16 7" />
+                                    <line x1="21" y1="12" x2="9" y2="12" />
+                                </svg>
+                            </div>
+                            <span class="text">Logout</span>
+                        </a></li>
+                </ul>
+                <div class="powered-logo p-4">
+                    <a target="_blank" href="https://www.xsellencebdltd.com/" class="fs-xs ">
+                        <img class="w-12 my-bg-none" src="/xsellence_portal/static/images/Logo-Xsellence.png" alt="">
+                        Powered by: Xsellece Bd
+                    </a>
                 </div>
             </div>
-        </aside>
+        </div>
+    </aside>
 
 
 
 
 
-        <!-- ========================================
+    <!-- ========================================
         ||======  Main Content  Start Here  ======||
         ========================================= -->
-        <main class="main-content " id="main-content">
-            <section class="">
+    <main class="main-content " id="main-content">
+        <section class="">
 
-                <!--=================|| Carts Here ||==================  -->
-                <div class="grid-4 grid-sm-2 gap-4 dashboard-items">
-                    <div class="card">
-                        <p class="title">Total Projects</p>
-                        <h2 class="mt-6">04</h2>
-                    </div>
-                    <div class="card">
-                        <p class="title">Completed Project</p>
-                        <h2 class="mt-6">03</h2>
-                    </div>
-                    <div class="card">
-                        <p class="title">Helpdesk New</p>
-                        <h2 class="mt-5">01</h2>
-                    </div>
-                    <div class="card">
-                        <p class="title"> Helpdesk Sloved</p>
-                        <h2 class="mt-6">22</h2>
-                    </div>
+            <!--=================|| Users Buttons ||==================  -->
+            <div class="d-flex user-btns align-center gap-3 gap-sm-2 flex-wrap">
+                <a href="" class="user-btn d-flex align-center gap-2 active">
+                    <img />
+                    <span> Tanvir </span>
+                </a>
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Munna </span>
+                </a>
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Habib </span>
+                </a>
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Fahim </span>
+                </a>
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Shamiul </span>
+                </a>
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Shuvo </span>
+                </a>
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Foysal </span>
+                </a>
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Hasan </span>
+                </a> <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Foysal </span>
+                </a>
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Hasan </span>
+                </a>
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Deloyar </span>
+                </a>
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Hasan </span>
+                </a>
+
+                <a href="" class="user-btn  d-flex align-center gap-2">
+                    <img />
+                    <span> Razzak </span>
+                </a>
+
+            </div>
+
+            <!--=================|| Carts Here ||==================  -->
+            <div class="grid-4 grid-sm-2 gap-4 mt-7 dashboard-items">
+                <div class="card">
+                    <p class="title">Total Projects</p>
+                    <h2 class="mt-6">04</h2>
                 </div>
+                <div class="card">
+                    <p class="title">Completed Project</p>
+                    <h2 class="mt-6">03</h2>
+                </div>
+                <div class="card">
+                    <p class="title">Helpdesk New</p>
+                    <h2 class="mt-5">01</h2>
+                </div>
+                <div class="card">
+                    <p class="title"> Helpdesk Sloved</p>
+                    <h2 class="mt-6">22</h2>
+                </div>
+            </div>
 
 
-                <!--=================|| Carts Here ||==================  -->
-                <div class="chart-performance">
-                    <div class="chart">
-                        <div class="attendance-chart-body">
-                            <div class="section-title  "> Attendance Chart</div>
-                            <div class="attendance-chart-grid mt-3">
+            <!--=================|| Carts Here ||==================  -->
+            <div class="chart-performance">
+                <div class="chart">
+                    <div class="attendance-chart-body">
+                        <div class="section-title  "> Attendance Chart</div>
+                        <div class="attendance-chart-grid mt-3">
 
-                                <!--
+                            <!--
                         Dynamic rule:
                         Highest month = 100%
                         Other months = hours / highest_hours * 100
@@ -346,416 +425,416 @@
                         percent = 120 / 160 * 100 = 75%
                     -->
 
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">120h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 75%;"></div>
-                                    </div>
-                                    <div class="bar-month">Jan</div>
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">120h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 75%;"></div>
                                 </div>
-
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">135h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 84%;"></div>
-                                    </div>
-                                    <div class="bar-month">Feb</div>
-                                </div>
-
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">98h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 61%;"></div>
-                                    </div>
-                                    <div class="bar-month">Mar</div>
-                                </div>
-
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">142h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 89%;"></div>
-                                    </div>
-                                    <div class="bar-month">Apr</div>
-                                </div>
-
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">160h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 100%;"></div>
-                                    </div>
-                                    <div class="bar-month">May</div>
-                                </div>
-
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">32h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 20%;"></div>
-                                    </div>
-                                    <div class="bar-month">Jun</div>
-                                </div>
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">32h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 20%;"></div>
-                                    </div>
-                                    <div class="bar-month">Jun</div>
-                                </div>
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">32h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 20%;"></div>
-                                    </div>
-                                    <div class="bar-month">Jun</div>
-                                </div>
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">32h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 20%;"></div>
-                                    </div>
-                                    <div class="bar-month">Sep</div>
-                                </div>
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">32h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 0%;"></div>
-                                    </div>
-                                    <div class="bar-month">OCT</div>
-                                </div>
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">32h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 0%;"></div>
-                                    </div>
-                                    <div class="bar-month">Nov</div>
-                                </div>
-                                <div class="attendance-bar-item">
-                                    <div class="bar-value">32h</div>
-                                    <div class="bar-track">
-                                        <div class="bar-fill" style="--bar-height: 0%;"></div>
-                                    </div>
-                                    <div class="bar-month">Dec</div>
-                                </div>
-
+                                <div class="bar-month">Jan</div>
                             </div>
-                        </div>
-                    </div>
 
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">135h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 84%;"></div>
+                                </div>
+                                <div class="bar-month">Feb</div>
+                            </div>
 
-                    <div class="d4-card my-performance">
-                        <div class="d4-section-title">My Performance</div>
-                        <div class="d4-main-title">Skills Score</div>
-                        <div class="d4-score-row">
-                            <div class="d4-score-circle">
-                                <div style="text-align:center;">
-                                    <div class="d4-score-num">88</div>
-                                    <div
-                                        style="font-size:11px;color:rgba(255,255,255,0.7);font-weight:500;letter-spacing:0.5px;">
-                                        / 100</div>
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">98h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 61%;"></div>
                                 </div>
+                                <div class="bar-month">Mar</div>
                             </div>
-                            <div class="d4-score-info">
-                                <div class="d4-score-label">Overall Score</div>
-                                <div class="d4-score-status">▲ Excellent</div>
+
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">142h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 89%;"></div>
+                                </div>
+                                <div class="bar-month">Apr</div>
                             </div>
-                        </div>
-                        <div id="d4perf">
-                            <div class="d4-perf-item">
-                                <div class="d4-perf-top">
-                                    <span class="d4-perf-name">Task Completion</span>
-                                    <span class="d4-perf-pct">92%</span>
+
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">160h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 100%;"></div>
                                 </div>
-                                <div class="d4-perf-track">
-                                    <div class="d4-perf-bar" style="width:92%"></div>
-                                </div>
+                                <div class="bar-month">May</div>
                             </div>
-                            <div class="d4-perf-item">
-                                <div class="d4-perf-top">
-                                    <span class="d4-perf-name">Code Quality</span>
-                                    <span class="d4-perf-pct">78%</span>
+
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">32h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 20%;"></div>
                                 </div>
-                                <div class="d4-perf-track">
-                                    <div class="d4-perf-bar" style="width:78%"></div>
-                                </div>
+                                <div class="bar-month">Jun</div>
                             </div>
-                            <div class="d4-perf-item">
-                                <div class="d4-perf-top">
-                                    <span class="d4-perf-name">On-time Delivery</span>
-                                    <span class="d4-perf-pct">85%</span>
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">32h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 20%;"></div>
                                 </div>
-                                <div class="d4-perf-track">
-                                    <div class="d4-perf-bar" style="width:85%"></div>
-                                </div>
+                                <div class="bar-month">Jun</div>
                             </div>
-                            <div class="d4-perf-item">
-                                <div class="d4-perf-top">
-                                    <span class="d4-perf-name">Collaboration</span>
-                                    <span class="d4-perf-pct">70%</span>
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">32h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 20%;"></div>
                                 </div>
-                                <div class="d4-perf-track">
-                                    <div class="d4-perf-bar" style="width:70%"></div>
-                                </div>
+                                <div class="bar-month">Jun</div>
                             </div>
-                            <div class="d4-perf-item">
-                                <div class="d4-perf-top">
-                                    <span class="d4-perf-name">Attendance</span>
-                                    <span class="d4-perf-pct">87%</span>
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">32h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 20%;"></div>
                                 </div>
-                                <div class="d4-perf-track">
-                                    <div class="d4-perf-bar" style="width:87%"></div>
-                                </div>
+                                <div class="bar-month">Sep</div>
                             </div>
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">32h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 0%;"></div>
+                                </div>
+                                <div class="bar-month">OCT</div>
+                            </div>
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">32h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 0%;"></div>
+                                </div>
+                                <div class="bar-month">Nov</div>
+                            </div>
+                            <div class="attendance-bar-item">
+                                <div class="bar-value">32h</div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="--bar-height: 0%;"></div>
+                                </div>
+                                <div class="bar-month">Dec</div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
 
 
-
-                <!-- ── Bottom Row ── -->
-                <div class="grid-2 grid-sm-1 mt-7 gap-6" style="align-items:stretch;">
-
-                    <!-- Project Progress -->
-                    <div class="project-progress p-4 radius-xl  ">
-                        <div class="section-title  "> Project Progress</div>
-                        <div class="proj-list mt-4 flex-column gap-5">
-
-                            <div class="proj-item">
-                                <div class="proj-meta">
-                                    <span class="proj-name">Nadia Website Dev</span>
-                                    <span class="proj-pct">78%</span>
-                                </div>
-                                <div class="prog-track">
-                                    <div class="prog-bar"
-                                        style="width:78%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
-                                    </div>
-                                </div>
-                                <div class="proj-tags">
-                                    <span class="tag tag-blue">Design</span>
-                                    <span class="tag tag-green">Active</span>
-                                </div>
+                <div class="d4-card my-performance">
+                    <div class="d4-section-title">My Performance</div>
+                    <div class="d4-main-title">Skills Score</div>
+                    <div class="d4-score-row">
+                        <div class="d4-score-circle">
+                            <div style="text-align:center;">
+                                <div class="d4-score-num">88</div>
+                                <div
+                                    style="font-size:11px;color:rgba(255,255,255,0.7);font-weight:500;letter-spacing:0.5px;">
+                                    / 100</div>
                             </div>
-
-                            <div class="proj-item">
-                                <div class="proj-meta">
-                                    <span class="proj-name">Mobile App v2</span>
-                                    <span class="proj-pct">45%</span>
-                                </div>
-                                <div class="prog-track">
-                                    <div class="prog-bar"
-                                        style="width:30%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
-                                    </div>
-                                </div>
-                                <div class="proj-tags">
-                                    <span class="tag tag-green">Dev</span>
-                                    <span class="tag tag-amber">In Review</span>
-                                </div>
-                            </div>
-
-                            <div class="proj-item">
-                                <div class="proj-meta">
-                                    <span class="proj-name">Tourgull Tour Module</span>
-                                    <span class="proj-pct">65%</span>
-                                </div>
-                                <div class="prog-track">
-                                    <div class="prog-bar"
-                                        style="width:65%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
-                                    </div>
-                                </div>
-                                <div class="proj-tags">
-                                    <span class="tag tag-green">Dev</span>
-                                    <span class="tag tag-amber">In Review</span>
-                                </div>
-                            </div>
-
-                            <div class="proj-item">
-                                <div class="proj-meta">
-                                    <span class="proj-name">API Integration</span>
-                                    <span class="proj-pct">88%</span>
-                                </div>
-                                <div class="prog-track">
-                                    <div class="prog-bar"
-                                        style="width:88%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
-                                    </div>
-                                </div>
-                                <div class="proj-tags">
-                                    <span class="tag tag-purple">Backend</span>
-                                    <span class="tag tag-blue">Testing</span>
-                                </div>
-                            </div>
-
-                            <div class="proj-item">
-                                <div class="proj-meta">
-                                    <span class="proj-name">Dashboard UI</span>
-                                    <span class="proj-pct">12%</span>
-                                </div>
-                                <div class="prog-track">
-                                    <div class="prog-bar"
-                                        style="width:12%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
-                                    </div>
-                                </div>
-                                <div class="proj-tags">
-                                    <span class="tag tag-amber">Frontend</span>
-                                    <span class="tag tag-red">Delayed</span>
-                                </div>
-                            </div>
-
+                        </div>
+                        <div class="d4-score-info">
+                            <div class="d4-score-label">Overall Score</div>
+                            <div class="d4-score-status">▲ Excellent</div>
                         </div>
                     </div>
-
-                    <!-- 2×2 Mini Cards -->
-                    <div class="grid-2 gap-4 mini-cards">
-
-                        <div class="mini-card shadow-sm">
-                            <div class="mini-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <polyline points="12 6 12 12 16 14" />
-                                </svg>
+                    <div id="d4perf">
+                        <div class="d4-perf-item">
+                            <div class="d4-perf-top">
+                                <span class="d4-perf-name">Task Completion</span>
+                                <span class="d4-perf-pct">92%</span>
                             </div>
-                            <div class="mini-val mt-4">12h</div>
-                            <div class="mini-label">Avg. Time / Task</div>
+                            <div class="d4-perf-track">
+                                <div class="d4-perf-bar" style="width:92%"></div>
+                            </div>
+                        </div>
+                        <div class="d4-perf-item">
+                            <div class="d4-perf-top">
+                                <span class="d4-perf-name">Code Quality</span>
+                                <span class="d4-perf-pct">78%</span>
+                            </div>
+                            <div class="d4-perf-track">
+                                <div class="d4-perf-bar" style="width:78%"></div>
+                            </div>
+                        </div>
+                        <div class="d4-perf-item">
+                            <div class="d4-perf-top">
+                                <span class="d4-perf-name">On-time Delivery</span>
+                                <span class="d4-perf-pct">85%</span>
+                            </div>
+                            <div class="d4-perf-track">
+                                <div class="d4-perf-bar" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div class="d4-perf-item">
+                            <div class="d4-perf-top">
+                                <span class="d4-perf-name">Collaboration</span>
+                                <span class="d4-perf-pct">70%</span>
+                            </div>
+                            <div class="d4-perf-track">
+                                <div class="d4-perf-bar" style="width:70%"></div>
+                            </div>
+                        </div>
+                        <div class="d4-perf-item">
+                            <div class="d4-perf-top">
+                                <span class="d4-perf-name">Attendance</span>
+                                <span class="d4-perf-pct">87%</span>
+                            </div>
+                            <div class="d4-perf-track">
+                                <div class="d4-perf-bar" style="width:87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- ── Bottom Row ── -->
+            <div class="grid-2 grid-sm-1 mt-7 gap-6" style="align-items:stretch;">
+
+                <!-- Project Progress -->
+                <div class="project-progress p-4 radius-xl  ">
+                    <div class="section-title  "> Project Progress</div>
+                    <div class="proj-list mt-4 flex-column gap-5">
+
+                        <div class="proj-item">
+                            <div class="proj-meta">
+                                <span class="proj-name">Nadia Website Dev</span>
+                                <span class="proj-pct">78%</span>
+                            </div>
+                            <div class="prog-track">
+                                <div class="prog-bar"
+                                    style="width:78%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
+                                </div>
+                            </div>
+                            <div class="proj-tags">
+                                <span class="tag tag-blue">Design</span>
+                                <span class="tag tag-green">Active</span>
+                            </div>
                         </div>
 
-                        <div class="mini-card shadow-sm">
-                            <div class="mini-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                    <circle cx="9" cy="7" r="4" />
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                </svg>
+                        <div class="proj-item">
+                            <div class="proj-meta">
+                                <span class="proj-name">Mobile App v2</span>
+                                <span class="proj-pct">45%</span>
                             </div>
-                            <div class="mini-val mt-4">06</div>
-                            <div class="mini-label">Team Members</div>
+                            <div class="prog-track">
+                                <div class="prog-bar"
+                                    style="width:30%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
+                                </div>
+                            </div>
+                            <div class="proj-tags">
+                                <span class="tag tag-green">Dev</span>
+                                <span class="tag tag-amber">In Review</span>
+                            </div>
                         </div>
 
-                        <div class="mini-card shadow-sm">
-                            <div class="mini-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polygon
-                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                </svg>
+                        <div class="proj-item">
+                            <div class="proj-meta">
+                                <span class="proj-name">Tourgull Tour Module</span>
+                                <span class="proj-pct">65%</span>
                             </div>
-                            <div class="mini-val mt-5">4.8</div>
-                            <div class="mini-label ">Performance Score</div>
+                            <div class="prog-track">
+                                <div class="prog-bar"
+                                    style="width:65%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
+                                </div>
+                            </div>
+                            <div class="proj-tags">
+                                <span class="tag tag-green">Dev</span>
+                                <span class="tag tag-amber">In Review</span>
+                            </div>
                         </div>
 
-                        <div class="mini-card shadow-sm">
-                            <div class="mini-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                    fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <line x1="12" y1="8" x2="12" y2="12" />
-                                    <line x1="12" y1="16" x2="12.01" y2="16" />
-                                </svg>
+                        <div class="proj-item">
+                            <div class="proj-meta">
+                                <span class="proj-name">API Integration</span>
+                                <span class="proj-pct">88%</span>
                             </div>
-                            <div class="mini-val mt-4">03</div>
-                            <div class="mini-label">Overdue Tasks</div>
+                            <div class="prog-track">
+                                <div class="prog-bar"
+                                    style="width:88%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
+                                </div>
+                            </div>
+                            <div class="proj-tags">
+                                <span class="tag tag-purple">Backend</span>
+                                <span class="tag tag-blue">Testing</span>
+                            </div>
+                        </div>
+
+                        <div class="proj-item">
+                            <div class="proj-meta">
+                                <span class="proj-name">Dashboard UI</span>
+                                <span class="proj-pct">12%</span>
+                            </div>
+                            <div class="prog-track">
+                                <div class="prog-bar"
+                                    style="width:12%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
+                                </div>
+                            </div>
+                            <div class="proj-tags">
+                                <span class="tag tag-amber">Frontend</span>
+                                <span class="tag tag-red">Delayed</span>
+                            </div>
                         </div>
 
                     </div>
                 </div>
 
+                <!-- 2×2 Mini Cards -->
+                <div class="grid-2 gap-4 mini-cards">
 
-                <div class="grid-2 gap-6 grid-sm-1 mt-7 leave-attendance">
+                    <div class="mini-card shadow-sm">
+                        <div class="mini-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </div>
+                        <div class="mini-val mt-4">12h</div>
+                        <div class="mini-label">Avg. Time / Task</div>
+                    </div>
+
+                    <div class="mini-card shadow-sm">
+                        <div class="mini-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <div class="mini-val mt-4">06</div>
+                        <div class="mini-label">Team Members</div>
+                    </div>
+
+                    <div class="mini-card shadow-sm">
+                        <div class="mini-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </div>
+                        <div class="mini-val mt-5">4.8</div>
+                        <div class="mini-label ">Performance Score</div>
+                    </div>
+
+                    <div class="mini-card shadow-sm">
+                        <div class="mini-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="12" />
+                                <line x1="12" y1="16" x2="12.01" y2="16" />
+                            </svg>
+                        </div>
+                        <div class="mini-val mt-4">03</div>
+                        <div class="mini-label">Overdue Tasks</div>
+                    </div>
+
+                </div>
+            </div>
 
 
-                    <!--=================|| For Attendance ||==================  -->
-                    <div class="attendance">
-                        <div class="section-title ">Attendance</div>
+            <div class="grid-2 gap-6 grid-sm-1 mt-7 leave-attendance">
 
-                        <div class="grid-3 grid-sm-1 gap-4 mt-4 ">
-                            <!-- Card 1: Working Hours -->
-                            <div class="card card-hours">
-                                <div class="card-top flex-between">
-                                    <div class="card-icon icon-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="10" />
-                                            <polyline points="12 6 12 12 16 14" />
-                                        </svg>
-                                    </div>
-                                    <span class="card-badge badge-blue">March</span>
+
+                <!--=================|| For Attendance ||==================  -->
+                <div class="attendance">
+                    <div class="section-title ">Attendance</div>
+
+                    <div class="grid-3 grid-sm-1 gap-4 mt-4 ">
+                        <!-- Card 1: Working Hours -->
+                        <div class="card card-hours">
+                            <div class="card-top flex-between">
+                                <div class="card-icon icon-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
                                 </div>
-                                <div class="title">Working Hours</div>
-                                <div class="value mt-6">199<span class="value-unit">h</span></div>
-                                <div class="card-footer">
-                                    <span class="footer-label">Daily avg</span>
-                                    <span class="footer-val col-blue">8.2h</span>
-                                    <span class="trend trend-up">
-                                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="3">
-                                            <polyline points="18 15 12 9 6 15" />
-                                        </svg>
-                                        +4h
-                                    </span>
-                                </div>
+                                <span class="card-badge badge-blue">March</span>
                             </div>
-
-                            <!-- Card 2: Check In -->
-                            <div class="card card-checkin">
-                                <div class="card-top flex-between">
-                                    <div class="card-icon icon-green">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                                            <polyline points="10 17 15 12 10 7" />
-                                            <line x1="15" y1="12" x2="3" y2="12" />
-                                        </svg>
-                                    </div>
-                                    <span class="card-badge badge-green">
-                                        <span class="live-dot" style="margin-right:4px;"></span>Today
-                                    </span>
-                                </div>
-                                <div class="title">Check In</div>
-                                <div class="value mt-6">9:55<span class="value-unit">AM</span></div>
-                                <div class="card-footer">
-                                    <span class="footer-label">Expected</span>
-                                    <span class="footer-val col-green">9:00 AM</span>
-                                    <span class="trend trend-down">
-                                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="3">
-                                            <polyline points="18 9 12 15 6 9" />
-                                        </svg>
-                                        55m late
-                                    </span>
-                                </div>
+                            <div class="title">Working Hours</div>
+                            <div class="value mt-6">199<span class="value-unit">h</span></div>
+                            <div class="card-footer">
+                                <span class="footer-label">Daily avg</span>
+                                <span class="footer-val col-blue">8.2h</span>
+                                <span class="trend trend-up">
+                                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="3">
+                                        <polyline points="18 15 12 9 6 15" />
+                                    </svg>
+                                    +4h
+                                </span>
                             </div>
+                        </div>
 
-                            <!-- Card 3: Check Out -->
-                            <div class="card card-checkout">
-                                <div class="card-top flex-between">
-                                    <div class="card-icon icon-amber">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                                            <polyline points="16 17 21 12 16 7" />
-                                            <line x1="21" y1="12" x2="9" y2="12" />
-                                        </svg>
-                                    </div>
-                                    <span class="card-badge badge-amber">Today</span>
+                        <!-- Card 2: Check In -->
+                        <div class="card card-checkin">
+                            <div class="card-top flex-between">
+                                <div class="card-icon icon-green">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                                        <polyline points="10 17 15 12 10 7" />
+                                        <line x1="15" y1="12" x2="3" y2="12" />
+                                    </svg>
                                 </div>
-                                <div class="title">Check Out</div>
-                                <div class="value mt-6">6:00<span class="value-unit">PM</span></div>
-                                <div class="card-footer">
-                                    <span class="footer-label">Duration</span>
-                                    <span class="footer-val col-amber">8h 05m</span>
-                                    <span class="trend trend-neutral">On shift</span>
+                                <span class="card-badge badge-green">
+                                    <span class="live-dot" style="margin-right:4px;"></span>Today
+                                </span>
+                            </div>
+                            <div class="title">Check In</div>
+                            <div class="value mt-6">9:55<span class="value-unit">AM</span></div>
+                            <div class="card-footer">
+                                <span class="footer-label">Expected</span>
+                                <span class="footer-val col-green">9:00 AM</span>
+                                <span class="trend trend-down">
+                                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="3">
+                                        <polyline points="18 9 12 15 6 9" />
+                                    </svg>
+                                    55m late
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Check Out -->
+                        <div class="card card-checkout">
+                            <div class="card-top flex-between">
+                                <div class="card-icon icon-amber">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                        <polyline points="16 17 21 12 16 7" />
+                                        <line x1="21" y1="12" x2="9" y2="12" />
+                                    </svg>
                                 </div>
+                                <span class="card-badge badge-amber">Today</span>
+                            </div>
+                            <div class="title">Check Out</div>
+                            <div class="value mt-6">6:00<span class="value-unit">PM</span></div>
+                            <div class="card-footer">
+                                <span class="footer-label">Duration</span>
+                                <span class="footer-val col-amber">8h 05m</span>
+                                <span class="trend trend-neutral">On shift</span>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- <div class="leave">
+                <!-- <div class="leave">
                         <div class="section-title"> Leave</div>
                         <div class="grid-2 gap-4 mt-4">
                             <div class="card">
@@ -767,224 +846,223 @@
                         </div>
                     </div> -->
 
-                    <!--=================|| For Leave ||==================-->
-                    <div class="leave">
-                        <div class="section-title">Leave</div>
+                <!--=================|| For Leave ||==================-->
+                <div class="leave">
+                    <div class="section-title">Leave</div>
 
-                        <div class="grid-2 gap-4 mt-4 gap-sm-3">
+                    <div class="grid-2 gap-4 mt-4 gap-sm-3">
 
-                            <!-- Sick Leave -->
-                            <div class="card leave-card">
-                                <div class="leave-info w-100">
+                        <!-- Sick Leave -->
+                        <div class="card leave-card">
+                            <div class="leave-info w-100">
 
 
-                                    <span class="leave-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <rect x="3" y="10" width="18" height="6" rx="2" stroke="currentColor"
-                                                stroke-width="2" />
-                                            <circle cx="7" cy="8" r="2" stroke="currentColor" stroke-width="2" />
-                                            <path d="M3 16v3M21 16v3" stroke="currentColor" stroke-width="2" />
-                                        </svg>
-                                    </span>
+                                <span class="leave-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <rect x="3" y="10" width="18" height="6" rx="2" stroke="currentColor"
+                                            stroke-width="2" />
+                                        <circle cx="7" cy="8" r="2" stroke="currentColor" stroke-width="2" />
+                                        <path d="M3 16v3M21 16v3" stroke="currentColor" stroke-width="2" />
+                                    </svg>
+                                </span>
 
-                                    <div class="title">Sick Leave</div>
-                                    <div class="footer  ">
-                                        <div class="text-right fs-xs total">(<span>2</span> / <span>10</span>)</div>
-                                        <div class="prog-track mt-3">
-                                            <div class="prog-bar"
-                                                style="width:15%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
-                                            </div>
+                                <div class="title">Sick Leave</div>
+                                <div class="footer  ">
+                                    <div class="text-right fs-xs total">(<span>2</span> / <span>10</span>)</div>
+                                    <div class="prog-track mt-3">
+                                        <div class="prog-bar"
+                                            style="width:15%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Casual Leave -->
-                            <div class="card leave-card">
-                                <div class="leave-info w-100">
-
-                                    <!-- Beach / Relax Icon -->
-                                    <span class="leave-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M4 14c6-10 16-10 16-10s0 10-10 16C6 22 4 18 4 14z"
-                                                stroke="currentColor" stroke-width="2" />
-                                        </svg>
-                                    </span>
-
-                                    <div class="title">Casual Leave</div>
-                                    <div class="footer  ">
-                                        <div class="text-right fs-xs total">(<span>4</span> / <span>12</span>)</div>
-                                        <div class="prog-track mt-3">
-                                            <div class="prog-bar"
-                                                style="width:65%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
                         </div>
+
+                        <!-- Casual Leave -->
+                        <div class="card leave-card">
+                            <div class="leave-info w-100">
+
+                                <!-- Beach / Relax Icon -->
+                                <span class="leave-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M4 14c6-10 16-10 16-10s0 10-10 16C6 22 4 18 4 14z"
+                                            stroke="currentColor" stroke-width="2" />
+                                    </svg>
+                                </span>
+
+                                <div class="title">Casual Leave</div>
+                                <div class="footer  ">
+                                    <div class="text-right fs-xs total">(<span>4</span> / <span>12</span>)</div>
+                                    <div class="prog-track mt-3">
+                                        <div class="prog-bar"
+                                            style="width:65%; background: linear-gradient(90deg,#d9117cac,#d9117c7a);">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
+    </main>
 
 
 
 
 
-        <!-- ======================================
+    <!-- ======================================
     ||======  notification Board  Start Here  ======||
     ======================================= -->
-        <div class="notification-sidebar" id="notification-sidebar">
-            <div class="s3-header">
-                <div>
-                    <h3>Notifications <span class="blink"></span></h3>
-                </div>
-                <button id="close3">✕</button>
+    <div class="notification-sidebar" id="notification-sidebar">
+        <div class="s3-header">
+            <div>
+                <h3>Notifications <span class="blink"></span></h3>
             </div>
-            <div class="s3-body">
-                <a href="#" class="s3-item new">
-                    <div class="s3-icon">🗂️</div>
-                    <div class="s3-text">
-                        <p>Task assigned by <span class="s3-name">Rahim Uddin</span></p>
-                        <small>2 MIN AGO</small>
-                    </div>
-                </a>
-
-                <a href="#" class="s3-item">
-                    <div class="s3-icon">📁</div>
-                    <div class="s3-text">
-                        <p>Project assigned by <span class="s3-name">Karim Hassan</span></p>
-                        <small>15 MIN AGO</small>
-                    </div>
-                </a>
-
-                <a href="#" class="s3-item ">
-                    <div class="s3-icon">🎧</div>
-                    <div class="s3-text">
-                        <p>Support ticket assigned by <span class="s3-name">Nadia Islam</span></p>
-                        <small>1 HR AGO</small>
-                    </div>
-                </a>
-
-                <div class="s3-empty">
-                    <div class="s3-empty-icon">🔔</div>
-                    <p>No notifications yet</p>
-                    <small>You're all caught up!</small>
+            <button id="close3">✕</button>
+        </div>
+        <div class="s3-body">
+            <a href="#" class="s3-item new">
+                <div class="s3-icon">🗂️</div>
+                <div class="s3-text">
+                    <p>Task assigned by <span class="s3-name">Rahim Uddin</span></p>
+                    <small>2 MIN AGO</small>
                 </div>
+            </a>
+
+            <a href="#" class="s3-item">
+                <div class="s3-icon">📁</div>
+                <div class="s3-text">
+                    <p>Project assigned by <span class="s3-name">Karim Hassan</span></p>
+                    <small>15 MIN AGO</small>
+                </div>
+            </a>
+
+            <a href="#" class="s3-item ">
+                <div class="s3-icon">🎧</div>
+                <div class="s3-text">
+                    <p>Support ticket assigned by <span class="s3-name">Nadia Islam</span></p>
+                    <small>1 HR AGO</small>
+                </div>
+            </a>
+
+            <div class="s3-empty">
+                <div class="s3-empty-icon">🔔</div>
+                <p>No notifications yet</p>
+                <small>You're all caught up!</small>
             </div>
         </div>
-        <div class="overlay" id="overlay"></div>
+    </div>
+    <div class="overlay" id="overlay"></div>
 
 
-        <!-- For Theme color -->
-        <button></button>
+    <!-- For Theme color -->
+    <button></button>
 
-        <!-- ======================================
+    <!-- ======================================
     ||======  Notice Board  Start Here  ======||
     ======================================= -->
-        <div class="notic-board big" id="notic-board">
-            <div>
+    <div class="notic-board big" id="notic-board">
+        <div>
 
 
 
-                <!-- Ticker -->
-                <div class="ticker-wrap d-flex">
-                    <div class="notice-icon-wrap">
-                        <div class="notice-icon">
-                            <div class="ring"></div>
-                            <div class="glow"></div>
-                            <!-- Megaphone SVG -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="#f0a500" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M3 11v2" />
-                                <path d="M5 9v6" />
-                                <path d="M19 3v18" />
-                                <path d="M5 9c7-2 9-2 14-6v14c-5-4-7-4-14-6" />
-                                <path d="M9 15.3V19a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2.7" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="ticker-track">
-
-                        <!-- First copy -->
-                        <div class="ticker-item">
-                            <span class="icon">📢</span>
-                            <p>The office will be closed tomorrow due to a public holiday.</p>
-                        </div>
-                        <div class="ticker-item">
-                            <span class="icon">📅</span>
-                            <p>Monthly team meeting scheduled for Friday at 10:00 AM.</p>
-                        </div>
-                        <div class="ticker-item">
-                            <span class="icon">⚠️</span>
-                            <p>Please submit your timesheets before end of day Thursday.</p>
-                        </div>
-                        <div class="ticker-item">
-                            <span class="icon">🎉</span>
-                            <p>Congratulations to the sales team for exceeding Q1 targets!</p>
-                        </div>
-
-                        <!-- Duplicate copy for seamless loop -->
-                        <div class="ticker-item">
-                            <span class="icon">📢</span>
-                            <p>The office will be closed tomorrow due to a public holiday.</p>
-                        </div>
-                        <div class="ticker-item">
-                            <span class="icon">📅</span>
-                            <p>Monthly team meeting scheduled for Friday at 10:00 AM.</p>
-                        </div>
-                        <div class="ticker-item">
-                            <span class="icon">⚠️</span>
-                            <p>Please submit your timesheets before end of day Thursday.</p>
-                        </div>
-                        <div class="ticker-item">
-                            <span class="icon">🎉</span>
-                            <p>Congratulations to the sales team for exceeding Q1 targets!</p>
-                        </div>
-
+            <!-- Ticker -->
+            <div class="ticker-wrap d-flex">
+                <div class="notice-icon-wrap">
+                    <div class="notice-icon">
+                        <div class="ring"></div>
+                        <div class="glow"></div>
+                        <!-- Megaphone SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="#f0a500" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 11v2" />
+                            <path d="M5 9v6" />
+                            <path d="M19 3v18" />
+                            <path d="M5 9c7-2 9-2 14-6v14c-5-4-7-4-14-6" />
+                            <path d="M9 15.3V19a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2.7" />
+                        </svg>
                     </div>
                 </div>
 
+                <div class="ticker-track">
+
+                    <!-- First copy -->
+                    <div class="ticker-item">
+                        <span class="icon">📢</span>
+                        <p>The office will be closed tomorrow due to a public holiday.</p>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="icon">📅</span>
+                        <p>Monthly team meeting scheduled for Friday at 10:00 AM.</p>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="icon">⚠️</span>
+                        <p>Please submit your timesheets before end of day Thursday.</p>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="icon">🎉</span>
+                        <p>Congratulations to the sales team for exceeding Q1 targets!</p>
+                    </div>
+
+                    <!-- Duplicate copy for seamless loop -->
+                    <div class="ticker-item">
+                        <span class="icon">📢</span>
+                        <p>The office will be closed tomorrow due to a public holiday.</p>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="icon">📅</span>
+                        <p>Monthly team meeting scheduled for Friday at 10:00 AM.</p>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="icon">⚠️</span>
+                        <p>Please submit your timesheets before end of day Thursday.</p>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="icon">🎉</span>
+                        <p>Congratulations to the sales team for exceeding Q1 targets!</p>
+                    </div>
+
+                </div>
             </div>
+
         </div>
+    </div>
 
-        <script src="/js/main.js"></script>
-        <script>
-            const scoreElements = document.querySelectorAll('.d4-score-num');
+    <script src="/js/main.js"></script>
+    <script>
+        const scoreElements = document.querySelectorAll('.d4-score-num');
 
-            scoreElements.forEach((element) => {
-                const target = parseInt(element.textContent);
+        scoreElements.forEach((element) => {
+            const target = parseInt(element.textContent);
 
-                function animateCounter() {
-                    let start = 0;
-                    const duration = 3000;
-                    const startTime = performance.now();
+            function animateCounter() {
+                let start = 0;
+                const duration = 3000;
+                const startTime = performance.now();
 
-                    function update(currentTime) {
-                        const elapsed = currentTime - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
 
-                        const value = Math.floor(progress * target);
-                        element.textContent = value;
+                    const value = Math.floor(progress * target);
+                    element.textContent = value;
 
-                        if (progress < 1) {
-                            requestAnimationFrame(update);
-                        } else {
-                            setTimeout(animateCounter, 2000);
-                        }
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        setTimeout(animateCounter, 2000);
                     }
-
-                    requestAnimationFrame(update);
                 }
 
-                animateCounter();
-            });
-        </script>
-    </body>
+                requestAnimationFrame(update);
+            }
+
+            animateCounter();
+        });
+    </script>
+</body>
 
 </html>
