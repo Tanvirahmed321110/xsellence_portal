@@ -84,4 +84,27 @@ function mobileSidebar() {
     });
 }
 
-mobileSidebar()
+mobileSidebar();
+
+
+// Dashboard dark theme toggle
+(function () {
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('dashboardTheme');
+
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+
+    window.toggleTheme = function () {
+        document.body.classList.toggle('dark-theme');
+
+        const activeTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+        localStorage.setItem('dashboardTheme', activeTheme);
+    };
+
+    if (themeToggle) {
+        themeToggle.setAttribute('title', 'Theme');
+        themeToggle.setAttribute('aria-label', 'Toggle dark theme');
+    }
+})();
